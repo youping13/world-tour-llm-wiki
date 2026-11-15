@@ -1,6 +1,6 @@
 # 索引
 
-> 共 207 頁 · 最後更新 2026-11-15
+> 共 206 頁 · 最後更新 2026-11-15
 
 ## 總覽
 - [[overview]] 全部旅程總覽
@@ -71,7 +71,7 @@
 - [[odawara]] 小田原 Odawara — JP，1 個景點、1 個車站
 - [[izu]] 伊豆 Izu — JP，2 個景點、3 個車站
 - [[atami]] 熱海 Atami — JP，1 個景點、1 個車站
-- [[tokyo]] 東京 Tōkyō — JP，3 個景點、4 個車站
+- [[tokyo]] 東京 Tōkyō — JP，2 個景點、4 個車站
 - [[towada]] 十和田・奧入瀨 Towada — JP，2 個景點
 - [[aomori]] 青森 Aomori — JP，0 個景點、2 個車站
 - [[fukaura]] 深浦 Fukaura — JP，1 個景點、1 個車站
@@ -100,7 +100,7 @@
 
 ## 景點
 ### 大阪 [[osaka]]
-- [[kansai-airport]] 關西國際機場 関西国際空港 — 交通，unconfirmed
+- [[kansai-airport]] 關西國際機場 関西国際空港 — 交通，visited
 
 ### 京都 [[kyoto]]
 - [[fushimi-inari-taisha]] 伏見稻荷大社 伏見稲荷大社 — 寺社與教堂，added
@@ -111,8 +111,8 @@
 - [[daikichiyama-observatory]] 大吉山展望台 — 展望點，added
 
 ### 知多半島 [[chita]]
-- [[aichi-sky-expo]] 愛知國際展示場 Aichi Sky Expo — 體驗，unconfirmed
-- [[aeon-mall-tokoname]] AEON Mall 常滑 — 購物，unconfirmed
+- [[aichi-sky-expo]] 愛知國際展示場 Aichi Sky Expo — 體驗，visited
+- [[aeon-mall-tokoname]] AEON Mall 常滑 — 購物，added
 
 ### 名古屋 [[nagoya]]
 - [[atsuta-jingu]] 熱田神宮 — 寺社與教堂，added
@@ -125,9 +125,9 @@
 
 ### 湘南 [[shonan]]
 - [[shichirigahama]] 七里濱 七里ヶ浜 — 自然，visited
-- [[kamakura-koko-mae-crossing]] 鎌倉高校前平交道 鎌倉高校前踏切 — 地標，unconfirmed
+- [[kamakura-koko-mae-crossing]] 鎌倉高校前平交道 鎌倉高校前踏切 — 地標，visited
 - [[enoshima]] 江之島 江の島 — 自然，visited
-- [[enoshima-toro]] 江之島燈籠 2026 江の島灯籠 — 體驗，unconfirmed
+- [[enoshima-toro]] 江之島燈籠 2026 江の島灯籠 — 體驗，skipped
 - [[enoshima-aquarium]] 新江之島水族館 新江ノ島水族館 — 博物館，added
 - [[bic-camera-fujisawa]] Bic Camera 藤澤 ビックカメラ藤沢店 — 購物，added
 
@@ -143,12 +143,11 @@
 
 ### 東京 [[tokyo]]
 - [[akihabara]] 秋葉原 — 購物，added
-- [[shinjuku]] 新宿 — 地標，unconfirmed
 - [[shibuya-crossing]] 澀谷十字路口 渋谷スクランブル交差点 — 地標，added
 
 ### 十和田・奧入瀨 [[towada]]
 - [[oirase-stream]] 奧入瀨溪流 奥入瀬渓流 — 自然，skipped
-- [[lake-towada]] 十和田湖 — 自然，unconfirmed
+- [[lake-towada]] 十和田湖 — 自然，skipped
 
 ### 深浦 [[fukaura]]
 - [[senjojiki]] 千疊敷 千畳敷 — 自然，added
@@ -164,22 +163,22 @@
 
 ### 松島 [[matsushima]]
 - [[matsushima-bay]] 松島灣 松島湾 — 自然，moved
-- [[matsushima-cruise]] 松島島巡遊覽船 松島島巡り観光船 — 體驗，unconfirmed
+- [[matsushima-cruise]] 松島島巡遊覽船 松島島巡り観光船 — 體驗，skipped
 
 ### 山形 [[yamagata]]
-- [[ginzan-onsen]] 銀山溫泉 銀山温泉 — 自然，unconfirmed
+- [[ginzan-onsen]] 銀山溫泉 銀山温泉 — 自然，skipped
 
 ### 福島 [[fukushima]]
 - [[bandai-azuma-skyline]] 磐梯吾妻 Skyline 磐梯吾妻スカイライン — 自然，skipped
 - [[jododaira]] 淨土平 浄土平 — 自然，skipped
-- [[azuma-kofuji]] 吾妻小富士 — 自然，unconfirmed
+- [[azuma-kofuji]] 吾妻小富士 — 自然，skipped
 
 ### 白石 [[shiroishi]]
-- [[zao-fox-village]] 藏王狐狸村 蔵王キツネ村 — 體驗，unconfirmed
+- [[zao-fox-village]] 藏王狐狸村 蔵王キツネ村 — 體驗，skipped
 
 ### 石卷 [[ishinomaki]]
 - [[tashirojima]] 田代島 — 自然，added
-- [[mitsuishizaki]] 三石崎 — 自然，unconfirmed
+- [[mitsuishizaki]] 三石崎 — 自然，skipped
 - [[kadonowaki-elementary]] 石卷市震災遺構 門脇小學 門脇小学校 — 博物館，added
 
 ### 一關 [[ichinoseki]]

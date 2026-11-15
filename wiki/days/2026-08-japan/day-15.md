@@ -21,7 +21,7 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[ginzan-onsen]] | — | unconfirmed |
+| [[ginzan-onsen]] | — | skipped |
 | — | 11:47 [[sendai-station]] | added |
 | — | 13:29 [[akihabara]] | added |
 | — | 13:29 [[tokyo-station]] | added |

@@ -21,7 +21,6 @@ updated: '2026-11-15'
 
 ### 地標
 - [[shibuya-crossing]]
-- [[shinjuku]]
 
 ### 購物
 - [[akihabara]]

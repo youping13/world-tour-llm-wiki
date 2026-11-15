@@ -57,3 +57,10 @@
 - 新增：type `region`（AGENTS.md 4.5）、18 個行政區頁（日本 12 個都道府縣、冰島 6 個地區）
 - 修改：所有城市頁加 `region`；地圖標記顏色＝類別、去過的放大；路線顏色＝旅程（日本紅、冰島橘）
 - 修改：photos.py 改成 360p，新增 `--delete-raw`、`--regions`
+
+## [2026-11-15] ingest | Percy 確認 12 筆待確認
+- 改成去過：[[kansai-airport]]（7/30 過夜）、[[aichi-sky-expo]]（8/2～8/7 每天）、[[aeon-mall-tokoname]]（8/1、8/2 兩天）、[[kamakura-koko-mae-crossing]]
+- 改成沒去：[[enoshima-toro]]（白天去江之島，晚上燈籠沒去）、[[lake-towada]]、[[ginzan-onsen]]、[[azuma-kofuji]]、[[zao-fox-village]]、[[matsushima-cruise]]、[[mitsuishizaki]]（只到入口）
+- 刪除：新宿景點頁（只是經過；新宿站保留）
+- 修改：day-05～day-09 計畫加入愛知國際展示場（原版行程寫「每天」）
+- 待問：無

@@ -13,10 +13,10 @@ visits:
 - trip: 2026-08-japan
   day: 10
   planned: '2026-08-08'
-  actual: null
-  status: unconfirmed
-  evidence: [journal]
-sources: [raw/plans/2026-08-japan/plan-v2.md]
+  actual: '2026-08-08'
+  status: visited
+  evidence: [journal, percy]
+sources: [raw/journal/2026-08-japan/2026-08-08.md, raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
 ---
 
@@ -31,7 +31,11 @@ updated: '2026-11-15'
 ## 造訪紀錄
 
 ### 2026-08-08（[[2026-08-japan]]）
-- 狀態：unconfirmed（journal）— 證據不足（journal 和 GPX 沒有同時出現），等 Percy 人工確認。
+- 移動：從七里濱步行
+- 天氣：早上晴、看得到富士山；熱；下午風很大。之後行程因颱風調整
+- 狀態：visited（journal＋percy）
+- 日程：[[2026-08-japan/day-10]]
+
 
 ## 照片
 

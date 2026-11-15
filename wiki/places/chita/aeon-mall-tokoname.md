@@ -11,12 +11,18 @@ category: shopping
 trips: [2026-08-japan]
 visits:
 - trip: 2026-08-japan
+  day: 3
+  planned: null
+  actual: '2026-08-01'
+  status: added
+  evidence: [gpx, percy]
+- trip: 2026-08-japan
   day: 4
   planned: null
-  actual: null
-  status: unconfirmed
-  evidence: [journal]
-sources: [reports/2026-08-japan-stations.md]
+  actual: '2026-08-02'
+  status: added
+  evidence: [journal, percy]
+sources: [raw/journal/2026-08-japan/2026-08-02.md]
 updated: '2026-11-15'
 ---
 
@@ -30,8 +36,15 @@ updated: '2026-11-15'
 
 ## 造訪紀錄
 
+### 2026-08-01（[[2026-08-japan]]）
+- 天氣：傍晚看得到夕陽
+- 狀態：added（gpx＋percy）
+- 日程：[[2026-08-japan/day-03]]
+
 ### 2026-08-02（[[2026-08-japan]]）
-- 狀態：unconfirmed（journal）— 證據不足（journal 和 GPX 沒有同時出現），等 Percy 人工確認。
+- 狀態：added（journal＋percy）
+- 日程：[[2026-08-japan/day-04]]
+
 
 ## 照片
 
@@ -40,4 +53,4 @@ updated: '2026-11-15'
 ## 相關
 
 - 城市：[[chita]]
-- 日程：[[2026-08-japan/day-04]]
+- 日程：[[2026-08-japan/day-03]]、[[2026-08-japan/day-04]]

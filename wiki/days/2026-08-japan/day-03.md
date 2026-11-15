@@ -7,7 +7,8 @@ day: 3
 date: '2026-08-01'
 cities: [kyoto, nagoya, gamagori, toyohashi, chita]
 planned: [kyoto-station, nagoya-station]
-actual: [kyoto-station, nagoya-station, gamagori-station, gamagori-seaside, toyohashi-station, futagawa-station, toyohashi-zoo, jingu-mae-station, chubu-airport-station, rinku-tokoname-station, otagawa-station]
+actual: [kyoto-station, nagoya-station, gamagori-station, gamagori-seaside, toyohashi-station, futagawa-station, toyohashi-zoo, jingu-mae-station, aeon-mall-tokoname, chubu-airport-station, rinku-tokoname-station,
+  otagawa-station]
 track: assets/tracks/2026-08-japan/2026-08-01.geojson
 sources: [raw/plans/2026-08-japan/plan-v2.md, raw/journal/2026-08-japan/2026-08-01.md]
 updated: '2026-11-15'
@@ -15,7 +16,7 @@ updated: '2026-11-15'
 
 # 第 3 天 豐橋・愛知
 
-計畫 2 個點，實際確認 11 個點（含車站）。
+計畫 2 個點，實際確認 12 個點（含車站）。
 
 ## 計畫 vs 實際
 
@@ -29,6 +30,7 @@ updated: '2026-11-15'
 | — | 12:12 [[futagawa-station]] | added |
 | — | 12:38 [[toyohashi-zoo]] | added |
 | — | 15:29 [[jingu-mae-station]] | added |
+| — | 16:04 [[aeon-mall-tokoname]] | added |
 | — | 16:06 [[chubu-airport-station]] | added |
 | — | 17:31 [[rinku-tokoname-station]] | added |
 | — | 18:46 [[otagawa-station]] | added |

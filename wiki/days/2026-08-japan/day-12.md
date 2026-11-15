@@ -23,7 +23,7 @@ updated: '2026-11-15'
 | --- | --- | --- |
 | [[tokyo-station]] | 06:18 [[tokyo-station]] | visited |
 | [[oirase-stream]] | — | skipped |
-| [[lake-towada]] | — | unconfirmed |
+| [[lake-towada]] | — | skipped |
 | [[aomori-station]] | 18:28 [[aomori-station]] | visited |
 | — | 05:35 [[yokohama-station]] | added |
 | — | 09:08 [[morioka-station]] | added |

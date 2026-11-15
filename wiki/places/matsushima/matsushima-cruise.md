@@ -14,8 +14,8 @@ visits:
   day: 17
   planned: '2026-08-15'
   actual: null
-  status: unconfirmed
-  evidence: []
+  status: skipped
+  evidence: [percy]
 sources: [raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
 ---
@@ -31,7 +31,7 @@ updated: '2026-11-15'
 ## 造訪紀錄
 
 ### 2026-08-15（[[2026-08-japan]]）
-- 狀態：unconfirmed（無證據）— 證據不足（journal 和 GPX 沒有同時出現），等 Percy 人工確認。
+- 狀態：skipped（percy）— Percy 確認沒去。（08-12 去松島只有散步，沒搭船）
 
 ## 照片
 

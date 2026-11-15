@@ -14,8 +14,8 @@ visits:
   day: 12
   planned: '2026-08-10'
   actual: null
-  status: unconfirmed
-  evidence: []
+  status: skipped
+  evidence: [percy]
 sources: [raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
 ---
@@ -31,7 +31,7 @@ updated: '2026-11-15'
 ## 造訪紀錄
 
 ### 2026-08-10（[[2026-08-japan]]）
-- 狀態：unconfirmed（無證據）— 證據不足（journal 和 GPX 沒有同時出現），等 Percy 人工確認。
+- 狀態：skipped（percy）— Percy 確認沒去。（奧入瀨溪流也沒去）
 
 ## 照片
 

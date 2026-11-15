@@ -5,9 +5,9 @@ slug: 2026-08-japan/day-05
 trip: 2026-08-japan
 day: 5
 date: '2026-08-03'
-cities: []
-planned: []
-actual: []
+cities: [chita]
+planned: [aichi-sky-expo]
+actual: [aichi-sky-expo]
 track: null
 sources: [raw/plans/2026-08-japan/plan-v2.md, raw/journal/2026-08-japan/2026-08-03.md]
 updated: '2026-11-15'
@@ -15,13 +15,13 @@ updated: '2026-11-15'
 
 # 第 5 天 愛知
 
-計畫 0 個點，實際確認 0 個點（含車站）。
+計畫 1 個點，實際確認 1 個點（含車站）。
 
 ## 計畫 vs 實際
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| — | — | — |
+| [[aichi-sky-expo]] | [[aichi-sky-expo]] | visited |
 
 ## 當日紀錄
 

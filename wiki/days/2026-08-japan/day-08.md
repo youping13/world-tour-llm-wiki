@@ -6,8 +6,8 @@ trip: 2026-08-japan
 day: 8
 date: '2026-08-06'
 cities: [chita, nagoya]
-planned: []
-actual: [chubu-airport-station, otagawa-station, nagoya-station, jingu-mae-station, atsuta-jingu]
+planned: [aichi-sky-expo]
+actual: [aichi-sky-expo, chubu-airport-station, otagawa-station, nagoya-station, jingu-mae-station, atsuta-jingu]
 track: assets/tracks/2026-08-japan/2026-08-06.geojson
 sources: [raw/plans/2026-08-japan/plan-v2.md, raw/journal/2026-08-japan/2026-08-06.md]
 updated: '2026-11-15'
@@ -15,12 +15,13 @@ updated: '2026-11-15'
 
 # 第 8 天 名古屋
 
-計畫 0 個點，實際確認 5 個點（含車站）。
+計畫 1 個點，實際確認 6 個點（含車站）。
 
 ## 計畫 vs 實際
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
+| [[aichi-sky-expo]] | 09:05 [[aichi-sky-expo]] | visited |
 | — | 16:14 [[chubu-airport-station]] | added |
 | — | 17:02 [[otagawa-station]] | added |
 | — | 17:27 [[nagoya-station]] | added |

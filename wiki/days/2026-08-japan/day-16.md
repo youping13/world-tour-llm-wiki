@@ -23,8 +23,8 @@ updated: '2026-11-15'
 | --- | --- | --- |
 | [[bandai-azuma-skyline]] | — | skipped |
 | [[jododaira]] | — | skipped |
-| [[azuma-kofuji]] | — | unconfirmed |
-| [[zao-fox-village]] | — | unconfirmed |
+| [[azuma-kofuji]] | — | skipped |
+| [[zao-fox-village]] | — | skipped |
 | — | 07:24 [[sendai-station]] | added |
 | — | 08:18 [[ishinomaki-station]] | added |
 | — | 09:55 [[tashirojima]] | added |

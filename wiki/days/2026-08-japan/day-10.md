@@ -7,7 +7,8 @@ day: 10
 date: '2026-08-08'
 cities: [yokohama, shonan, odawara]
 planned: [yokohama-station, fujisawa-station, shichirigahama, kamakura-koko-mae-crossing, enoshima, enoshima-toro]
-actual: [yokohama-station, kamakura-station, shichirigahama, shichirigahama-station, enoshima, enoshima-aquarium, katase-enoshima-station, bic-camera-fujisawa, fujisawa-station, odawara-station, odawara-castle]
+actual: [yokohama-station, kamakura-station, shichirigahama, shichirigahama-station, kamakura-koko-mae-crossing, enoshima, enoshima-aquarium, katase-enoshima-station, bic-camera-fujisawa, fujisawa-station,
+  odawara-station, odawara-castle]
 track: assets/tracks/2026-08-japan/2026-08-08.geojson
 sources: [raw/plans/2026-08-japan/plan-v2.md, raw/journal/2026-08-japan/2026-08-08.md]
 updated: '2026-11-15'
@@ -15,7 +16,7 @@ updated: '2026-11-15'
 
 # 第 10 天 湘南・藤澤・小田原
 
-計畫 6 個點，實際確認 11 個點（含車站）。
+計畫 6 個點，實際確認 12 個點（含車站）。
 
 ## 計畫 vs 實際
 
@@ -24,9 +25,9 @@ updated: '2026-11-15'
 | [[yokohama-station]] | 04:58 [[yokohama-station]] | visited |
 | [[fujisawa-station]] | 10:27 [[fujisawa-station]] | visited |
 | [[shichirigahama]] | 06:45 [[shichirigahama]] | visited |
-| [[kamakura-koko-mae-crossing]] | — | unconfirmed |
+| [[kamakura-koko-mae-crossing]] | 07:59 [[kamakura-koko-mae-crossing]] | visited |
 | [[enoshima]] | 08:20 [[enoshima]] | visited |
-| [[enoshima-toro]] | — | unconfirmed |
+| [[enoshima-toro]] | — | skipped |
 | — | 06:19 [[kamakura-station]] | added |
 | — | 06:47 [[shichirigahama-station]] | added |
 | — | 09:13 [[enoshima-aquarium]] | added |

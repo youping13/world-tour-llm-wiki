@@ -22,7 +22,7 @@ updated: '2026-11-15'
 | 計畫 | 實際 | status |
 | --- | --- | --- |
 | [[matsushima-bay]] | 改到 2026-08-12 | moved |
-| [[matsushima-cruise]] | — | unconfirmed |
+| [[matsushima-cruise]] | — | skipped |
 | [[hanamaki-airport]] | 19:15 [[hanamaki-airport]] | visited |
 | — | 06:28 [[sendai-station]] | added |
 | — | 07:10 [[ichinoseki-station]] | added |

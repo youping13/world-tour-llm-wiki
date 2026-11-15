@@ -13,9 +13,9 @@ visits:
 - trip: 2026-08-japan
   day: 1
   planned: '2026-07-30'
-  actual: null
-  status: unconfirmed
-  evidence: [gpx]
+  actual: '2026-07-30'
+  status: visited
+  evidence: [gpx, percy]
 sources: [raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
 ---
@@ -31,7 +31,10 @@ updated: '2026-11-15'
 ## 造訪紀錄
 
 ### 2026-07-30（[[2026-08-japan]]）
-- 狀態：unconfirmed（gpx）— 證據不足（journal 和 GPX 沒有同時出現），等 Percy 人工確認。
+- 備註：在機場過夜
+- 狀態：visited（gpx＋percy）
+- 日程：[[2026-08-japan/day-01]]
+
 
 ## 照片
 

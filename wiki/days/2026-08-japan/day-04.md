@@ -7,7 +7,7 @@ day: 4
 date: '2026-08-02'
 cities: [chita]
 planned: [aichi-sky-expo]
-actual: []
+actual: [aichi-sky-expo, aeon-mall-tokoname]
 track: null
 sources: [raw/plans/2026-08-japan/plan-v2.md, raw/journal/2026-08-japan/2026-08-02.md]
 updated: '2026-11-15'
@@ -15,13 +15,14 @@ updated: '2026-11-15'
 
 # 第 4 天 愛知
 
-計畫 1 個點，實際確認 0 個點（含車站）。
+計畫 1 個點，實際確認 2 個點（含車站）。
 
 ## 計畫 vs 實際
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[aichi-sky-expo]] | — | unconfirmed |
+| [[aichi-sky-expo]] | [[aichi-sky-expo]] | visited |
+| — | [[aeon-mall-tokoname]] | added |
 
 ## 當日紀錄
 
