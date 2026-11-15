@@ -75,7 +75,7 @@ world-tour-llm-wiki/
 │  ├─ places/<city>/<place>.md          # 景點頁（地圖上的每一個點）
 │  └─ notes/<slug>.md                   # 查詢結果存回的筆記（比較、整理）
 ├─ assets/                          # ← 由 scripts 產生，進 git
-│  ├─ photos/<place>/YYYYMMDD-NN.webp   # 公開照片（360p、已清中繼資料）
+│  ├─ photos/<place>/YYYYMMDD-NN.webp   # 公開照片（144p、已清中繼資料）
 │  ├─ photos/<place>/YYYYMMDD-NN-thumb.webp
 │  ├─ regions/<region>.webp             # 行政區大圓圖片（正方形 160 px）
 │  └─ tracks/<trip>/YYYY-MM-DD.geojson  # 簡化、去頭尾後的公開軌跡
@@ -84,7 +84,7 @@ world-tour-llm-wiki/
 │  ├─ geocode.py                        # 查座標（Nominatim）
 │  ├─ tracks.py                         # GPX → 公開 geojson ＋ 停留點分析
 │  ├─ stations.py                       # GPX × 車站資料 → 車站候選清單
-│  ├─ photos.py                         # 照片 360p、WebP、清中繼資料、對應景點；--regions 處理行政區圖片
+│  ├─ photos.py                         # 照片 144p、WebP、清中繼資料、對應景點；--regions 處理行政區圖片
 │  └─ lint.py                           # 機械式檢查
 ├─ templates/                       # build.py 用的 Jinja2 模板與 CSS/JS
 ├─ reports/                         # AI 給 Percy 的待問清單（例：車站比對），.gitignore
@@ -563,7 +563,7 @@ updated: <YYYY-MM-DD>
 1. Percy 只把**願意公開**的照片放進 `raw/photos/`（可以分 `<trip>/` 子資料夾）。檔名寫景點名最準，例：`淨土之濱.jpg`。
 2. `uv run scripts/photos.py --delete-raw`：
    - 對應景點：① 檔名含景點中文名（差一兩個字的錯字也算）→ ② EXIF 的 GPS 找半徑內最近的景點 → ③ 拍攝時間對 GPX 位置。都對不到就列為「未對應」問 Percy，原檔保留。照片只決定掛在哪頁，**不改 status**。
-   - **短邊 360 px**（360p，不放大）、WebP 品質 80 ＋ 短邊 160 px 縮圖。
+   - **短邊 144 px**（144p，不放大）、WebP 品質 80 ＋ 短邊 96 px 縮圖。
    - **清除全部中繼資料**：重新建一張只有像素的影像再存檔，EXIF（GPS、拍攝時間、相機型號、光圈快門、軟體、廠商私有資料）、XMP、色彩描述檔都不會帶過去。script 會印出每張原檔帶了哪些資訊。
    - 輸出到 `assets/photos/<place>/YYYYMMDD-NN.webp`，處理成功的 **raw 原檔直接刪掉**（省空間；原圖請 Percy 自己在手機或雲端留一份）。
 3. 在 place 頁 `## 照片` 列出：`![<景點名>（<日期>）](../../../assets/photos/<place>/YYYYMMDD-NN.webp)`，說明只寫看得到的東西，不編故事。
@@ -784,7 +784,7 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
 6. **未來日期**在網站上只顯示到月（9.5）。
 7. **他人**：不寫任何人名、外貌、不放正臉照、不放聯絡方式。
 8. 不放護照、訂位代碼、機票、車票、QR code、信用卡的照片或內容。
-9. 照片一律 360p（單張約 50～100 KB），repo 才不會變大；raw 原檔處理完就刪。
+9. 照片一律 144p（單張約 5～15 KB），repo 才不會變大；raw 原檔處理完就刪。
 
 ---
 

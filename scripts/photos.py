@@ -1,4 +1,4 @@
-"""照片 → 公開用 WebP（AGENTS.md 6.4）：360p、清掉所有中繼資料、對應到景點。
+"""照片 → 公開用 WebP（AGENTS.md 6.4）：144p、清掉所有中繼資料、對應到景點。
 
 用法：
   uv run scripts/photos.py              # 處理 raw/photos/ 底下所有照片（原檔保留）
@@ -12,8 +12,8 @@
   都對不到就列為「未對應」，原檔保留，請 Percy 決定。
 
 輸出：
-  assets/photos/<place>/YYYYMMDD-NN.webp        短邊 360 px（不放大），WebP 品質 80
-  assets/photos/<place>/YYYYMMDD-NN-thumb.webp  短邊 160 px
+  assets/photos/<place>/YYYYMMDD-NN.webp        短邊 144 px（不放大），WebP 品質 80
+  assets/photos/<place>/YYYYMMDD-NN-thumb.webp  短邊 96 px
 並印出每張照片原本帶了哪些中繼資料（EXIF、GPS、相機型號、ICC…），全部不寫進新檔。
 """
 from __future__ import annotations
@@ -30,7 +30,7 @@ from PIL import ExifTags, Image, ImageOps
 from common import ASSETS, RAW, WIKI, haversine, radius_for
 
 EXT = {".jpg", ".jpeg", ".png", ".webp", ".heic"}
-SHORT, THUMB = 360, 160
+SHORT, THUMB = 144, 96
 
 
 def load_places():

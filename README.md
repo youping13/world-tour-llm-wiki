@@ -19,7 +19,7 @@
 ## 目前內容
 
 - `2026-08-japan` 日本東日本縱走（已完成）：原版行程、日記、GPX、44 個車站、12 個都道府縣
-- 照片：360p、清掉所有中繼資料（`scripts/photos.py`）
+- 照片：144p、清掉所有中繼資料（`scripts/photos.py`）
 - `2027-06-iceland` 冰島環島（規劃中）：AI 產生的行程
 
 ## 怎麼用
@@ -47,7 +47,7 @@ world-tour-llm-wiki/
 │  ├─ photos/             照片原檔（不進 git），放進來＝同意公開，處理完刪除
 │  └─ regions/            行政區大圓圖片原檔（不進 git），處理完刪除
 ├─ wiki/              AI 寫的百科：index.md、log.md、overview.md、countries/ regions/ cities/ trips/ days/ places/ notes/
-├─ assets/            script 產生的公開檔：tracks/（處理過的 GPX）、photos/（360p、清過中繼資料）、regions/（行政區圖片）
+├─ assets/            script 產生的公開檔：tracks/（處理過的 GPX）、photos/（144p、清過中繼資料）、regions/（行政區圖片）
 ├─ scripts/           tracks / stations / photos / geocode / lint / build
 ├─ templates/         網站外觀：page.html、static/style.css、static/app.js
 ├─ .github/workflows/ push 後自動 lint → build → 部署
@@ -82,7 +82,7 @@ world-tour-llm-wiki/
 ### 加照片
 
 1. 把願意公開的照片放 `raw/photos/`，檔名寫景點名（例：`淨土之濱.jpg`）
-2. 對 AI 說：`跑 photos.py --delete-raw，把照片掛到景點頁`（360p、清中繼資料、刪原檔）
+2. 對 AI 說：`跑 photos.py --delete-raw，把照片掛到景點頁`（144p、清中繼資料、刪原檔）
 
 ### 加行政區圖片（地圖上的大圓）
 
