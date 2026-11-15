@@ -6,9 +6,9 @@ country: JP
 lat: 37.5
 lng: 138.5
 zoom: 5
-trips: [2026-08-japan]
+trips: [2026-08-japan, 2026-01-okinawa]
 cities: [osaka, kyoto, uji, chita, nagoya, gamagori, toyohashi, yokohama, shonan, odawara, izu, atami, tokyo, towada, aomori, fukaura, akita, oga, morioka, miyako, semboku, sendai, matsushima, yamagata,
-  fukushima, shiroishi, ishinomaki, ichinoseki, hanamaki]
+  fukushima, shiroishi, ishinomaki, ichinoseki, hanamaki, naha, onna, motobu, chatan, urasoe, tokashiki, tomigusuku]
 sources: []
 updated: '2026-11-15'
 ---
@@ -20,6 +20,7 @@ updated: '2026-11-15'
 ## 旅程
 
 - [[2026-08-japan]] 2026-07 — 日本東日本縱走 2026 夏
+- [[2026-01-okinawa]] 2026-01 — 沖繩 2026 冬
 
 ## 都道府縣／縣市／州
 
@@ -35,3 +36,4 @@ updated: '2026-11-15'
 - [[miyagi-pref]] — [[sendai]]、[[matsushima]]、[[ishinomaki]]、[[shiroishi]]
 - [[yamagata-pref]] — [[yamagata]]
 - [[fukushima-pref]] — [[fukushima]]
+- [[okinawa-pref]] — [[naha]]、[[onna]]、[[motobu]]、[[chatan]]、[[urasoe]]、[[tokashiki]]、[[tomigusuku]]

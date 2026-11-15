@@ -1,12 +1,12 @@
 # 索引
 
-> 共 206 頁 · 最後更新 2026-11-15
+> 共 247 頁 · 最後更新 2026-11-15
 
 ## 總覽
 - [[overview]] 全部旅程總覽
 
 ## 國家
-- [[jp]] 日本 — 1 趟旅程、29 個城市與地區
+- [[jp]] 日本 — 2 趟旅程、36 個城市與地區
 - [[is]] 冰島 Ísland — 1 趟旅程、9 個城市與地區
 
 ## 旅程
@@ -37,6 +37,12 @@
   - [[2027-06-iceland/day-06]] 第 6 天 眾神瀑布・阿克雷里
   - [[2027-06-iceland/day-07]] 第 7 天 西部・回雷克雅維克
   - [[2027-06-iceland/day-08]] 第 8 天 回斯德哥爾摩
+- [[2026-01-okinawa]] 沖繩 2026 冬 — 2026-01-11～2026-01-15，已完成
+  - [[2026-01-okinawa/day-01]] 第 1 天 那霸
+  - [[2026-01-okinawa/day-02]] 第 2 天 沖繩本島北部一日遊
+  - [[2026-01-okinawa/day-03]] 第 3 天 那霸市區
+  - [[2026-01-okinawa/day-04]] 第 4 天 渡嘉敷島・瀨長島
+  - [[2026-01-okinawa/day-05]] 第 5 天 那霸
 
 ## 都道府縣／縣市／州
 - [[osaka-pref]] 大阪府 Ōsaka-fu — [[osaka]]
@@ -57,6 +63,7 @@
 - [[east-region]] 東部區 Austurland — [[east-iceland]]
 - [[northeast-region]] 東北區 Norðurland eystra — [[myvatn]]、[[akureyri]]
 - [[west-region]] 西部區 Vesturland — [[west-iceland]]
+- [[okinawa-pref]] 沖繩縣 Okinawa-ken — [[naha]]、[[onna]]、[[motobu]]、[[chatan]]、[[urasoe]]、[[tokashiki]]、[[tomigusuku]]
 
 ## 景點
 ### 大阪 [[osaka]]
@@ -199,7 +206,48 @@
 - [[deildartunguhver]] 戴爾達圖赫菲 Deildartunguhver — 自然，計畫・還沒去
 - [[borgarnes]] 博爾加內斯 Borgarnes — 博物館，計畫・還沒去
 
+### 那霸 [[naha]]
+- [[naha-airport]] 那霸機場 那覇空港 — 交通，去過・臨時加
+- [[kokusai-dori]] 國際通 国際通り — 購物，去過・臨時加
+- [[shuri-castle]] 首里城 — 地標，去過・臨時加
+- [[naminoue-gu]] 波上宮 — 寺社與教堂，去過・臨時加
+- [[asahigaoka-park]] 旭丘公園 旭ヶ丘公園 — 自然，去過・臨時加
+- [[naminoue-beach]] 波之上海灘 波の上ビーチ — 自然，去過・臨時加
+- [[tomari-port]] 泊港 とまりん — 交通，去過・臨時加
+- [[okinogu]] 沖宮 — 寺社與教堂，去過・臨時加
+- [[onoyama-park]] 奧武山公園 奥武山公園 — 自然，去過・臨時加
+
+### 恩納 [[onna]]
+- [[manzamo]] 萬座毛 — 自然，去過・臨時加
+
+### 本部 [[motobu]]
+- [[sesoko-island]] 瀨底島 瀬底島 — 自然，去過・臨時加
+- [[churaumi-aquarium]] 美麗海水族館 美ら海水族館 — 博物館，去過・臨時加
+
+### 北谷 [[chatan]]
+- [[american-village]] 美國村 アメリカンビレッジ — 購物，去過・臨時加
+
+### 浦添 [[urasoe]]
+- [[urasoe-castle-ruins]] 浦添城跡 浦添グスク — 地標，去過・臨時加
+
+### 渡嘉敷 [[tokashiki]]
+- [[tokashiki-port]] 渡嘉敷港 — 交通，去過・臨時加
+- [[odani-road-viewpoint]] 村道大谷線展望點 村道大谷線の展望スポット — 展望點，去過・臨時加
+- [[tokashiku-beach-park]] 渡嘉志久海岸公園 渡嘉志久海岸公園 — 自然，去過・臨時加
+- [[kerama-strait-viewpoint]] 慶良間海峽展望所 慶良間海峡展望所 — 展望點，去過・臨時加
+- [[teruyama-observatory]] 照山展望台 — 展望點，去過・臨時加
+- [[kubandaki-observatory]] クバンダキ展望台 — 展望點，去過・臨時加
+- [[aharen-beach]] 阿波連海灘 阿波連ビーチ — 自然，去過・臨時加
+- [[aharen-cape-observatory]] 阿波連岬第一展望台 阿波連岬 — 展望點，去過・臨時加
+- [[minato-no-mieru-oka]] 港の見える丘展望台 — 展望點，去過・臨時加
+
+### 豐見城 [[tomigusuku]]
+- [[senaga-island]] 瀨長島 瀬長島 — 自然，去過・臨時加
+
 ## 車站
+- [[naha-airport-station]] 那霸機場站 那覇空港駅 — 那霸
+- [[omoromachi-station]] おもろまち站 おもろまち駅 — 那霸
+- [[makishi-station]] 牧志站 牧志駅 — 那霸
 - [[kansai-airport-station]] 關西機場站 関西空港駅 — 大阪
 - [[kyoto-station]] 京都站 京都駅 — 京都
 - [[uji-station]] 宇治站 宇治駅 — 宇治

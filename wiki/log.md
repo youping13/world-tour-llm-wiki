@@ -100,3 +100,9 @@
 ## [2026-11-16] ingest | 2026-01-okinawa journal 步驟 A（過濾存檔）
 - 新增：raw/journal/2026-01-okinawa/2026-01-11.md ～ 2026-01-15.md（Percy 確認過的版本）
 - 刪除：過程、心得、人物、花費
+
+## [2026-11-16] ingest | 2026-01-okinawa（只有日記）
+- 新增：[[2026-01-okinawa]]、day-01～day-05、[[okinawa-pref]]、7 個城市頁（[[naha]]、[[onna]]、[[motobu]]、[[chatan]]、[[urasoe]]、[[tokashiki]]、[[tomigusuku]]）、27 個景點與車站
+- 結果：全部 `visited/added`（證據 journal＋percy；沒有行前規劃、沒有 GPX）
+- 新增：assets/tracks/2026-01-okinawa/2026-01-14.geojson（渡嘉敷島機車路線，依 Percy 手繪圖重建，`source: sketch`）
+- 待確認：渡嘉敷島各展望台座標是從截圖估的；「旭丘公園」是依位置推測的名稱
