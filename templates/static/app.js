@@ -123,7 +123,7 @@
     (D.regions || []).forEach(function (r, i) {
       if (r.lat == null || !r.places) return;
       if (tripPage && r.trips.indexOf(P.trip) < 0) return;
-      var color = r.color || PALETTE[i % PALETTE.length];
+      var color = r.color || PALETTE[i % PALETTE.length];   // 顏色由 build.py 決定，和國家頁的卡片一致
       var inner = r.icon ? '<img src="' + ROOT + r.icon + '" alt="">' : "<span>" + r.label + "</span>";
       var icon = L.divIcon({
         className: "", iconSize: [52, 52], iconAnchor: [26, 26],

@@ -92,6 +92,9 @@ def place_record(pg: Page, root_url: str) -> dict:
     }
 
 
+REGION_PALETTE = ["#5d4037", "#c2185b", "#1565c0", "#00897b", "#6a1b9a", "#ef6c00", "#2e7d32", "#37474f", "#ad1457", "#283593"]
+
+
 def region_records(pages: dict) -> list:
     """都道府縣／縣市／州的大圓標記（9.4）。座標沒填就用旗下景點的中心。"""
     city_region = {p.slug: p.fm.get("region") for p in pages.values() if p.type == "city"}
@@ -104,6 +107,7 @@ def region_records(pages: dict) -> list:
         if pg.type != "region":
             continue
         ps = by_region.get(pg.slug, [])
+        cities = [c for c in pages.values() if c.type == "city" and c.fm.get("region") == pg.slug]
         lat, lng = pg.fm.get("lat"), pg.fm.get("lng")
         if lat is None and ps:
             lat = sum(p.fm["lat"] for p in ps) / len(ps)
@@ -113,8 +117,26 @@ def region_records(pages: dict) -> list:
         out.append({"slug": pg.slug, "title": pg.title, "label": pg.fm.get("label") or pg.title[:2],
                     "icon": pg.fm.get("icon"), "lat": lat, "lng": lng, "url": url_of(pg),
                     "country": pg.fm.get("country"), "visited": visited, "trips": trips,
-                    "color": pg.fm.get("color"), "places": len(ps)})
+                    "color": pg.fm.get("color") or REGION_PALETTE[len(out) % len(REGION_PALETTE)],
+                    "places": len(ps), "name": pg.title.split(" ")[0],
+                    "cities": [c.title.split(" ")[0] for c in cities]})
     return out
+
+
+SECTION_RE = re.compile(r"(<h2>都道府縣／縣市／州</h2>\s*)<ul>.*?</ul>", re.S)
+
+
+def region_cards(html: str, regions: list, root: str, country: str | None) -> str:
+    """國家頁與索引頁的「都道府縣／縣市／州」：長方形圓角卡片，大字行政區、小字城市。"""
+    rs = sorted((r for r in regions if country is None or r["country"] == country),
+                key=lambda r: (r["country"], -(r["lat"] or 0)))   # 同一國由北到南
+    if not rs:
+        return html
+    cards = "".join(
+        f'<a class="rcard{" done" if r["visited"] else ""}" style="--c:{r["color"]}" href="{root}{r["url"]}">'
+        f'<span class="rc-name">{r["name"]}</span><span class="rc-cities">{"・".join(r["cities"])}</span></a>'
+        for r in rs)
+    return SECTION_RE.sub(lambda m: m.group(1) + f'<div class="rcards">{cards}</div>', html, count=1)
 
 
 def routes(pages: dict) -> dict:
@@ -251,6 +273,8 @@ def main():
             body = render_body(pg, pages, root)
             cfg = page_config(pg, pages)
             rows = infobox(pg, pages, root)
+            if pg.type == "country" or pg.slug == "index":
+                body = region_cards(body, regions, root, pg.fm.get("country") if pg.type == "country" else None)
             if rows:
                 box = '<table class="infobox">' + "".join(f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in rows) + "</table>"
                 body = body.replace("</p>", "</p>" + box, 1) if "</p>" in body else body + box
