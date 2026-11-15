@@ -156,7 +156,7 @@ def routes(pages: dict) -> dict:
         if fm.get("track") and (ROOT / fm["track"]).exists():
             gj = json.loads((ROOT / fm["track"]).read_text(encoding="utf-8"))
             actual = [[[c[1], c[0]] for c in seg] for seg in gj["geometry"]["coordinates"]]
-            kind = "gpx"
+            kind = gj.get("properties", {}).get("source", "gpx")   # gpx | sketch（Percy 手繪重建）
         else:
             seg = line(fm.get("actual"))
             actual = [seg] if len(seg) > 1 else []

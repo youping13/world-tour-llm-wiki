@@ -511,6 +511,7 @@ updated: <YYYY-MM-DD>
 4. 依序建立或更新：day 頁 → trip 頁 → city 頁 → region 頁 → country 頁 → `overview.md`。
 5. 若是 v2 以上：和上一版比較，被拿掉的景點改成 `planned/dropped`，在 trip 頁「計畫的改版」寫改了什麼。
 6. 更新 index、log。一份行程通常會動到 20～40 頁，這是正常的。
+7. **沒有行前規劃的旅程**（只有日記）：trip 頁 `plan: null`、`plan_versions: []`，日程頁 `planned: []`；Percy 確認過的點都是 `visited/added`（證據 `journal`＋`percy`）。
 
 ### 6.2 Ingest 日記（journal）
 
@@ -546,6 +547,9 @@ updated: <YYYY-MM-DD>
    - 輸出 `assets/tracks/<trip>/YYYY-MM-DD.geojson`（公開用）與 `scratch` 停留點清單（不進 git）。
 2. 填 day 頁的 `track`；status 判定在 6.2 步驟 B 和 journal 一起做。
 3. 沒有 GPX 檔的日子，那天所有景點都是 `unconfirmed`。
+4. **沒有 GPX、但 Percy 畫了路線**（例：在 Google 地圖截圖上畫線）：AI 依圖上的道路與地標重建成 `assets/tracks/<trip>/<date>.geojson`，`properties.source: sketch`。
+   - 地圖上用**點線**畫、提示「依手繪路線重建，非 GPS」；只用來畫路線，**不算 `gpx` 證據**（證據記 `percy`）。
+   - 座標是從截圖估的，誤差可能有幾百公尺；之後有真的 GPX 就覆蓋掉。
 
 #### 6.3.1 車站
 
@@ -751,7 +755,7 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
 | 景點 | 圓形＋類別圖示，**顏色＝類別**（`scripts/common.py` 的 `CATEGORY_COLORS`）。**大小看大類**：`visited` 大（30 px）、`planned` 小（20 px）。**樣式看小類**（5.2 表格最後一欄） | zoom ≥ 9；日程頁、景點頁一直顯示 |
 | 車站 | 同景點規則，但是圓角方形、小一號，放在獨立圖層「車站」；彈出卡片多顯示 `lines` | 同景點，可關 |
 | 計畫路線 | 旅程顏色、虛線 | 跟著「計畫」勾選 |
-| 實際路線 | 旅程顏色、實線（GPX；沒有就用 `actual` 順序連線） | 可關 |
+| 實際路線 | 旅程顏色、實線（GPX；沒有就用 `actual` 順序連線）；手繪重建的路線（6.3 第 4 點）用點線 | 可關 |
 
 - 類別顏色：landmark 藍、religious 紫、museum 棕、nature 綠、viewpoint 青、food 洋紅、shopping 靛、activity 金、station 灰藍、transport 灰、lodging-area 深棕。旅程顏色（trip 的 `color`）要避開這些顏色。
 - 點標記 → 彈出卡片：標題、類別、status、日期、縮圖、「看全文」連結。

@@ -143,8 +143,10 @@
           L.polyline(d.plan, { color: color, weight: 2.5, dashArray: "6 7", opacity: 0.85 })
             .bindTooltip("計畫：第 " + d.day + " 天").addTo(planL);
         if (d.actual.length)
-          L.polyline(d.actual, { color: color, weight: 3.5, opacity: 0.75 })
-            .bindTooltip("實際：第 " + d.day + " 天" + (d.actual_kind === "gpx" ? "（GPX）" : ""))
+          L.polyline(d.actual, d.actual_kind === "sketch"
+            ? { color: color, weight: 3.5, opacity: 0.75, dashArray: "1 6", lineCap: "round" }
+            : { color: color, weight: 3.5, opacity: 0.75 })
+            .bindTooltip("實際：第 " + d.day + " 天" + ({ gpx: "（GPX）", sketch: "（依手繪路線重建，非 GPS）" }[d.actual_kind] || ""))
             .on("click", function () { location.href = ROOT + d.url; }).addTo(actualL);
       });
     });
