@@ -119,7 +119,7 @@ def region_records(pages: dict) -> list:
                     "country": pg.fm.get("country"), "visited": visited, "trips": trips,
                     "color": pg.fm.get("color") or REGION_PALETTE[len(out) % len(REGION_PALETTE)],
                     "places": len(ps), "name": pg.title.split(" ")[0],
-                    "cities": [c.title.split(" ")[0] for c in cities]})
+                    "cities": [{"name": c.title.split(" ")[0], "url": url_of(c)} for c in cities]})
     return out
 
 
@@ -127,14 +127,15 @@ SECTION_RE = re.compile(r"(<h2>都道府縣／縣市／州</h2>\s*)<ul>.*?</ul>"
 
 
 def region_cards(html: str, regions: list, root: str, country: str | None) -> str:
-    """國家頁與索引頁的「都道府縣／縣市／州」：長方形圓角卡片，大字行政區、小字城市。"""
+    """國家頁與索引頁的「都道府縣／縣市／州」：長方形圓角卡片，大字行政區、小字城市（都可以點）。"""
     rs = sorted((r for r in regions if country is None or r["country"] == country),
                 key=lambda r: (r["country"], -(r["lat"] or 0)))   # 同一國由北到南
     if not rs:
         return html
     cards = "".join(
-        f'<a class="rcard{" done" if r["visited"] else ""}" style="--c:{r["color"]}" href="{root}{r["url"]}">'
-        f'<span class="rc-name">{r["name"]}</span><span class="rc-cities">{"・".join(r["cities"])}</span></a>'
+        f'<div class="rcard{" done" if r["visited"] else ""}" style="--c:{r["color"]}">'
+        f'<a class="rc-name" href="{root}{r["url"]}">{r["name"]}</a><span class="rc-cities">'
+        + "・".join(f'<a href="{root}{c["url"]}">{c["name"]}</a>' for c in r["cities"]) + "</span></div>"
         for r in rs)
     return SECTION_RE.sub(lambda m: m.group(1) + f'<div class="rcards">{cards}</div>', html, count=1)
 
