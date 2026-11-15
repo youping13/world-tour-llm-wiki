@@ -198,3 +198,8 @@ a:hover { text-decoration: underline; }
 .rc-cities a { color: var(--muted); }
 .rc-cities a:hover { color: var(--link); }
 .rcard:not(.done) .rc-name { color: var(--muted); }
+/* 旅程頁「每日」卡片 */
+.dcards { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+.dcard .rc-name { font-size: 16px; }
+.dc-head { font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 6px; }
+.dc-head b { font-weight: 600; color: var(--c); }

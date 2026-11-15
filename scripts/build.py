@@ -123,6 +123,40 @@ def region_records(pages: dict) -> list:
     return out
 
 
+def short_date(d) -> str:
+    """卡片用的短日期：已發生寫 · 7/30，未來的不寫（9.5）。"""
+    d = str(d or "")
+    if not d or mask(d) != d:
+        return ""
+    return f" · {int(d[5:7])}/{int(d[8:10])}"
+
+
+DAYS_RE = re.compile(r"(<h2>每日</h2>\s*)<ul>.*?</ul>", re.S)
+
+
+def day_cards(html: str, trip: Page, pages: dict, root: str) -> str:
+    """旅程頁的「每日」：長方形圓角卡片，小字第幾天與日期、大字當天主題、小字城市（可點）。"""
+    days = sorted((p for p in pages.values() if p.type == "day" and p.fm.get("trip") == trip.slug),
+                  key=lambda p: p.fm.get("day", 0))
+    if not days:
+        return html
+    color = trip.fm.get("color", "#888")
+    cards = []
+    for d in days:
+        fm = d.fm
+        topic = re.sub(r"^第 \d+ 天\s*", "", d.title)
+        cities = "・".join(f'<a href="{root}{url_of(pages[c])}">{pages[c].title.split(" ")[0]}</a>'
+                          for c in fm.get("cities") or [] if c in pages)
+        n_act, n_plan = len(fm.get("actual") or []), len(fm.get("planned") or [])
+        stat = f"去過 {n_act}" if n_act else (f"計畫 {n_plan}" if n_plan else "")
+        cards.append(
+            f'<div class="rcard dcard{" done" if n_act else ""}" style="--c:{color}">'
+            f'<span class="dc-head"><span>第 {fm.get("day")} 天{short_date(fm.get("date"))}</span>{f"<b>{stat}</b>" if stat else ""}</span>'
+            f'<a class="rc-name" href="{root}{url_of(d)}">{topic}</a>'
+            f'<span class="rc-cities">{cities}</span></div>')
+    return DAYS_RE.sub(lambda m: m.group(1) + f'<div class="rcards dcards">{"".join(cards)}</div>', html, count=1)
+
+
 SECTION_RE = re.compile(r"(<h2>都道府縣／縣市／州</h2>\s*)<ul>.*?</ul>", re.S)
 
 
@@ -274,6 +308,8 @@ def main():
             body = render_body(pg, pages, root)
             cfg = page_config(pg, pages)
             rows = infobox(pg, pages, root)
+            if pg.type == "trip":
+                body = day_cards(body, pg, pages, root)
             if pg.type == "country" or pg.slug == "index":
                 body = region_cards(body, regions, root, pg.fm.get("country") if pg.type == "country" else None)
             if rows:
