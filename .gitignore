@@ -1,0 +1,22 @@
+# 照片原檔不公開（AGENTS.md 第 10 節）
+raw/photos/*
+!raw/photos/.gitkeep
+
+# build 產物，由 GitHub Actions 部署
+site/
+
+# 參考資料與給 Percy 的待問清單
+.cache/
+reports/
+
+# Python
+.venv/
+__pycache__/
+
+# 含住宿、花費等私人資訊的原檔（AI 會另外過濾出公開版）
+*.private.*
+
+# 原始 GPX 含住處位置，不公開；公開的是 assets/tracks/（tracks.py 處理過）
+raw/gpx/**/*.gpx
+raw/regions/*
+!raw/regions/.gitkeep

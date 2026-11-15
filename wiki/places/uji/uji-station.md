@@ -1,0 +1,48 @@
+---
+type: place
+title: 宇治站 宇治駅
+slug: uji-station
+city: uji
+country: JP
+lat: 34.89468
+lng: 135.80623
+coord_source: manual
+category: station
+lines: []
+trips: [2026-08-japan]
+visits:
+- trip: 2026-08-japan
+  day: 2
+  planned: '2026-07-31'
+  actual: '2026-07-31'
+  status: visited
+  evidence: [gpx, percy]
+sources: [raw/plans/2026-08-japan/plan-v2.md]
+updated: '2026-11-15'
+---
+
+# 宇治站 宇治駅
+
+宇治的車站。
+
+## 計畫
+
+- **[[2026-08-japan]]** [[2026-08-japan/day-02]]（2026-07-31）。（來源：`raw/plans/2026-08-japan/plan-v2.md`）
+
+## 造訪紀錄
+
+### 2026-07-31（[[2026-08-japan]]）
+- 移動：08:57 下車＋上車
+- 天氣：熱
+- 狀態：visited（gpx＋percy）
+- 日程：[[2026-08-japan/day-02]]
+
+
+## 照片
+
+（由 photos.py 對應後列出，沒有就留這行）
+
+## 相關
+
+- 城市：[[uji]]
+- 日程：[[2026-08-japan/day-02]]

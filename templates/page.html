@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} · 世界遊記</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ root }}static/leaflet/leaflet.css">
+<link rel="stylesheet" href="{{ root }}static/style.css">
+<script>
+  try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body class="k-{{ kind }}">
+<div id="map" aria-label="地圖"></div>
+
+<header class="topbar">
+  <a class="brand" href="{{ root }}">世界遊記</a>
+  <div class="search">
+    <input id="q" type="search" placeholder="搜尋景點、車站…" autocomplete="off" aria-label="搜尋">
+    <ul id="results" hidden></ul>
+  </div>
+  <nav>
+    <a href="{{ root }}trips/">旅程</a>
+    <a href="{{ root }}wiki/">索引</a>
+    <button id="theme" type="button" aria-label="切換深淺色" title="切換深淺色"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+  </nav>
+</header>
+
+<aside id="panel" class="panel">
+  <button id="toggle" class="toggle" type="button" aria-label="收合面板"><span></span></button>
+  <div class="scroll">
+    {% if type_zh %}<p class="kicker">{{ type_zh }}</p>{% endif %}
+    {% if kind == "trips" %}
+      <h1>全部旅程</h1>
+      <ul class="triplist">
+      {% for slug, t in trips %}
+        <li><a href="{{ root }}{{ t.url }}"><span class="dot" style="--c:{{ t.color }}"></span>{{ t.title }}</a>
+          <small>{{ t.start }} ～ {{ t.end }}</small></li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <article class="wiki">
+        {{ body }}
+      </article>
+    {% endif %}
+    {% if is_home %}
+      <h2>旅程</h2>
+      <ul class="triplist">
+      {% for slug, t in trips %}
+        <li><a href="{{ root }}{{ t.url }}"><span class="dot" style="--c:{{ t.color }}"></span>{{ t.title }}</a>
+          <small>{{ t.start }} ～ {{ t.end }}</small></li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    <h2 class="legend-h">圖例：顏色 = 類別</h2>
+    <ul class="legend">
+      {% for k, name, color in cats %}<li><span class="pin done" style="--c:{{ color }}" data-cat="{{ k }}"></span>{{ name }}</li>{% endfor %}
+    </ul>
+    <h2 class="legend-h">大小與樣式 = 狀態</h2>
+    <ul class="legend">
+      <li><span class="pin done" style="--c:#555" data-cat="landmark"></span>去過（照計畫）</li>
+      <li><span class="pin done" style="--c:#555" data-cat="landmark"><b class="pin-badge b-moved">改</b></span>改期去了</li>
+      <li><span class="pin done" style="--c:#555" data-cat="landmark"><b class="pin-badge b-added">+</b></span>臨時加的</li>
+      <li><span class="pin small s-planned" style="--c:#555" data-cat="landmark"></span>計畫中</li>
+      <li><span class="pin small s-unconfirmed" style="--c:#555" data-cat="landmark"><b class="pin-badge b-unconfirmed">?</b></span>待確認</li>
+      <li><span class="pin small s-skipped" data-cat="landmark"><b class="pin-badge b-skipped">×</b></span>沒去</li>
+      <li><span class="region done" style="--c:#5d4037">京都</span>去過的都道府縣／縣市／州</li>
+      <li><span class="region" style="--c:#5d4037">冰島</span>只有計畫的行政區</li>
+      <li><i class="ln plan"></i>計畫路線（旅程顏色）</li>
+      <li><i class="ln"></i>實際路線（GPX）</li>
+    </ul>
+    <footer class="foot">
+      {% if updated %}本頁更新 {{ updated }} · {% endif %}由 AI 依 <a href="https://github.com/youping13/world-tour-llm-wiki/blob/main/AGENTS.md">AGENTS.md</a> 維護 ·
+      <a href="https://github.com/youping13/world-tour-llm-wiki">GitHub</a>
+    </footer>
+  </div>
+</aside>
+
+<script>window.PAGE = {{ cfg }}; window.ROOT = "{{ root }}";</script>
+<script src="{{ root }}static/leaflet/leaflet.js"></script>
+<script src="{{ root }}static/app.js"></script>
+</body>
+</html>
