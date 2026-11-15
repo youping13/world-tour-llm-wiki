@@ -64,3 +64,8 @@
 - 刪除：新宿景點頁（只是經過；新宿站保留）
 - 修改：day-05～day-09 計畫加入愛知國際展示場（原版行程寫「每天」）
 - 待問：無
+
+## [2026-11-15] schema | status 改成兩大類＋小類
+- 修改：AGENTS.md 4.1、5.2、5.3、9.4、12；`status` 只剩 `planned`／`visited`，新增 `detail`（upcoming、skipped、unconfirmed、dropped／as-planned、moved、added、unconfirmed）
+- 修改：所有景點頁的 visits、日程頁與旅程頁的「計畫 vs 實際」改用中文標籤（例：去過・照計畫）
+- 修改：lint.py、build.py、地圖標記與圖例

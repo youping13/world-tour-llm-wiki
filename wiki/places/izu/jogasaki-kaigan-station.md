@@ -15,7 +15,8 @@ visits:
   day: 11
   planned: null
   actual: '2026-08-09'
-  status: added
+  status: visited
+  detail: added
   evidence: [gpx, percy]
 sources: []
 updated: '2026-11-15'
@@ -34,7 +35,7 @@ updated: '2026-11-15'
 ### 2026-08-09（[[2026-08-japan]]）
 - 移動：12:15 下車
 - 天氣：晚上橫濱下大雨
-- 狀態：added（gpx＋percy）
+- 狀態：去過・臨時加，`visited/added`（gpx＋percy）
 - 日程：[[2026-08-japan/day-11]]
 
 

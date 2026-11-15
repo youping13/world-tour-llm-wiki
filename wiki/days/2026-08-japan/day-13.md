@@ -21,13 +21,13 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[aomori-station]] | 07:16 [[aomori-station]] | visited |
-| [[oiwake-station]] | 13:17 [[oiwake-station]] | visited |
-| [[oga-station]] | 14:36 [[oga-station]] | visited |
-| [[unosaki-coast]] | 15:28 [[unosaki-coast]] | visited |
-| — | 10:15 [[senjojiki-station]] | added |
-| — | 17:54 [[akita-station]] | added |
-| — | 19:47 [[morioka-station]] | added |
+| [[aomori-station]] | 07:16 [[aomori-station]] | 去過・照計畫 |
+| [[oiwake-station]] | 13:17 [[oiwake-station]] | 去過・照計畫 |
+| [[oga-station]] | 14:36 [[oga-station]] | 去過・照計畫 |
+| [[unosaki-coast]] | 15:28 [[unosaki-coast]] | 去過・照計畫 |
+| — | 10:15 [[senjojiki-station]] | 去過・臨時加 |
+| — | 17:54 [[akita-station]] | 去過・臨時加 |
+| — | 19:47 [[morioka-station]] | 去過・臨時加 |
 
 ## 當日紀錄
 

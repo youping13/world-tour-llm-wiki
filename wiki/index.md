@@ -100,144 +100,144 @@
 
 ## 景點
 ### 大阪 [[osaka]]
-- [[kansai-airport]] 關西國際機場 関西国際空港 — 交通，visited
+- [[kansai-airport]] 關西國際機場 関西国際空港 — 交通，去過・照計畫
 
 ### 京都 [[kyoto]]
-- [[fushimi-inari-taisha]] 伏見稻荷大社 伏見稲荷大社 — 寺社與教堂，added
+- [[fushimi-inari-taisha]] 伏見稻荷大社 伏見稲荷大社 — 寺社與教堂，去過・臨時加
 
 ### 宇治 [[uji]]
-- [[uji-river]] 宇治川河畔 宇治川 — 自然，added
-- [[ujigami-jinja]] 宇治上神社 — 寺社與教堂，added
-- [[daikichiyama-observatory]] 大吉山展望台 — 展望點，added
+- [[uji-river]] 宇治川河畔 宇治川 — 自然，去過・臨時加
+- [[ujigami-jinja]] 宇治上神社 — 寺社與教堂，去過・臨時加
+- [[daikichiyama-observatory]] 大吉山展望台 — 展望點，去過・臨時加
 
 ### 知多半島 [[chita]]
-- [[aichi-sky-expo]] 愛知國際展示場 Aichi Sky Expo — 體驗，visited
-- [[aeon-mall-tokoname]] AEON Mall 常滑 — 購物，added
+- [[aichi-sky-expo]] 愛知國際展示場 Aichi Sky Expo — 體驗，去過・照計畫
+- [[aeon-mall-tokoname]] AEON Mall 常滑 — 購物，去過・臨時加
 
 ### 名古屋 [[nagoya]]
-- [[atsuta-jingu]] 熱田神宮 — 寺社與教堂，added
+- [[atsuta-jingu]] 熱田神宮 — 寺社與教堂，去過・臨時加
 
 ### 蒲郡 [[gamagori]]
-- [[gamagori-seaside]] 蒲郡海邊 — 自然，added
+- [[gamagori-seaside]] 蒲郡海邊 — 自然，去過・臨時加
 
 ### 豐橋 [[toyohashi]]
-- [[toyohashi-zoo]] 豐橋綜合動植物公園 豊橋総合動植物公園 — 體驗，added
+- [[toyohashi-zoo]] 豐橋綜合動植物公園 豊橋総合動植物公園 — 體驗，去過・臨時加
 
 ### 湘南 [[shonan]]
-- [[shichirigahama]] 七里濱 七里ヶ浜 — 自然，visited
-- [[kamakura-koko-mae-crossing]] 鎌倉高校前平交道 鎌倉高校前踏切 — 地標，visited
-- [[enoshima]] 江之島 江の島 — 自然，visited
-- [[enoshima-toro]] 江之島燈籠 2026 江の島灯籠 — 體驗，skipped
-- [[enoshima-aquarium]] 新江之島水族館 新江ノ島水族館 — 博物館，added
-- [[bic-camera-fujisawa]] Bic Camera 藤澤 ビックカメラ藤沢店 — 購物，added
+- [[shichirigahama]] 七里濱 七里ヶ浜 — 自然，去過・照計畫
+- [[kamakura-koko-mae-crossing]] 鎌倉高校前平交道 鎌倉高校前踏切 — 地標，去過・照計畫
+- [[enoshima]] 江之島 江の島 — 自然，去過・照計畫
+- [[enoshima-toro]] 江之島燈籠 2026 江の島灯籠 — 體驗，計畫・沒去
+- [[enoshima-aquarium]] 新江之島水族館 新江ノ島水族館 — 博物館，去過・臨時加
+- [[bic-camera-fujisawa]] Bic Camera 藤澤 ビックカメラ藤沢店 — 購物，去過・臨時加
 
 ### 小田原 [[odawara]]
-- [[odawara-castle]] 小田原城 — 地標，added
+- [[odawara-castle]] 小田原城 — 地標，去過・臨時加
 
 ### 伊豆 [[izu]]
-- [[omuroyama]] 大室山 — 自然，skipped
-- [[jogasaki-coast]] 城崎海岸 城ヶ崎海岸 — 自然，visited
+- [[omuroyama]] 大室山 — 自然，計畫・沒去
+- [[jogasaki-coast]] 城崎海岸 城ヶ崎海岸 — 自然，去過・照計畫
 
 ### 熱海 [[atami]]
-- [[atami-sun-beach]] 熱海陽光海灘 熱海サンビーチ — 自然，visited
+- [[atami-sun-beach]] 熱海陽光海灘 熱海サンビーチ — 自然，去過・照計畫
 
 ### 東京 [[tokyo]]
-- [[akihabara]] 秋葉原 — 購物，added
-- [[shibuya-crossing]] 澀谷十字路口 渋谷スクランブル交差点 — 地標，added
+- [[akihabara]] 秋葉原 — 購物，去過・臨時加
+- [[shibuya-crossing]] 澀谷十字路口 渋谷スクランブル交差点 — 地標，去過・臨時加
 
 ### 十和田・奧入瀨 [[towada]]
-- [[oirase-stream]] 奧入瀨溪流 奥入瀬渓流 — 自然，skipped
-- [[lake-towada]] 十和田湖 — 自然，skipped
+- [[oirase-stream]] 奧入瀨溪流 奥入瀬渓流 — 自然，計畫・沒去
+- [[lake-towada]] 十和田湖 — 自然，計畫・沒去
 
 ### 深浦 [[fukaura]]
-- [[senjojiki]] 千疊敷 千畳敷 — 自然，added
+- [[senjojiki]] 千疊敷 千畳敷 — 自然，去過・臨時加
 
 ### 男鹿 [[oga]]
-- [[unosaki-coast]] 鵜ノ崎海岸 — 自然，visited
+- [[unosaki-coast]] 鵜ノ崎海岸 — 自然，去過・照計畫
 
 ### 宮古 [[miyako]]
-- [[jodogahama]] 淨土之濱 浄土ヶ浜 — 自然，moved
+- [[jodogahama]] 淨土之濱 浄土ヶ浜 — 自然，去過・改期
 
 ### 仙北 [[semboku]]
-- [[lake-tazawa]] 田澤湖 田沢湖 — 自然，added
+- [[lake-tazawa]] 田澤湖 田沢湖 — 自然，去過・臨時加
 
 ### 松島 [[matsushima]]
-- [[matsushima-bay]] 松島灣 松島湾 — 自然，moved
-- [[matsushima-cruise]] 松島島巡遊覽船 松島島巡り観光船 — 體驗，skipped
+- [[matsushima-bay]] 松島灣 松島湾 — 自然，去過・改期
+- [[matsushima-cruise]] 松島島巡遊覽船 松島島巡り観光船 — 體驗，計畫・沒去
 
 ### 山形 [[yamagata]]
-- [[ginzan-onsen]] 銀山溫泉 銀山温泉 — 自然，skipped
+- [[ginzan-onsen]] 銀山溫泉 銀山温泉 — 自然，計畫・沒去
 
 ### 福島 [[fukushima]]
-- [[bandai-azuma-skyline]] 磐梯吾妻 Skyline 磐梯吾妻スカイライン — 自然，skipped
-- [[jododaira]] 淨土平 浄土平 — 自然，skipped
-- [[azuma-kofuji]] 吾妻小富士 — 自然，skipped
+- [[bandai-azuma-skyline]] 磐梯吾妻 Skyline 磐梯吾妻スカイライン — 自然，計畫・沒去
+- [[jododaira]] 淨土平 浄土平 — 自然，計畫・沒去
+- [[azuma-kofuji]] 吾妻小富士 — 自然，計畫・沒去
 
 ### 白石 [[shiroishi]]
-- [[zao-fox-village]] 藏王狐狸村 蔵王キツネ村 — 體驗，skipped
+- [[zao-fox-village]] 藏王狐狸村 蔵王キツネ村 — 體驗，計畫・沒去
 
 ### 石卷 [[ishinomaki]]
-- [[tashirojima]] 田代島 — 自然，added
-- [[mitsuishizaki]] 三石崎 — 自然，skipped
-- [[kadonowaki-elementary]] 石卷市震災遺構 門脇小學 門脇小学校 — 博物館，added
+- [[tashirojima]] 田代島 — 自然，去過・臨時加
+- [[mitsuishizaki]] 三石崎 — 自然，計畫・沒去
+- [[kadonowaki-elementary]] 石卷市震災遺構 門脇小學 門脇小学校 — 博物館，去過・臨時加
 
 ### 一關 [[ichinoseki]]
-- [[geibikei]] 猊鼻溪 猊鼻渓 — 自然，added
+- [[geibikei]] 猊鼻溪 猊鼻渓 — 自然，去過・臨時加
 
 ### 花卷 [[hanamaki]]
-- [[hanamaki-airport]] 花卷機場 花巻空港 — 交通，visited
+- [[hanamaki-airport]] 花卷機場 花巻空港 — 交通，去過・照計畫
 
 ### 雷克雅維克 [[reykjavik]]
-- [[hallgrimskirkja]] 哈爾格林姆教堂 Hallgrímskirkja — 寺社與教堂，planned
-- [[harpa]] 哈帕音樂廳 Harpa — 地標，planned
-- [[solfar]] 太陽航海者 Sólfar — 地標，planned
-- [[perlan]] 珍珠樓 Perlan — 展望點，planned
-- [[sky-lagoon]] 天空溫泉 Sky Lagoon — 體驗，planned
+- [[hallgrimskirkja]] 哈爾格林姆教堂 Hallgrímskirkja — 寺社與教堂，計畫・還沒去
+- [[harpa]] 哈帕音樂廳 Harpa — 地標，計畫・還沒去
+- [[solfar]] 太陽航海者 Sólfar — 地標，計畫・還沒去
+- [[perlan]] 珍珠樓 Perlan — 展望點，計畫・還沒去
+- [[sky-lagoon]] 天空溫泉 Sky Lagoon — 體驗，計畫・還沒去
 
 ### 雷克雅內斯半島 [[reykjanes]]
-- [[keflavik-airport]] 凱夫拉維克國際機場 Keflavíkurflugvöllur — 交通，planned
+- [[keflavik-airport]] 凱夫拉維克國際機場 Keflavíkurflugvöllur — 交通，計畫・還沒去
 
 ### 黃金圈 [[golden-circle]]
-- [[thingvellir]] 辛格維利爾國家公園 Þingvellir — 自然，planned
-- [[strokkur]] 史托克間歇泉 Strokkur — 自然，planned
-- [[gullfoss]] 黃金瀑布 Gullfoss — 自然，planned
-- [[kerid]] 凱瑞斯火山口湖 Kerið — 自然，planned
+- [[thingvellir]] 辛格維利爾國家公園 Þingvellir — 自然，計畫・還沒去
+- [[strokkur]] 史托克間歇泉 Strokkur — 自然，計畫・還沒去
+- [[gullfoss]] 黃金瀑布 Gullfoss — 自然，計畫・還沒去
+- [[kerid]] 凱瑞斯火山口湖 Kerið — 自然，計畫・還沒去
 
 ### 南岸 [[south-coast]]
-- [[seljalandsfoss]] 塞里雅蘭瀑布 Seljalandsfoss — 自然，planned
-- [[skogafoss]] 斯科加瀑布 Skógafoss — 自然，planned
-- [[reynisfjara]] 黑沙灘 Reynisfjara — 自然，planned
-- [[dyrholaey]] 迪霍拉里 Dyrhólaey — 展望點，planned
+- [[seljalandsfoss]] 塞里雅蘭瀑布 Seljalandsfoss — 自然，計畫・還沒去
+- [[skogafoss]] 斯科加瀑布 Skógafoss — 自然，計畫・還沒去
+- [[reynisfjara]] 黑沙灘 Reynisfjara — 自然，計畫・還沒去
+- [[dyrholaey]] 迪霍拉里 Dyrhólaey — 展望點，計畫・還沒去
 
 ### 瓦特納冰原 [[vatnajokull]]
-- [[skaftafell]] 斯卡夫塔山 Skaftafell — 自然，planned
-- [[fjallsarlon]] 菲亞爾沙冰河湖 Fjallsárlón — 自然，planned
-- [[jokulsarlon]] 傑古沙龍冰河湖 Jökulsárlón — 自然，planned
-- [[diamond-beach]] 鑽石沙灘 Breiðamerkursandur — 自然，planned
+- [[skaftafell]] 斯卡夫塔山 Skaftafell — 自然，計畫・還沒去
+- [[fjallsarlon]] 菲亞爾沙冰河湖 Fjallsárlón — 自然，計畫・還沒去
+- [[jokulsarlon]] 傑古沙龍冰河湖 Jökulsárlón — 自然，計畫・還沒去
+- [[diamond-beach]] 鑽石沙灘 Breiðamerkursandur — 自然，計畫・還沒去
 
 ### 東部峽灣 [[east-iceland]]
-- [[egilsstadir]] 埃伊爾斯塔濟 Egilsstaðir — 地標，planned
-- [[seydisfjordur]] 塞濟斯菲厄澤 Seyðisfjörður — 地標，planned
-- [[hallormsstadaskogur]] 哈德索斯塔德森林 Hallormsstaðaskógur — 自然，planned
-- [[studlagil]] 斯圖拉吉爾峽谷 Stuðlagil — 自然，planned
+- [[egilsstadir]] 埃伊爾斯塔濟 Egilsstaðir — 地標，計畫・還沒去
+- [[seydisfjordur]] 塞濟斯菲厄澤 Seyðisfjörður — 地標，計畫・還沒去
+- [[hallormsstadaskogur]] 哈德索斯塔德森林 Hallormsstaðaskógur — 自然，計畫・還沒去
+- [[studlagil]] 斯圖拉吉爾峽谷 Stuðlagil — 自然，計畫・還沒去
 
 ### 米湖 [[myvatn]]
-- [[dettifoss]] 黛提瀑布 Dettifoss — 自然，planned
-- [[namaskard]] 納馬斯卡德地熱區 Námaskarð — 自然，planned
-- [[dimmuborgir]] 迪姆伯加 Dimmuborgir — 自然，planned
-- [[skutustadagigar]] 斯庫圖斯塔札偽火山口 Skútustaðagígar — 自然，planned
+- [[dettifoss]] 黛提瀑布 Dettifoss — 自然，計畫・還沒去
+- [[namaskard]] 納馬斯卡德地熱區 Námaskarð — 自然，計畫・還沒去
+- [[dimmuborgir]] 迪姆伯加 Dimmuborgir — 自然，計畫・還沒去
+- [[skutustadagigar]] 斯庫圖斯塔札偽火山口 Skútustaðagígar — 自然，計畫・還沒去
 
 ### 阿克雷里與北部 [[akureyri]]
-- [[godafoss]] 眾神瀑布 Goðafoss — 自然，planned
-- [[akureyrarkirkja]] 阿克雷里教堂 Akureyrarkirkja — 寺社與教堂，planned
-- [[siglufjordur]] 錫格呂菲厄澤 Siglufjörður — 地標，planned
+- [[godafoss]] 眾神瀑布 Goðafoss — 自然，計畫・還沒去
+- [[akureyrarkirkja]] 阿克雷里教堂 Akureyrarkirkja — 寺社與教堂，計畫・還沒去
+- [[siglufjordur]] 錫格呂菲厄澤 Siglufjörður — 地標，計畫・還沒去
 
 ### 西部 [[west-iceland]]
-- [[grabrok]] 格拉布羅克火山口 Grábrók — 自然，planned
-- [[hraunfossar]] 熔岩瀑布 Hraunfossar — 自然，planned
-- [[reykholt]] 雷克霍爾特 Reykholt — 博物館，planned
-- [[deildartunguhver]] 戴爾達圖赫菲 Deildartunguhver — 自然，planned
-- [[borgarnes]] 博爾加內斯 Borgarnes — 博物館，planned
+- [[grabrok]] 格拉布羅克火山口 Grábrók — 自然，計畫・還沒去
+- [[hraunfossar]] 熔岩瀑布 Hraunfossar — 自然，計畫・還沒去
+- [[reykholt]] 雷克霍爾特 Reykholt — 博物館，計畫・還沒去
+- [[deildartunguhver]] 戴爾達圖赫菲 Deildartunguhver — 自然，計畫・還沒去
+- [[borgarnes]] 博爾加內斯 Borgarnes — 博物館，計畫・還沒去
 
 ## 車站
 - [[kansai-airport-station]] 關西機場站 関西空港駅 — 大阪

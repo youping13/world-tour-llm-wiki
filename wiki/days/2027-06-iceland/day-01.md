@@ -21,11 +21,11 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[keflavik-airport]] | — | planned |
-| [[hallgrimskirkja]] | — | planned |
-| [[harpa]] | — | planned |
-| [[solfar]] | — | planned |
-| [[perlan]] | — | planned |
+| [[keflavik-airport]] | — | 計畫・還沒去 |
+| [[hallgrimskirkja]] | — | 計畫・還沒去 |
+| [[harpa]] | — | 計畫・還沒去 |
+| [[solfar]] | — | 計畫・還沒去 |
+| [[perlan]] | — | 計畫・還沒去 |
 
 ## 當日紀錄
 

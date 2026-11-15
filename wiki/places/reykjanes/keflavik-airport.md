@@ -15,12 +15,14 @@ visits:
   planned: '2027-06-14'
   actual: null
   status: planned
+  detail: upcoming
   evidence: []
 - trip: 2027-06-iceland
   day: 8
   planned: '2027-06-21'
   actual: null
   status: planned
+  detail: upcoming
   evidence: []
 sources: [raw/plans/2027-06-iceland/plan-v1.md]
 updated: '2026-11-15'

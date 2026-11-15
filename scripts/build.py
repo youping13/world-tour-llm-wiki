@@ -24,15 +24,23 @@ SITE = ROOT / "site"
 TPL = ROOT / "templates"
 TODAY = datetime.now(ZoneInfo("Asia/Taipei")).date().isoformat()
 
-STATUS_ZH = {"planned": "計畫中", "visited": "照計畫去了", "moved": "改期去了", "skipped": "沒去",
-             "added": "臨時加的", "unconfirmed": "待確認", "dropped": "改版拿掉"}
+STATUS_ZH = {"planned/upcoming": "計畫・還沒去", "planned/skipped": "計畫・沒去", "planned/unconfirmed": "計畫・待確認",
+             "planned/dropped": "計畫・改版拿掉", "visited/as-planned": "去過・照計畫", "visited/moved": "去過・改期",
+             "visited/added": "去過・臨時加", "visited/unconfirmed": "去過・待確認"}
 CAT_ZH = {"landmark": "地標", "religious": "寺社與教堂", "museum": "博物館", "nature": "自然",
           "viewpoint": "展望點", "food": "美食", "shopping": "購物", "activity": "體驗",
           "station": "車站", "transport": "交通", "lodging-area": "住宿區域"}
 TYPE_ZH = {"place": "景點", "day": "日程", "trip": "旅程", "city": "城市", "region": "行政區", "country": "國家",
            "note": "筆記", "special": ""}
 REGION_KIND_ZH = {"prefecture": "都道府縣", "county": "縣", "city": "市", "state": "州", "region": "地區"}
-DONE = {"visited", "moved", "added"}
+
+
+def is_done(v) -> bool:
+    return v.get("status") == "visited" and v.get("detail") != "unconfirmed"
+
+
+def skey(v) -> str:
+    return f"{v.get('status')}/{v.get('detail')}"
 
 DATE_RE = re.compile(r"\b(\d{4}-\d{2})-(\d{2})\b")
 
@@ -80,7 +88,7 @@ def place_record(pg: Page, root_url: str) -> dict:
         "visits": [{"trip": v.get("trip"), "day": v.get("day"),
                     "planned": str(v.get("planned")) if v.get("planned") else None,
                     "actual": str(v.get("actual")) if v.get("actual") else None,
-                    "status": v.get("status")} for v in visits_of(pg)],
+                    "status": v.get("status"), "detail": v.get("detail")} for v in visits_of(pg)],
     }
 
 
@@ -100,7 +108,7 @@ def region_records(pages: dict) -> list:
         if lat is None and ps:
             lat = sum(p.fm["lat"] for p in ps) / len(ps)
             lng = sum(p.fm["lng"] for p in ps) / len(ps)
-        visited = any(v.get("status") in DONE for p in ps for v in visits_of(p))
+        visited = any(is_done(v) for p in ps for v in visits_of(p))
         trips = sorted({v.get("trip") for p in ps for v in visits_of(p)})
         out.append({"slug": pg.slug, "title": pg.title, "label": pg.fm.get("label") or pg.title[:2],
                     "icon": pg.fm.get("icon"), "lat": lat, "lng": lng, "url": url_of(pg),
@@ -165,7 +173,7 @@ def page_config(pg: Page, pages: dict) -> dict:
         sel = [p for p in places if p.fm.get("city") in cities]
     elif t == "trip":
         cfg["trip"] = pg.slug
-        sel = [p for p in places if any(v.get("trip") == pg.slug and v.get("status") != "dropped" for v in visits_of(p))]
+        sel = [p for p in places if any(v.get("trip") == pg.slug and v.get("detail") != "dropped" for v in visits_of(p))]
     elif t == "day":
         cfg["trip"], cfg["day"] = fm.get("trip"), fm.get("day")
         names = set(fm.get("planned") or []) | set(fm.get("actual") or [])
@@ -197,7 +205,7 @@ def infobox(pg: Page, pages: dict, root: str) -> list:
             date = v.get("actual") or v.get("planned") or ""
             ev = "＋".join(v.get("evidence") or []) or "—"
             rows.append((a(v.get("trip"), pages[v["trip"]].title if v.get("trip") in pages else v.get("trip")),
-                         f'<span class="badge s-{v.get("status")}">{STATUS_ZH.get(v.get("status"), v.get("status"))}</span> {date}'
+                         f'<span class="badge s-{v.get("status")} d-{v.get("detail")}">{STATUS_ZH.get(skey(v), skey(v))}</span> {date}'
                          f'<br><small>證據：{ev}</small>'))
     elif pg.type == "trip":
         rows += [("期間", f"{fm.get('start')} ～ {fm.get('end')}"), ("狀態", {"planned": "規劃中", "ongoing": "旅行中", "completed": "已完成"}.get(fm.get("status"), fm.get("status"))),

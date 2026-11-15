@@ -21,9 +21,9 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[egilsstadir]] | — | planned |
-| [[seydisfjordur]] | — | planned |
-| [[hallormsstadaskogur]] | — | planned |
+| [[egilsstadir]] | — | 計畫・還沒去 |
+| [[seydisfjordur]] | — | 計畫・還沒去 |
+| [[hallormsstadaskogur]] | — | 計畫・還沒去 |
 
 ## 當日紀錄
 

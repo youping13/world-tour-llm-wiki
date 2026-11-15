@@ -21,16 +21,16 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[kansai-airport-station]] | 06:04 [[kansai-airport-station]] | visited |
-| [[kyoto-station]] | 08:11 [[kyoto-station]] | visited |
-| [[uji-station]] | 08:57 [[uji-station]] | visited |
-| — | 08:40 [[fushimi-inari-taisha]] | added |
-| — | 08:57 [[uji-river]] | added |
-| — | 08:57 [[daikichiyama-observatory]] | added |
-| — | 09:46 [[ujigami-jinja]] | added |
-| — | 12:19 [[chushojima-station]] | added |
-| — | 12:48 [[fushimi-inari-station]] | added |
-| — | 14:22 [[kiyomizu-gojo-station]] | added |
+| [[kansai-airport-station]] | 06:04 [[kansai-airport-station]] | 去過・照計畫 |
+| [[kyoto-station]] | 08:11 [[kyoto-station]] | 去過・照計畫 |
+| [[uji-station]] | 08:57 [[uji-station]] | 去過・照計畫 |
+| — | 08:40 [[fushimi-inari-taisha]] | 去過・臨時加 |
+| — | 08:57 [[uji-river]] | 去過・臨時加 |
+| — | 08:57 [[daikichiyama-observatory]] | 去過・臨時加 |
+| — | 09:46 [[ujigami-jinja]] | 去過・臨時加 |
+| — | 12:19 [[chushojima-station]] | 去過・臨時加 |
+| — | 12:48 [[fushimi-inari-station]] | 去過・臨時加 |
+| — | 14:22 [[kiyomizu-gojo-station]] | 去過・臨時加 |
 
 ## 當日紀錄
 

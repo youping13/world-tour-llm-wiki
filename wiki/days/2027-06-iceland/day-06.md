@@ -21,9 +21,9 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[godafoss]] | — | planned |
-| [[akureyrarkirkja]] | — | planned |
-| [[siglufjordur]] | — | planned |
+| [[godafoss]] | — | 計畫・還沒去 |
+| [[akureyrarkirkja]] | — | 計畫・還沒去 |
+| [[siglufjordur]] | — | 計畫・還沒去 |
 
 ## 當日紀錄
 

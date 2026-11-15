@@ -21,8 +21,8 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[aichi-sky-expo]] | [[aichi-sky-expo]] | visited |
-| — | [[aeon-mall-tokoname]] | added |
+| [[aichi-sky-expo]] | [[aichi-sky-expo]] | 去過・照計畫 |
+| — | [[aeon-mall-tokoname]] | 去過・臨時加 |
 
 ## 當日紀錄
 

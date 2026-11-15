@@ -21,14 +21,14 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[ginzan-onsen]] | — | skipped |
-| — | 11:47 [[sendai-station]] | added |
-| — | 13:29 [[akihabara]] | added |
-| — | 13:29 [[tokyo-station]] | added |
-| — | 13:41 [[akihabara-station]] | added |
-| — | 18:04 [[shinjuku-station]] | added |
-| — | 18:26 [[shibuya-crossing]] | added |
-| — | 18:26 [[shibuya-station]] | added |
+| [[ginzan-onsen]] | — | 計畫・沒去 |
+| — | 11:47 [[sendai-station]] | 去過・臨時加 |
+| — | 13:29 [[akihabara]] | 去過・臨時加 |
+| — | 13:29 [[tokyo-station]] | 去過・臨時加 |
+| — | 13:41 [[akihabara-station]] | 去過・臨時加 |
+| — | 18:04 [[shinjuku-station]] | 去過・臨時加 |
+| — | 18:26 [[shibuya-crossing]] | 去過・臨時加 |
+| — | 18:26 [[shibuya-station]] | 去過・臨時加 |
 
 ## 當日紀錄
 

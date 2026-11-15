@@ -16,12 +16,14 @@ visits:
   planned: '2026-08-10'
   actual: '2026-08-10'
   status: visited
+  detail: as-planned
   evidence: [gpx, percy]
 - trip: 2026-08-japan
   day: 15
   planned: null
   actual: '2026-08-13'
-  status: added
+  status: visited
+  detail: added
   evidence: [gpx, journal, percy]
 sources: [raw/journal/2026-08-japan/2026-08-13.md, raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
@@ -40,13 +42,13 @@ updated: '2026-11-15'
 ### 2026-08-10（[[2026-08-japan]]）
 - 移動：06:18 轉乘（新幹線）
 - 天氣：淨土之濱陰天；青森傍晚晚霞
-- 狀態：visited（gpx＋percy）
+- 狀態：去過・照計畫，`visited/as-planned`（gpx＋percy）
 - 日程：[[2026-08-japan/day-12]]
 
 ### 2026-08-13（[[2026-08-japan]]）
 - 移動：13:29 下車＋上車
 - 天氣：下雨（仙台、東京）；千葉大雨
-- 狀態：added（gpx＋journal＋percy）
+- 狀態：去過・臨時加，`visited/added`（gpx＋journal＋percy）
 - 日程：[[2026-08-japan/day-15]]
 
 

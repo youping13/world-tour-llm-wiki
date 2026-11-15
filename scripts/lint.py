@@ -7,7 +7,7 @@ from __future__ import annotations
 import sys
 from datetime import date
 
-from common import COUNTRY_BBOX, PAGE_TYPES, REGION_KINDS, ROOT, STATUSES, WIKI, CATEGORIES, in_country
+from common import COUNTRY_BBOX, DETAILS, PAGE_TYPES, REGION_KINDS, ROOT, STATUSES, WIKI, CATEGORIES, in_country
 from wikilib import LINK_RE, load_all_list, expected_path
 
 REQUIRED = ["type", "title", "slug", "sources", "updated"]
@@ -58,16 +58,19 @@ def main() -> int:
             if fm.get("category") == "lodging-area" and any(w in pg.title.lower() for w in HOTEL_WORDS):
                 errors.append(f"{rel}: lodging-area 標題像飯店名（隱私）")
             for v in fm.get("visits") or []:
-                st, ev = v.get("status"), set(v.get("evidence") or [])
+                st, dt, ev = v.get("status"), v.get("detail"), set(v.get("evidence") or [])
                 if st not in STATUSES:
-                    errors.append(f"{rel}: status `{st}` 不合法")
-                if st in ("visited", "moved", "added") and not ({"journal", "gpx"} <= ev or "percy" in ev):
-                    errors.append(f"{rel}: {st} 但證據只有 {sorted(ev) or '無'}（要 journal＋gpx 或 percy）")
-                if st == "unconfirmed":
-                    asks.append(f"{pg.slug}（{v.get('trip')} 第 {v.get('day')} 天）證據：{sorted(ev) or '無'}")
+                    errors.append(f"{rel}: status `{st}` 不合法（只能是 planned / visited）")
+                    continue
+                if dt not in DETAILS[st]:
+                    errors.append(f"{rel}: {st} 的 detail `{dt}` 不合法（{' / '.join(DETAILS[st])}）")
+                if st == "visited" and dt != "unconfirmed" and not ({"journal", "gpx"} <= ev or "percy" in ev):
+                    errors.append(f"{rel}: visited/{dt} 但證據只有 {sorted(ev) or '無'}（要 journal＋gpx 或 percy）")
+                if dt == "unconfirmed":
+                    asks.append(f"{pg.slug}（{v.get('trip')} 第 {v.get('day')} 天，{st}/unconfirmed）證據：{sorted(ev) or '無'}")
                 when = str(v.get("planned") or "")
-                if st == "planned" and when and when < TODAY:
-                    asks.append(f"{pg.slug}：{when} 已過但仍是 planned")
+                if st == "planned" and dt == "upcoming" and when and when < TODAY:
+                    asks.append(f"{pg.slug}：{when} 已過但仍是 planned/upcoming")
     # 城市的 region 要存在
     for pg in pages:
         if pg.type == "city" and pg.fm.get("region") and pg.fm["region"] not in slugs:

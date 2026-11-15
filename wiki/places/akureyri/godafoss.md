@@ -15,6 +15,7 @@ visits:
   planned: '2027-06-19'
   actual: null
   status: planned
+  detail: upcoming
   evidence: []
 sources: [raw/plans/2027-06-iceland/plan-v1.md]
 updated: '2026-11-15'

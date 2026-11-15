@@ -14,7 +14,8 @@ visits:
   day: 16
   planned: null
   actual: '2026-08-14'
-  status: added
+  status: visited
+  detail: added
   evidence: [journal, gpx]
 sources: [raw/journal/2026-08-japan/2026-08-14.md]
 updated: '2026-11-15'
@@ -33,7 +34,7 @@ updated: '2026-11-15'
 ### 2026-08-14（[[2026-08-japan]]）
 - 移動：石卷港搭船
 - 天氣：海岸有霧；走去紀念館途中下雨（不小）
-- 狀態：added（journal＋gpx）
+- 狀態：去過・臨時加，`visited/added`（journal＋gpx）
 - 日程：[[2026-08-japan/day-16]]
 
 

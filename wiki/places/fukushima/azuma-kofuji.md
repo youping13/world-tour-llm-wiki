@@ -14,7 +14,8 @@ visits:
   day: 16
   planned: '2026-08-14'
   actual: null
-  status: skipped
+  status: planned
+  detail: skipped
   evidence: [percy]
 sources: [raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
@@ -31,7 +32,7 @@ updated: '2026-11-15'
 ## 造訪紀錄
 
 ### 2026-08-14（[[2026-08-japan]]）
-- 狀態：skipped（percy）— Percy 確認沒去。（磐梯吾妻 Skyline 取消）
+- 狀態：計畫・沒去，`planned/skipped`（percy）— Percy 確認沒去。（磐梯吾妻 Skyline 取消）
 
 ## 照片
 

@@ -59,14 +59,21 @@
     <ul class="legend">
       {% for k, name, color in cats %}<li><span class="pin done" style="--c:{{ color }}" data-cat="{{ k }}"></span>{{ name }}</li>{% endfor %}
     </ul>
-    <h2 class="legend-h">大小與樣式 = 狀態</h2>
+    <h2 class="legend-h">去過（visited）：大</h2>
     <ul class="legend">
-      <li><span class="pin done" style="--c:#555" data-cat="landmark"></span>去過（照計畫）</li>
-      <li><span class="pin done" style="--c:#555" data-cat="landmark"><b class="pin-badge b-moved">改</b></span>改期去了</li>
-      <li><span class="pin done" style="--c:#555" data-cat="landmark"><b class="pin-badge b-added">+</b></span>臨時加的</li>
-      <li><span class="pin small s-planned" style="--c:#555" data-cat="landmark"></span>計畫中</li>
-      <li><span class="pin small s-unconfirmed" style="--c:#555" data-cat="landmark"><b class="pin-badge b-unconfirmed">?</b></span>待確認</li>
-      <li><span class="pin small s-skipped" data-cat="landmark"><b class="pin-badge b-skipped">×</b></span>沒去</li>
+      <li><span class="pin done" style="--c:#555" data-cat="landmark"></span>照計畫</li>
+      <li><span class="pin done" style="--c:#555" data-cat="landmark"><b class="pin-badge b-moved">改</b></span>改期</li>
+      <li><span class="pin done" style="--c:#555" data-cat="landmark"><b class="pin-badge b-added">+</b></span>臨時加</li>
+      <li><span class="pin s-unconfirmed" style="--c:#555" data-cat="landmark"><b class="pin-badge b-unconfirmed">?</b></span>待確認</li>
+    </ul>
+    <h2 class="legend-h">計畫（planned）：小</h2>
+    <ul class="legend">
+      <li><span class="pin small s-upcoming" style="--c:#555" data-cat="landmark"></span>還沒去</li>
+      <li><span class="pin small s-skipped" data-cat="landmark"><b class="pin-badge b-skipped">×</b></span>計畫了沒去</li>
+      <li><span class="pin small s-unconfirmed" style="--c:#555" data-cat="landmark"><b class="pin-badge b-unconfirmed">?</b></span>日期過了待確認</li>
+    </ul>
+    <h2 class="legend-h">行政區與路線</h2>
+    <ul class="legend">
       <li><span class="region done" style="--c:#5d4037">京都</span>去過的都道府縣／縣市／州</li>
       <li><span class="region" style="--c:#5d4037">冰島</span>只有計畫的行政區</li>
       <li><i class="ln plan"></i>計畫路線（旅程顏色）</li>

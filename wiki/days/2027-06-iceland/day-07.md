@@ -21,11 +21,11 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[grabrok]] | — | planned |
-| [[hraunfossar]] | — | planned |
-| [[reykholt]] | — | planned |
-| [[deildartunguhver]] | — | planned |
-| [[borgarnes]] | — | planned |
+| [[grabrok]] | — | 計畫・還沒去 |
+| [[hraunfossar]] | — | 計畫・還沒去 |
+| [[reykholt]] | — | 計畫・還沒去 |
+| [[deildartunguhver]] | — | 計畫・還沒去 |
+| [[borgarnes]] | — | 計畫・還沒去 |
 
 ## 當日紀錄
 

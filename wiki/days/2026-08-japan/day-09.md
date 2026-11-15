@@ -21,9 +21,9 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[aichi-sky-expo]] | 09:41 [[aichi-sky-expo]] | visited |
-| [[nagoya-station]] | 21:26 [[nagoya-station]] | visited |
-| — | 09:35 [[chubu-airport-station]] | added |
+| [[aichi-sky-expo]] | 09:41 [[aichi-sky-expo]] | 去過・照計畫 |
+| [[nagoya-station]] | 21:26 [[nagoya-station]] | 去過・照計畫 |
+| — | 09:35 [[chubu-airport-station]] | 去過・臨時加 |
 
 ## 當日紀錄
 

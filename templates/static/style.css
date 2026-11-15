@@ -100,11 +100,11 @@ a:hover { text-decoration: underline; }
 .infobox td { padding: 7px 10px; }
 .infobox small { color: var(--muted); }
 .badge { display: inline-block; font-size: 12px; padding: 0 8px; border-radius: 99px; background: var(--line); color: var(--text); }
-.badge.s-visited, .badge.s-moved { background: #2f7d4f; color: #fff; }
-.badge.s-added { background: #b98a12; color: #fff; }
-.badge.s-skipped { background: #8a8d91; color: #fff; }
-.badge.s-unconfirmed { background: #c05a2b; color: #fff; }
-.badge.s-planned { background: transparent; border: 1px dashed var(--muted); }
+.badge.s-visited { background: #2f7d4f; color: #fff; }
+.badge.d-added { background: #b98a12; color: #fff; }
+.badge.d-skipped { background: #8a8d91; color: #fff; }
+.badge.d-unconfirmed { background: #c05a2b; color: #fff; }
+.badge.d-upcoming { background: transparent; border: 1px dashed var(--muted); }
 
 .triplist { list-style: none; padding: 0; margin: 6px 0; }
 .triplist li { padding: 8px 0; border-bottom: 1px solid var(--line); }
@@ -126,7 +126,7 @@ a:hover { text-decoration: underline; }
 }
 .pin svg { width: 62%; height: 62%; display: block; }
 .pin.done { background: var(--c); color: #fff; border: 2.5px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.45); }
-.pin.s-planned { border-style: dashed; background: rgba(255,255,255,.88); }
+.pin.s-upcoming { border-style: dashed; background: rgba(255,255,255,.88); }
 .pin.s-unconfirmed { background: rgba(255,255,255,.92); }
 .pin.s-skipped { --c: #8a8d91; background: #8a8d91; color: #fff; border-color: #fff; opacity: .85; }
 .pin.stn { border-radius: 6px; }
@@ -176,3 +176,4 @@ a:hover { text-decoration: underline; }
   .panel.collapsed .toggle span { transform: none; }
   .wiki h1 { font-size: 22px; }
 }
+.wiki td:last-child { white-space: nowrap; }

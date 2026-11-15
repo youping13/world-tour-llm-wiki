@@ -15,7 +15,8 @@ visits:
   day: 17
   planned: '2026-08-15'
   actual: '2026-08-12'
-  status: moved
+  status: visited
+  detail: moved
   evidence: [gpx, journal, percy]
 sources: [raw/journal/2026-08-japan/2026-08-12.md, raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
@@ -34,7 +35,7 @@ updated: '2026-11-15'
 ### 2026-08-12（[[2026-08-japan]]）
 - 移動：16:59 下車＋上車
 - 天氣：松島飄小雨；晚上仙台暴雨
-- 狀態：moved（gpx＋journal＋percy）
+- 狀態：去過・改期，`visited/moved`（gpx＋journal＋percy）
 - 日程：[[2026-08-japan/day-14]]
 
 

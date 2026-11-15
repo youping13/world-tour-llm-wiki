@@ -21,8 +21,8 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[sky-lagoon]] | — | planned |
-| [[keflavik-airport]] | — | planned |
+| [[sky-lagoon]] | — | 計畫・還沒去 |
+| [[keflavik-airport]] | — | 計畫・還沒去 |
 
 ## 當日紀錄
 

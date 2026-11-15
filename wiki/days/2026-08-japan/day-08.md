@@ -21,12 +21,12 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[aichi-sky-expo]] | 09:05 [[aichi-sky-expo]] | visited |
-| — | 16:14 [[chubu-airport-station]] | added |
-| — | 17:02 [[otagawa-station]] | added |
-| — | 17:27 [[nagoya-station]] | added |
-| — | 18:51 [[jingu-mae-station]] | added |
-| — | 19:06 [[atsuta-jingu]] | added |
+| [[aichi-sky-expo]] | 09:05 [[aichi-sky-expo]] | 去過・照計畫 |
+| — | 16:14 [[chubu-airport-station]] | 去過・臨時加 |
+| — | 17:02 [[otagawa-station]] | 去過・臨時加 |
+| — | 17:27 [[nagoya-station]] | 去過・臨時加 |
+| — | 18:51 [[jingu-mae-station]] | 去過・臨時加 |
+| — | 19:06 [[atsuta-jingu]] | 去過・臨時加 |
 
 ## 當日紀錄
 

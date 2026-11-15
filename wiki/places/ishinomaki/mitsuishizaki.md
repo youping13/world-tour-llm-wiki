@@ -14,7 +14,8 @@ visits:
   day: 16
   planned: null
   actual: null
-  status: skipped
+  status: planned
+  detail: skipped
   evidence: [journal, percy]
 sources: [reports/2026-08-japan-stations.md]
 updated: '2026-11-15'
@@ -31,7 +32,7 @@ updated: '2026-11-15'
 ## 造訪紀錄
 
 ### 2026-08-14（[[2026-08-japan]]）
-- 狀態：skipped（journal＋percy）— Percy 確認沒去。（走到入口，沒有路，沒進去）
+- 狀態：計畫・沒去，`planned/skipped`（journal＋percy）— Percy 確認沒去。（走到入口，沒有路，沒進去）
 
 ## 照片
 

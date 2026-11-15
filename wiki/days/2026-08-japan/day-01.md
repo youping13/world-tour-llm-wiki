@@ -21,7 +21,7 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[kansai-airport]] | 22:15 [[kansai-airport]] | visited |
+| [[kansai-airport]] | 22:15 [[kansai-airport]] | 去過・照計畫 |
 
 ## 當日紀錄
 

@@ -21,12 +21,12 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[reynisfjara]] | — | planned |
-| [[dyrholaey]] | — | planned |
-| [[skaftafell]] | — | planned |
-| [[fjallsarlon]] | — | planned |
-| [[jokulsarlon]] | — | planned |
-| [[diamond-beach]] | — | planned |
+| [[reynisfjara]] | — | 計畫・還沒去 |
+| [[dyrholaey]] | — | 計畫・還沒去 |
+| [[skaftafell]] | — | 計畫・還沒去 |
+| [[fjallsarlon]] | — | 計畫・還沒去 |
+| [[jokulsarlon]] | — | 計畫・還沒去 |
+| [[diamond-beach]] | — | 計畫・還沒去 |
 
 ## 當日紀錄
 

@@ -22,18 +22,18 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[kyoto-station]] | 06:31 [[kyoto-station]] | visited |
-| [[nagoya-station]] | 09:30 [[nagoya-station]] | visited |
-| — | 10:26 [[gamagori-station]] | added |
-| — | 10:27 [[gamagori-seaside]] | added |
-| — | 11:40 [[toyohashi-station]] | added |
-| — | 12:12 [[futagawa-station]] | added |
-| — | 12:38 [[toyohashi-zoo]] | added |
-| — | 15:29 [[jingu-mae-station]] | added |
-| — | 16:04 [[aeon-mall-tokoname]] | added |
-| — | 16:06 [[chubu-airport-station]] | added |
-| — | 17:31 [[rinku-tokoname-station]] | added |
-| — | 18:46 [[otagawa-station]] | added |
+| [[kyoto-station]] | 06:31 [[kyoto-station]] | 去過・照計畫 |
+| [[nagoya-station]] | 09:30 [[nagoya-station]] | 去過・照計畫 |
+| — | 10:26 [[gamagori-station]] | 去過・臨時加 |
+| — | 10:27 [[gamagori-seaside]] | 去過・臨時加 |
+| — | 11:40 [[toyohashi-station]] | 去過・臨時加 |
+| — | 12:12 [[futagawa-station]] | 去過・臨時加 |
+| — | 12:38 [[toyohashi-zoo]] | 去過・臨時加 |
+| — | 15:29 [[jingu-mae-station]] | 去過・臨時加 |
+| — | 16:04 [[aeon-mall-tokoname]] | 去過・臨時加 |
+| — | 16:06 [[chubu-airport-station]] | 去過・臨時加 |
+| — | 17:31 [[rinku-tokoname-station]] | 去過・臨時加 |
+| — | 18:46 [[otagawa-station]] | 去過・臨時加 |
 
 ## 當日紀錄
 

@@ -16,6 +16,7 @@ visits:
   planned: '2026-08-11'
   actual: '2026-08-11'
   status: visited
+  detail: as-planned
   evidence: [gpx, journal, percy]
 sources: [raw/journal/2026-08-japan/2026-08-11.md, raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
@@ -34,7 +35,7 @@ updated: '2026-11-15'
 ### 2026-08-11（[[2026-08-japan]]）
 - 移動：13:17 轉乘
 - 天氣：早上灰、陰；之後轉晴，藍天
-- 狀態：visited（gpx＋journal＋percy）
+- 狀態：去過・照計畫，`visited/as-planned`（gpx＋journal＋percy）
 - 日程：[[2026-08-japan/day-13]]
 
 

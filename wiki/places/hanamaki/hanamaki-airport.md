@@ -15,6 +15,7 @@ visits:
   planned: '2026-08-15'
   actual: '2026-08-15'
   status: visited
+  detail: as-planned
   evidence: [journal, gpx]
 sources: [raw/journal/2026-08-japan/2026-08-15.md, raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
@@ -33,7 +34,7 @@ updated: '2026-11-15'
 ### 2026-08-15（[[2026-08-japan]]）
 - 移動：花卷機場站下車後步行約 3 km
 - 天氣：藍天白雲
-- 狀態：visited（journal＋gpx）
+- 狀態：去過・照計畫，`visited/as-planned`（journal＋gpx）
 - 日程：[[2026-08-japan/day-17]]
 
 

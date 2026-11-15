@@ -145,7 +145,9 @@ visits:
     day: <N>              # 計畫中的第幾天；不在計畫就留 null
     planned: <YYYY-MM-DD> # 來自 plan；不在計畫就留 null
     actual: null          # 來自 journal ＋ GPX；未發生留 null
-    status: planned       # planned | visited | moved | skipped | added | unconfirmed | dropped
+    status: planned       # 大類：planned | visited（5.2）
+    detail: upcoming      # 小類：planned → upcoming | skipped | unconfirmed | dropped
+                          #       visited → as-planned | moved | added | unconfirmed
     evidence: []          # journal | gpx | percy（第 5 節）
 sources: [raw/plans/<trip>/plan-v1.md]
 updated: <YYYY-MM-DD>
@@ -180,7 +182,7 @@ updated: <YYYY-MM-DD>
   ### <YYYY-MM-DD>（[[<trip>]]）
   - 移動：<怎麼到的，例：江之電 → 步行>
   - 天氣：<日記有寫才填>
-  - 狀態：visited（journal ＋ gpx）
+  - 狀態：去過・照計畫，`visited/as-planned`（journal＋gpx）
   ```
 - `station` = 火車站、地鐵站、私鐵站（只收**上下車或轉乘**過的，路過不算，見 6.3.1）。slug 用 `<羅馬拼音>-station`，例 `fujisawa-station`；標題 `藤澤站 藤沢駅`。機場、港口、巴士總站用 `transport`。
 - `lodging-area` 只能是「區域」（例：`shinjuku-area`），座標取區域中心，**不可以是飯店**（第 10 節）。
@@ -213,9 +215,9 @@ updated: <YYYY-MM-DD>
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| 09:00 [[<place>]] | 09:30 [[<place>]] | visited |
-| 13:00 [[<place>]] | — | skipped |
-| — | 15:00 [[<place>]] | added |
+| 09:00 [[<place>]] | 09:30 [[<place>]] | 去過・照計畫 |
+| 13:00 [[<place>]] | — | 計畫・沒去 |
+| — | 15:00 [[<place>]] | 去過・臨時加 |
 
 ## 當日紀錄
 
@@ -438,20 +440,33 @@ updated: <YYYY-MM-DD>
 - **實際** = 兩種證據，**必須兩種同時出現才算數**：
   1. `journal`：`raw/journal/<trip>/` 的日記（已過濾）。
   2. `gpx`：`raw/gpx/<trip>/` 的軌跡。
-- 只有一種出現 → 不自動判定，標 `unconfirmed`，留給 Percy 人工比對。Percy 確認後 `evidence` 加 `percy`。
+- 只有一種出現 → 不自動判定，小類標 `unconfirmed`，留給 Percy 人工比對。Percy 確認後 `evidence` 加 `percy`，改成正確的小類。
 - 照片**不是**判定證據，只用來掛在景點頁上（6.4）。
 
-### 5.2 status
+### 5.2 status：兩大類＋小類
 
-| status | 意思 | 判定依據 | 地圖標記 |
+每次造訪用兩個欄位：`status` 是**大類**，只有 `planned`（計畫的）和 `visited`（去過的）；`detail` 是**小類**。大類決定地圖標記的大小，小類決定樣式和角標。
+
+**`planned` 計畫的（地圖上小）**
+
+| detail | 意思 | 判定依據 | 地圖標記 |
 | --- | --- | --- | --- |
-| `planned` | 計畫中、還沒發生 | 只出現在 plan，且日期未到 | 空心圓、虛線框 |
-| `visited` | 照計畫去了 | plan 有；journal ＋ gpx 都有，日期相同 | 實心圓 |
-| `moved` | 去了但不是原定那天 | plan 有；journal ＋ gpx 都有，日期不同 | 實心圓＋日期標籤 |
-| `skipped` | 計畫有但沒去 | journal 寫沒去，且 gpx 沒經過；或 Percy 確認 | 灰色 ✕ |
-| `added` | 計畫外臨時去的 | plan 沒有；journal ＋ gpx 都有 | 星形 |
-| `unconfirmed` | 待人工比對 | journal 和 gpx 只有一個有、兩者矛盾、或日期已過卻兩者都沒有 | 空心圓＋問號 |
+| `upcoming` | 還沒去 | 只出現在 plan，且日期未到 | 小、白底虛線框 |
+| `skipped` | 計畫了但沒去 | journal 寫沒去，且 gpx 沒經過；或 Percy 確認 | 小、灰色＋「×」 |
+| `unconfirmed` | 日期過了，不知道有沒有去 | journal、gpx 都沒有 | 小、白底＋橘色「?」 |
 | `dropped` | 計畫改版時被拿掉 | 舊版 plan 有、最新版沒有 | 地圖不顯示，只列在旅程頁「計畫的改版」 |
+
+**`visited` 去過的（地圖上大）**
+
+| detail | 意思 | 判定依據 | 地圖標記 |
+| --- | --- | --- | --- |
+| `as-planned` | 照計畫去了 | plan 有；journal ＋ gpx 都有，日期相同 | 大、實心 |
+| `moved` | 去了但不是原定那天 | plan 有；journal ＋ gpx 都有，日期不同 | 大、實心＋藍色「改」 |
+| `added` | 計畫外臨時去的 | plan 沒有；journal ＋ gpx 都有 | 大、實心＋綠色「+」 |
+| `unconfirmed` | 可能去過，但證據只有一邊 | journal 和 gpx 只有一個有，或兩者矛盾 | 大、白底＋橘色「?」 |
+
+- 網頁與 wiki 表格用中文標籤：`計畫・還沒去`、`計畫・沒去`、`計畫・待確認`、`去過・照計畫`、`去過・改期`、`去過・臨時加`、`去過・待確認`。
+- frontmatter 寫英文代碼，例：`status: visited`、`detail: moved`；文字裡寫成 `visited/moved`。
 
 ### 5.3 判定規則
 
@@ -464,11 +479,11 @@ updated: <YYYY-MM-DD>
 
 | journal | gpx | plan 有 | plan 沒有 |
 | --- | --- | --- | --- |
-| 有 | 有 | `visited` / `moved` | `added` |
-| 有 | 沒有（或那天沒有 GPX 檔） | `unconfirmed` | `unconfirmed` |
-| 沒有 | 有 | `unconfirmed` | 不建頁，列入待問 |
-| 寫「沒去」 | 沒有 | `skipped` | — |
-| 沒有 | 沒有 | `unconfirmed`（日期已過） | — |
+| 有 | 有 | `visited/as-planned`；日期不同 `visited/moved` | `visited/added` |
+| 有 | 沒有（或那天沒有 GPX 檔） | `visited/unconfirmed` | `visited/unconfirmed` |
+| 沒有 | 有 | `visited/unconfirmed` | 不建頁，列入待問 |
+| 寫「沒去」 | 沒有 | `planned/skipped` | — |
+| 沒有 | 沒有 | 日期未到 `planned/upcoming`；已過 `planned/unconfirmed` | — |
 
 - `unconfirmed` 的每一筆都在 lint 報告「待問」列出：place、日期、journal 怎麼寫、GPX 最近距離與停留時間。**AI 不替 Percy 決定。**
 - GPX 停留點對不到任何 place：不自動建頁，列為「可能的計畫外停留（座標、當地時間、時長）」問 Percy。
@@ -494,7 +509,7 @@ updated: <YYYY-MM-DD>
    - 已有 place 頁（同名或同座標 200 m 內）→ 在 `visits` 加一筆，不重複建頁。
    - 沒有 → 用 `uv run scripts/geocode.py "<原名>, <城市>, <國家>"` 查座標，依 4.1 建頁。查不到就請 Percy 給 Google 地圖座標，`coord_source: manual`。
 4. 依序建立或更新：day 頁 → trip 頁 → city 頁 → region 頁 → country 頁 → `overview.md`。
-5. 若是 v2 以上：和上一版比較，被拿掉的景點改 `status: dropped`，在 trip 頁「計畫的改版」寫改了什麼。
+5. 若是 v2 以上：和上一版比較，被拿掉的景點改成 `planned/dropped`，在 trip 頁「計畫的改版」寫改了什麼。
 6. 更新 index、log。一份行程通常會動到 20～40 頁，這是正常的。
 
 ### 6.2 Ingest 日記（journal）
@@ -517,7 +532,7 @@ updated: <YYYY-MM-DD>
 2. 依 5.3 決策表，把每個景點的 journal 和 GPX 停留點配對。
 3. 先向 Percy 摘要：每天的 status 變化、`unconfirmed` 清單（附 GPX 候選）。等 Percy 回覆再寫頁。
 4. 更新 day 頁：`actual` 清單、計畫 vs 實際表格、`## 當日紀錄`。
-5. 更新每個相關 place 頁：`visits[].actual`、`status`、`evidence`、`## 造訪紀錄`。
+5. 更新每個相關 place 頁：`visits[].actual`、`status`、`detail`、`evidence`、`## 造訪紀錄`。
 6. 更新 trip 頁的「計畫 vs 實際」，`status` 改 `ongoing` 或 `completed`。
 7. **不可以**加入日記沒寫的移動方式、天氣或景點；客觀介紹（景點是什麼）放在頁首一句話，不放進造訪紀錄。
 
@@ -567,7 +582,7 @@ updated: <YYYY-MM-DD>
    - 頁面之間互相矛盾（日期、status、城市歸屬）。
    - 提到但沒有頁的地方或概念。
    - 該互連卻沒連的頁（同城市的景點、同一天的景點）。
-   - 日期已過但仍是 `planned` 的造訪、所有 `unconfirmed`（待問）。
+   - 日期已過但仍是 `planned/upcoming` 的造訪、所有 `unconfirmed`（待問）。
    - 造訪紀錄或日記裡出現心得、人名等不該有的內容（錯誤，直接刪）。
 3. 輸出報告分三段：**錯誤（已修）**、**建議（待 Percy 決定）**、**待問**。記一筆 log（`lint`）。
 
@@ -733,7 +748,7 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
 | 圖層 | 樣式 | 什麼時候出現 |
 | --- | --- | --- |
 | 行政區大圓 | 直徑 52 px 圓形，白框；有 `icon` 顯示圖片，沒有就寫 `label`。有去過的景點 → 實心；只有計畫 → 白底虛線框。點了進行政區頁 | zoom 4～9 |
-| 景點 | 圓形＋類別圖示，**顏色＝類別**（`scripts/common.py` 的 `CATEGORY_COLORS`）。**去過的（visited／moved／added）大（30 px）、實心**；planned 小（20 px）、白底虛線框；unconfirmed 小、白底＋橘色「?」；skipped 小、灰色＋「×」；moved 加藍色「改」、added 加綠色「+」角標 | 一直顯示 |
+| 景點 | 圓形＋類別圖示，**顏色＝類別**（`scripts/common.py` 的 `CATEGORY_COLORS`）。**大小看大類**：`visited` 大（30 px）、`planned` 小（20 px）。**樣式看小類**（5.2 表格最後一欄） | 一直顯示 |
 | 車站 | 同景點規則，但是圓角方形、小一號，放在獨立圖層「車站」；彈出卡片多顯示 `lines` | 一直顯示，可關 |
 | 計畫路線 | 旅程顏色、虛線 | 可關 |
 | 實際路線 | 旅程顏色、實線（GPX；沒有就用 `actual` 順序連線） | 可關 |
@@ -798,7 +813,7 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
 - [ ] 新增或修改的頁都有該類型的全部必填欄位
 - [ ] `wiki/index.md` 列出所有頁
 - [ ] `wiki/log.md` 新增一筆
-- [ ] 沒有把 `> 待補` 換成編造的內容；`visited`/`moved`/`added` 都同時有 journal 和 gpx（或 percy）
+- [ ] 沒有把 `> 待補` 換成編造的內容；`visited`（除了 `unconfirmed`）都同時有 journal 和 gpx（或 percy）
 - [ ] 向 Percy 回報：改了哪些頁、待問清單
 
 ### 12.2 `lint.py` 檢查項目
@@ -811,14 +826,14 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
 | slug 重複、檔名和 slug 不一致 | 錯誤 |
 | place 沒有 `lat`/`lng`，或座標不在 `country` 的範圍內 | 錯誤 |
 | `[[連結]]` 指向不存在的頁 | 錯誤 |
-| `status` 不在七種之內 | 錯誤 |
-| `visited`/`moved`/`added` 的 `evidence` 不是同時含 `journal`＋`gpx`，也沒有 `percy` | 錯誤 |
-| `unconfirmed` 的造訪 | 待問 |
+| `status` 不是 `planned`／`visited`，或 `detail` 不是該大類的小類 | 錯誤 |
+| `visited`（除了 `unconfirmed`）的 `evidence` 不是同時含 `journal`＋`gpx`，也沒有 `percy` | 錯誤 |
+| 小類是 `unconfirmed` 的造訪 | 待問 |
 | `index.md` 沒列到的頁 | 錯誤 |
 | `sources` 指向不存在的 raw 檔 | 錯誤 |
 | `lodging-area` 標題像飯店名（含 Hotel、Hostel、旅館…） | 錯誤 |
 | 沒有任何頁連到它的孤兒頁 | 警告 |
-| 日期已過仍是 `planned` | 待問 |
+| 日期已過仍是 `planned/upcoming` | 待問 |
 | `assets/photos/` 裡還帶 EXIF 的檔 | 錯誤 |
 
 ---

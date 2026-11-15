@@ -21,15 +21,15 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[tokyo-station]] | 06:18 [[tokyo-station]] | visited |
-| [[oirase-stream]] | — | skipped |
-| [[lake-towada]] | — | skipped |
-| [[aomori-station]] | 18:28 [[aomori-station]] | visited |
-| — | 05:35 [[yokohama-station]] | added |
-| — | 09:08 [[morioka-station]] | added |
-| 原定 2026-08-12 | 11:25 [[miyako-station]] | moved |
-| 原定 2026-08-12 | 11:55 [[jodogahama]] | moved |
-| — | 17:40 [[shin-aomori-station]] | added |
+| [[tokyo-station]] | 06:18 [[tokyo-station]] | 去過・照計畫 |
+| [[oirase-stream]] | — | 計畫・沒去 |
+| [[lake-towada]] | — | 計畫・沒去 |
+| [[aomori-station]] | 18:28 [[aomori-station]] | 去過・照計畫 |
+| — | 05:35 [[yokohama-station]] | 去過・臨時加 |
+| — | 09:08 [[morioka-station]] | 去過・臨時加 |
+| 原定 2026-08-12 | 11:25 [[miyako-station]] | 去過・改期 |
+| 原定 2026-08-12 | 11:55 [[jodogahama]] | 去過・改期 |
+| — | 17:40 [[shin-aomori-station]] | 去過・臨時加 |
 
 ## 當日紀錄
 

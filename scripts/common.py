@@ -21,7 +21,12 @@ COUNTRY_BBOX = {
     "TW": (21.8, 119.3, 25.4, 122.1),
 }
 
-STATUSES = ["planned", "visited", "moved", "skipped", "added", "unconfirmed", "dropped"]
+# 5.2：status 兩大類，detail 小類
+STATUSES = ["planned", "visited"]
+DETAILS = {
+    "planned": ["upcoming", "skipped", "unconfirmed", "dropped"],
+    "visited": ["as-planned", "moved", "added", "unconfirmed"],
+}
 PAGE_TYPES = ["place", "day", "trip", "city", "region", "country", "note"]
 CATEGORIES = ["landmark", "religious", "museum", "nature", "viewpoint", "food", "shopping",
               "activity", "station", "transport", "lodging-area"]

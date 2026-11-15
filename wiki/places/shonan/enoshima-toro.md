@@ -14,7 +14,8 @@ visits:
   day: 10
   planned: '2026-08-08'
   actual: null
-  status: skipped
+  status: planned
+  detail: skipped
   evidence: [journal, percy]
 sources: [raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
@@ -31,7 +32,7 @@ updated: '2026-11-15'
 ## 造訪紀錄
 
 ### 2026-08-08（[[2026-08-japan]]）
-- 狀態：skipped（journal＋percy）— Percy 確認沒去。（白天去了江之島，晚上的燈籠沒去）
+- 狀態：計畫・沒去，`planned/skipped`（journal＋percy）— Percy 確認沒去。（白天去了江之島，晚上的燈籠沒去）
 
 ## 照片
 

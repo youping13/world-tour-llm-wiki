@@ -21,14 +21,14 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[morioka-station]] | 08:32 [[morioka-station]] | visited |
-| [[miyako-station]] | 改到 2026-08-10 | moved |
-| [[jodogahama]] | 改到 2026-08-10 | moved |
-| [[sendai-station]] | 14:28 [[sendai-station]] | visited |
-| — | 09:20 [[tazawako-station]] | added |
-| — | 10:29 [[lake-tazawa]] | added |
-| 原定 2026-08-15 | 16:59 [[matsushima-bay]] | moved |
-| 原定 2026-08-15 | 16:59 [[matsushima-kaigan-station]] | moved |
+| [[morioka-station]] | 08:32 [[morioka-station]] | 去過・照計畫 |
+| [[miyako-station]] | 改到 2026-08-10 | 去過・改期 |
+| [[jodogahama]] | 改到 2026-08-10 | 去過・改期 |
+| [[sendai-station]] | 14:28 [[sendai-station]] | 去過・照計畫 |
+| — | 09:20 [[tazawako-station]] | 去過・臨時加 |
+| — | 10:29 [[lake-tazawa]] | 去過・臨時加 |
+| 原定 2026-08-15 | 16:59 [[matsushima-bay]] | 去過・改期 |
+| 原定 2026-08-15 | 16:59 [[matsushima-kaigan-station]] | 去過・改期 |
 
 ## 當日紀錄
 

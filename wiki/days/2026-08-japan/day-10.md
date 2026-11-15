@@ -22,19 +22,19 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[yokohama-station]] | 04:58 [[yokohama-station]] | visited |
-| [[fujisawa-station]] | 10:27 [[fujisawa-station]] | visited |
-| [[shichirigahama]] | 06:45 [[shichirigahama]] | visited |
-| [[kamakura-koko-mae-crossing]] | 07:59 [[kamakura-koko-mae-crossing]] | visited |
-| [[enoshima]] | 08:20 [[enoshima]] | visited |
-| [[enoshima-toro]] | — | skipped |
-| — | 06:19 [[kamakura-station]] | added |
-| — | 06:47 [[shichirigahama-station]] | added |
-| — | 09:13 [[enoshima-aquarium]] | added |
-| — | 10:03 [[katase-enoshima-station]] | added |
-| — | 10:27 [[bic-camera-fujisawa]] | added |
-| — | 12:10 [[odawara-station]] | added |
-| — | 12:30 [[odawara-castle]] | added |
+| [[yokohama-station]] | 04:58 [[yokohama-station]] | 去過・照計畫 |
+| [[fujisawa-station]] | 10:27 [[fujisawa-station]] | 去過・照計畫 |
+| [[shichirigahama]] | 06:45 [[shichirigahama]] | 去過・照計畫 |
+| [[kamakura-koko-mae-crossing]] | 07:59 [[kamakura-koko-mae-crossing]] | 去過・照計畫 |
+| [[enoshima]] | 08:20 [[enoshima]] | 去過・照計畫 |
+| [[enoshima-toro]] | — | 計畫・沒去 |
+| — | 06:19 [[kamakura-station]] | 去過・臨時加 |
+| — | 06:47 [[shichirigahama-station]] | 去過・臨時加 |
+| — | 09:13 [[enoshima-aquarium]] | 去過・臨時加 |
+| — | 10:03 [[katase-enoshima-station]] | 去過・臨時加 |
+| — | 10:27 [[bic-camera-fujisawa]] | 去過・臨時加 |
+| — | 12:10 [[odawara-station]] | 去過・臨時加 |
+| — | 12:30 [[odawara-castle]] | 去過・臨時加 |
 
 ## 當日紀錄
 

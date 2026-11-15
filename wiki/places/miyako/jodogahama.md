@@ -14,7 +14,8 @@ visits:
   day: 14
   planned: '2026-08-12'
   actual: '2026-08-10'
-  status: moved
+  status: visited
+  detail: moved
   evidence: [journal, gpx]
 sources: [raw/journal/2026-08-japan/2026-08-10.md, raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
@@ -33,7 +34,7 @@ updated: '2026-11-15'
 ### 2026-08-10（[[2026-08-japan]]）
 - 移動：鐵路 → 盛岡 → 巴士 → 宮古 → 巴士
 - 天氣：淨土之濱陰天；青森傍晚晚霞
-- 狀態：moved（journal＋gpx）
+- 狀態：去過・改期，`visited/moved`（journal＋gpx）
 - 日程：[[2026-08-japan/day-12]]
 
 

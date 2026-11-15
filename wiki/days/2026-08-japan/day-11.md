@@ -21,14 +21,14 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[omuroyama]] | — | skipped |
-| [[jogasaki-coast]] | 13:03 [[jogasaki-coast]] | visited |
-| [[atami-sun-beach]] | 11:33 [[atami-sun-beach]] | visited |
-| — | 09:19 [[yokohama-station]] | added |
-| — | 11:07 [[atami-station]] | added |
-| — | 12:15 [[jogasaki-kaigan-station]] | added |
-| — | 14:41 [[futo-station]] | added |
-| — | 15:16 [[ito-station]] | added |
+| [[omuroyama]] | — | 計畫・沒去 |
+| [[jogasaki-coast]] | 13:03 [[jogasaki-coast]] | 去過・照計畫 |
+| [[atami-sun-beach]] | 11:33 [[atami-sun-beach]] | 去過・照計畫 |
+| — | 09:19 [[yokohama-station]] | 去過・臨時加 |
+| — | 11:07 [[atami-station]] | 去過・臨時加 |
+| — | 12:15 [[jogasaki-kaigan-station]] | 去過・臨時加 |
+| — | 14:41 [[futo-station]] | 去過・臨時加 |
+| — | 15:16 [[ito-station]] | 去過・臨時加 |
 
 ## 當日紀錄
 

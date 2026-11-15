@@ -21,12 +21,12 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[thingvellir]] | — | planned |
-| [[strokkur]] | — | planned |
-| [[gullfoss]] | — | planned |
-| [[kerid]] | — | planned |
-| [[seljalandsfoss]] | — | planned |
-| [[skogafoss]] | — | planned |
+| [[thingvellir]] | — | 計畫・還沒去 |
+| [[strokkur]] | — | 計畫・還沒去 |
+| [[gullfoss]] | — | 計畫・還沒去 |
+| [[kerid]] | — | 計畫・還沒去 |
+| [[seljalandsfoss]] | — | 計畫・還沒去 |
+| [[skogafoss]] | — | 計畫・還沒去 |
 
 ## 當日紀錄
 

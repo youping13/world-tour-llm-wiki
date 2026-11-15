@@ -14,7 +14,8 @@ visits:
   day: 10
   planned: null
   actual: '2026-08-08'
-  status: added
+  status: visited
+  detail: added
   evidence: [journal, gpx]
 sources: [raw/journal/2026-08-japan/2026-08-08.md]
 updated: '2026-11-15'
@@ -33,7 +34,7 @@ updated: '2026-11-15'
 ### 2026-08-08（[[2026-08-japan]]）
 - 移動：步行過藤澤站前天橋
 - 天氣：早上晴、看得到富士山；熱；下午風很大。之後行程因颱風調整
-- 狀態：added（journal＋gpx）
+- 狀態：去過・臨時加，`visited/added`（journal＋gpx）
 - 日程：[[2026-08-japan/day-10]]
 
 

@@ -21,14 +21,14 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[bandai-azuma-skyline]] | — | skipped |
-| [[jododaira]] | — | skipped |
-| [[azuma-kofuji]] | — | skipped |
-| [[zao-fox-village]] | — | skipped |
-| — | 07:24 [[sendai-station]] | added |
-| — | 08:18 [[ishinomaki-station]] | added |
-| — | 09:55 [[tashirojima]] | added |
-| — | 13:52 [[kadonowaki-elementary]] | added |
+| [[bandai-azuma-skyline]] | — | 計畫・沒去 |
+| [[jododaira]] | — | 計畫・沒去 |
+| [[azuma-kofuji]] | — | 計畫・沒去 |
+| [[zao-fox-village]] | — | 計畫・沒去 |
+| — | 07:24 [[sendai-station]] | 去過・臨時加 |
+| — | 08:18 [[ishinomaki-station]] | 去過・臨時加 |
+| — | 09:55 [[tashirojima]] | 去過・臨時加 |
+| — | 13:52 [[kadonowaki-elementary]] | 去過・臨時加 |
 
 ## 當日紀錄
 

@@ -50,8 +50,10 @@
       if (mine.length) return mine[0];
     }
     // 沒指定旅程：優先顯示已發生的造訪
-    var order = ["visited", "moved", "added", "unconfirmed", "skipped", "planned", "dropped"];
-    return v.slice().sort(function (a, b) { return order.indexOf(a.status) - order.indexOf(b.status); })[0] || {};
+    var order = ["visited/as-planned", "visited/moved", "visited/added", "visited/unconfirmed",
+      "planned/unconfirmed", "planned/skipped", "planned/upcoming", "planned/dropped"];
+    function k(x) { return order.indexOf(x.status + "/" + x.detail); }
+    return v.slice().sort(function (a, b) { return k(a) - k(b); })[0] || {};
   }
 
   // 類別圖示（24×24，白色填滿；在 CSS 裡用 currentColor 換色）
@@ -72,11 +74,11 @@
     return '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="' +
       (ICON[cat] || ICON.landmark) + '"/></svg>';
   }
-  var DONE = { visited: 1, moved: 1, added: 1 };
+  // status 大類決定大小（visited 大、planned 小），detail 小類決定樣式與角標
+  var BADGE = { moved: "改", added: "+", unconfirmed: "?", skipped: "×" };
   document.querySelectorAll(".legend .pin[data-cat]").forEach(function (el) {
     el.insertAdjacentHTML("afterbegin", svg(el.getAttribute("data-cat")));
   });
-  var BADGE = { moved: "改", added: "+", unconfirmed: "?", skipped: "×" };
 
   function draw(D) {
     var trips = D.trips, stz = D.status_zh, cz = D.cat_zh, cc = D.cat_color;
@@ -88,23 +90,23 @@
     D.places.forEach(function (p) {
       if (p.lat == null) return;
       var v = visitFor(p);
-      if (v.status === "dropped") return;
+      if (v.detail === "dropped") return;
       if (only && !only.has(p.slug)) return;
       if (tripPage && !(p.visits || []).some(function (x) { return x.trip === P.trip; })) return;
-      var st = v.status || "planned", isStation = p.category === "station";
-      var done = !!DONE[st];
-      // 大小：去過的大、沒去過的小；車站一律小一號
-      var size = done ? (isStation ? 20 : 30) : (st === "skipped" ? 16 : (isStation ? 14 : 20));
-      var badge = BADGE[st] ? '<b class="pin-badge b-' + st + '">' + BADGE[st] + "</b>" : "";
+      var big = v.status === "visited", dt = v.detail || "upcoming", isStation = p.category === "station";
+      var done = big && dt !== "unconfirmed";
+      // 大小：visited 大、planned 小；車站一律小一號
+      var size = big ? (isStation ? 20 : 30) : (dt === "skipped" ? 16 : (isStation ? 14 : 20));
+      var badge = BADGE[dt] ? '<b class="pin-badge b-' + dt + '">' + BADGE[dt] + "</b>" : "";
       var icon = L.divIcon({
         className: "", iconSize: [size, size], iconAnchor: [size / 2, size / 2],
-        html: '<div class="pin ' + (done ? "done" : "s-" + st) + (isStation ? " stn" : "") +
+        html: '<div class="pin ' + (done ? "done" : "s-" + dt) + (isStation ? " stn" : "") +
           (P.type === "place" && p.slug !== P.slug ? " dim" : "") + '" style="--c:' + (cc[p.category] || "#555") +
           ";width:" + size + "px;height:" + size + 'px">' + svg(p.category) + badge + "</div>"
       });
       var date = v.actual || v.planned || "";
       var html = "<b>" + p.title + "</b><br><span class='pp-s'>" + (cz[p.category] || "") +
-        (v.status ? " · " + stz[v.status] : "") + (date ? " · " + date : "") + "</span>" +
+        (v.status ? " · " + stz[v.status + "/" + v.detail] : "") + (date ? " · " + date : "") + "</span>" +
         (p.lines && p.lines.length ? "<br><span class='pp-s'>" + p.lines.join("、") + "</span>" : "") +
         (p.thumb ? "<img src='" + ROOT + p.thumb + "' alt=''>" : "") +
         "<br><a href='" + ROOT + p.url + "'>看全文</a>";

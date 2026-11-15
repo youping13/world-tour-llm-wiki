@@ -14,7 +14,8 @@ visits:
   day: 8
   planned: null
   actual: '2026-08-06'
-  status: added
+  status: visited
+  detail: added
   evidence: [journal, gpx]
 sources: [raw/journal/2026-08-japan/2026-08-06.md]
 updated: '2026-11-15'
@@ -32,7 +33,7 @@ updated: '2026-11-15'
 
 ### 2026-08-06（[[2026-08-japan]]）
 - 移動：電車 → 神宮前站
-- 狀態：added（journal＋gpx）
+- 狀態：去過・臨時加，`visited/added`（journal＋gpx）
 - 日程：[[2026-08-japan/day-08]]
 
 

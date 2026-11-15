@@ -21,15 +21,15 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[matsushima-bay]] | 改到 2026-08-12 | moved |
-| [[matsushima-cruise]] | — | skipped |
-| [[hanamaki-airport]] | 19:15 [[hanamaki-airport]] | visited |
-| — | 06:28 [[sendai-station]] | added |
-| — | 07:10 [[ichinoseki-station]] | added |
-| — | 07:49 [[geibikei]] | added |
-| — | 07:49 [[geibikei-station]] | added |
-| — | 12:19 [[hanamaki-station]] | added |
-| — | 14:39 [[hanamaki-kuko-station]] | added |
+| [[matsushima-bay]] | 改到 2026-08-12 | 去過・改期 |
+| [[matsushima-cruise]] | — | 計畫・沒去 |
+| [[hanamaki-airport]] | 19:15 [[hanamaki-airport]] | 去過・照計畫 |
+| — | 06:28 [[sendai-station]] | 去過・臨時加 |
+| — | 07:10 [[ichinoseki-station]] | 去過・臨時加 |
+| — | 07:49 [[geibikei]] | 去過・臨時加 |
+| — | 07:49 [[geibikei-station]] | 去過・臨時加 |
+| — | 12:19 [[hanamaki-station]] | 去過・臨時加 |
+| — | 14:39 [[hanamaki-kuko-station]] | 去過・臨時加 |
 
 ## 當日紀錄
 

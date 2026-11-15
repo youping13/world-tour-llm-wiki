@@ -14,7 +14,8 @@ visits:
   day: 16
   planned: '2026-08-14'
   actual: null
-  status: skipped
+  status: planned
+  detail: skipped
   evidence: [journal]
 sources: [raw/plans/2026-08-japan/plan-v2.md]
 updated: '2026-11-15'
@@ -31,7 +32,7 @@ updated: '2026-11-15'
 ## 造訪紀錄
 
 ### 2026-08-14（[[2026-08-japan]]）
-- 狀態：skipped（journal）— 日記寫沒去，GPX 也沒有經過。
+- 狀態：計畫・沒去，`planned/skipped`（journal）— 日記寫沒去，GPX 也沒有經過。
 
 ## 照片
 

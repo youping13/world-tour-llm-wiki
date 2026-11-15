@@ -21,7 +21,7 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[aichi-sky-expo]] | [[aichi-sky-expo]] | visited |
+| [[aichi-sky-expo]] | [[aichi-sky-expo]] | 去過・照計畫 |
 
 ## 當日紀錄
 

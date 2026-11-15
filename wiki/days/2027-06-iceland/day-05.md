@@ -21,11 +21,11 @@ updated: '2026-11-15'
 
 | 計畫 | 實際 | status |
 | --- | --- | --- |
-| [[studlagil]] | — | planned |
-| [[dettifoss]] | — | planned |
-| [[namaskard]] | — | planned |
-| [[dimmuborgir]] | — | planned |
-| [[skutustadagigar]] | — | planned |
+| [[studlagil]] | — | 計畫・還沒去 |
+| [[dettifoss]] | — | 計畫・還沒去 |
+| [[namaskard]] | — | 計畫・還沒去 |
+| [[dimmuborgir]] | — | 計畫・還沒去 |
+| [[skutustadagigar]] | — | 計畫・還沒去 |
 
 ## 當日紀錄
 
