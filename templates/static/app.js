@@ -83,7 +83,8 @@
   function draw(D) {
     var trips = D.trips, stz = D.status_zh, cz = D.cat_zh, cc = D.cat_color;
     var placesL = L.layerGroup(), stationsL = L.layerGroup(), planL = L.layerGroup(), actualL = L.layerGroup(),
-      regionsL = L.layerGroup();
+      regionsL = L.layerGroup(), plannedL = L.layerGroup(), plannedRegionsL = L.layerGroup(), planToggle = L.layerGroup();
+    var visitedInView = 0, fitB = P.fit ? L.latLngBounds(P.fit) : null;
     var only = P.only ? new Set(P.only) : null;
     var tripPage = P.type === "trip" || P.type === "day";
 
@@ -110,8 +111,11 @@
         (p.lines && p.lines.length ? "<br><span class='pp-s'>" + p.lines.join("、") + "</span>" : "") +
         (p.thumb ? "<img src='" + ROOT + p.thumb + "' alt=''>" : "") +
         "<br><a href='" + ROOT + p.url + "'>看全文</a>";
+      // 計畫的（planned）放進「計畫」圖層，預設不顯示；景點頁自己那個點例外
+      var target = (!big && p.slug !== P.slug) ? plannedL : (isStation ? stationsL : placesL);
+      if (big && (!fitB || fitB.contains([p.lat, p.lng]))) visitedInView++;
       L.marker([p.lat, p.lng], { icon: icon, title: p.title, zIndexOffset: done ? 200 : (isStation ? -100 : 0) })
-        .bindPopup(html).addTo(isStation ? stationsL : placesL);
+        .bindPopup(html).addTo(target);
     });
 
     // 行政區大圓：有圖片用圖片，沒有就寫字；去過的實心，只有計畫的空心
@@ -126,7 +130,8 @@
         html: '<div class="region-wrap"><a class="region' + (r.visited ? " done" : "") + (r.label.length > 2 ? " long" : "") +
           '" style="--c:' + color + '" href="' + ROOT + r.url + '" title="' + r.title + '">' + inner + "</a></div>"
       });
-      L.marker([r.lat, r.lng], { icon: icon, title: r.title, zIndexOffset: 1000, keyboard: false }).addTo(regionsL);
+      L.marker([r.lat, r.lng], { icon: icon, title: r.title, zIndexOffset: 1000, keyboard: false })
+        .addTo(r.visited ? regionsL : plannedRegionsL);
     });
 
     Object.keys(D.routes).forEach(function (t) {
@@ -144,21 +149,28 @@
       });
     });
 
-    [actualL, planL].forEach(function (l) { l.addTo(map); });
+    // 計畫（planned 景點、計畫路線、只有計畫的行政區）預設隱藏，勾選才顯示。
+    // 例外：畫面範圍內一個去過的地方都沒有（例如還沒出發的旅程），就自動顯示計畫。
+    var planOn = visitedInView === 0;
+    actualL.addTo(map);
+    if (planOn) planToggle.addTo(map);
     L.control.layers(null, {
       "都道府縣／縣市／州": regionsL, "景點": placesL, "車站": stationsL,
-      "計畫路線（虛線）": planL, "實際路線（實線）": actualL
-    }, { position: "topright", collapsed: true }).addTo(map);
+      "實際路線（實線）": actualL, "計畫（景點、虛線路線）": planToggle
+    }, { position: "topright", collapsed: mobile.matches }).addTo(map);
 
     // 縮放分工（9.4）：zoom ≤ 8 只顯示行政區大圓；zoom ≥ 9 才顯示景點與車站的小圈圈。
     // 日程頁、景點頁本來就是看景點：小圈圈一直顯示，不顯示大圓。
     var SPLIT = 8, always = P.type === "day" || P.type === "place";
     var userOn = new Map([[regionsL, true], [placesL, true], [stationsL, true]]), syncing = false;
     map.on("overlayadd overlayremove", function (e) {
-      if (!syncing && userOn.has(e.layer)) userOn.set(e.layer, e.type === "overlayadd");
+      if (syncing) return;
+      if (userOn.has(e.layer)) userOn.set(e.layer, e.type === "overlayadd");
+      if (e.layer === planToggle) planOn = e.type === "overlayadd";
+      syncZoom();
     });
-    function want(layer, show) {
-      show = show && userOn.get(layer);
+    function want(layer, show, follow) {
+      show = show && userOn.get(follow || layer);
       if (show && !map.hasLayer(layer)) map.addLayer(layer);
       if (!show && map.hasLayer(layer)) map.removeLayer(layer);
     }
@@ -168,6 +180,9 @@
       want(regionsL, !always && z <= SPLIT);
       want(placesL, always || z > SPLIT);
       want(stationsL, always || z > SPLIT);
+      want(plannedRegionsL, planOn && !always && z <= SPLIT, regionsL);
+      want(plannedL, planOn && (always || z > SPLIT), placesL);
+      want(planL, planOn, placesL);
       syncing = false;
       // 大圓隨縮放變大變小，避免全部疊在一起
       map.getContainer().dataset.zb = z <= 5 ? "s" : (z <= 6 ? "m" : "l");
