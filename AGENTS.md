@@ -801,6 +801,7 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
 - 不確定就問，不要猜。尤其是：地名對應不到、status 判定不了、座標查不到。
 - 一次 ingest 一份來源；多份來源時一份一份做，每份各寫一筆 log。
 - 客觀介紹（「清水寺是…」）可以用 AI 的一般知識，但不能寫成 Percy 的經驗。
+- **每完成一件事就自己 commit**：一件事一個 commit，不要把好幾件事混在同一個 commit；commit 前先跑 lint 和 build。push 還是要先問 Percy。
 - commit 訊息格式：`<操作>: <標題>`，例：`ingest: 2027-06-iceland plan-v1`。
 
 ---
@@ -814,6 +815,7 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
 - [ ] 新增或修改的頁都有該類型的全部必填欄位
 - [ ] `wiki/index.md` 列出所有頁
 - [ ] `wiki/log.md` 新增一筆
+- [ ] 自己 commit（一件事一個 commit，第 11 節）
 - [ ] 沒有把 `> 待補` 換成編造的內容；`visited`（除了 `unconfirmed`）都同時有 journal 和 gpx（或 percy）
 - [ ] 向 Percy 回報：改了哪些頁、待問清單
 

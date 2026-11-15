@@ -81,3 +81,6 @@
 ## [2026-11-15] build | 照片改成 144p
 - 修改：photos.py 短邊 144 px、縮圖 96 px；AGENTS.md 6.4、10
 - 修改：[[jogasaki-coast]]、[[jodogahama]] 的照片重新縮成 144p（原檔已刪，從 360p 版縮小）
+
+## [2026-11-15] schema | 每完成一件事就自己 commit
+- 修改：AGENTS.md 第 11 節、12.1（一件事一個 commit；push 仍要先問）
