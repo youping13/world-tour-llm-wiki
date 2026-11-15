@@ -69,3 +69,7 @@
 - 修改：AGENTS.md 4.1、5.2、5.3、9.4、12；`status` 只剩 `planned`／`visited`，新增 `detail`（upcoming、skipped、unconfirmed、dropped／as-planned、moved、added、unconfirmed）
 - 修改：所有景點頁的 visits、日程頁與旅程頁的「計畫 vs 實際」改用中文標籤（例：去過・照計畫）
 - 修改：lint.py、build.py、地圖標記與圖例
+
+## [2026-11-15] build | 地圖縮放分工
+- 修改：zoom ≤ 8 只顯示行政區大圓（越小縮得越小），zoom ≥ 9 才顯示景點與車站；日程頁、景點頁一直顯示景點、不顯示大圓
+- 修改：AGENTS.md 9.4

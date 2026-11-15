@@ -123,8 +123,8 @@
       var inner = r.icon ? '<img src="' + ROOT + r.icon + '" alt="">' : "<span>" + r.label + "</span>";
       var icon = L.divIcon({
         className: "", iconSize: [52, 52], iconAnchor: [26, 26],
-        html: '<a class="region' + (r.visited ? " done" : "") + (r.label.length > 2 ? " long" : "") +
-          '" style="--c:' + color + '" href="' + ROOT + r.url + '" title="' + r.title + '">' + inner + "</a>"
+        html: '<div class="region-wrap"><a class="region' + (r.visited ? " done" : "") + (r.label.length > 2 ? " long" : "") +
+          '" style="--c:' + color + '" href="' + ROOT + r.url + '" title="' + r.title + '">' + inner + "</a></div>"
       });
       L.marker([r.lat, r.lng], { icon: icon, title: r.title, zIndexOffset: 1000, keyboard: false }).addTo(regionsL);
     });
@@ -144,25 +144,35 @@
       });
     });
 
-    [actualL, planL, stationsL, placesL].forEach(function (l) { l.addTo(map); });
+    [actualL, planL].forEach(function (l) { l.addTo(map); });
     L.control.layers(null, {
       "都道府縣／縣市／州": regionsL, "景點": placesL, "車站": stationsL,
       "計畫路線（虛線）": planL, "實際路線（實線）": actualL
     }, { position: "topright", collapsed: true }).addTo(map);
 
-    // 行政區大圓只在縮小時出現（zoom 4～9），放大後讓位給景點
-    var regionsOn = true, syncing = false;
+    // 縮放分工（9.4）：zoom ≤ 8 只顯示行政區大圓；zoom ≥ 9 才顯示景點與車站的小圈圈。
+    // 日程頁、景點頁本來就是看景點：小圈圈一直顯示，不顯示大圓。
+    var SPLIT = 8, always = P.type === "day" || P.type === "place";
+    var userOn = new Map([[regionsL, true], [placesL, true], [stationsL, true]]), syncing = false;
     map.on("overlayadd overlayremove", function (e) {
-      if (e.layer === regionsL && !syncing) regionsOn = e.type === "overlayadd";
+      if (!syncing && userOn.has(e.layer)) userOn.set(e.layer, e.type === "overlayadd");
     });
-    function syncRegions() {
-      var z = map.getZoom(), show = regionsOn && z >= 4 && z <= 9;
-      syncing = true;
-      if (show && !map.hasLayer(regionsL)) map.addLayer(regionsL);
-      if (!show && map.hasLayer(regionsL)) map.removeLayer(regionsL);
-      syncing = false;
+    function want(layer, show) {
+      show = show && userOn.get(layer);
+      if (show && !map.hasLayer(layer)) map.addLayer(layer);
+      if (!show && map.hasLayer(layer)) map.removeLayer(layer);
     }
-    map.on("zoomend", syncRegions);
+    function syncZoom() {
+      var z = map.getZoom();
+      syncing = true;
+      want(regionsL, !always && z <= SPLIT);
+      want(placesL, always || z > SPLIT);
+      want(stationsL, always || z > SPLIT);
+      syncing = false;
+      // 大圓隨縮放變大變小，避免全部疊在一起
+      map.getContainer().dataset.zb = z <= 5 ? "s" : (z <= 6 ? "m" : "l");
+    }
+    map.on("zoomend", syncZoom);
 
     if (P.center && P.center[0] != null) map.setView(P.center, P.zoom || 12);
     else if (P.fit) map.fitBounds(P.fit, Object.assign({ maxZoom: 15 }, pad()));
@@ -171,7 +181,7 @@
       if (all.length) map.fitBounds(all, Object.assign({ maxZoom: 6 }, pad()));
     }
     if (P.type === "place" && !mobile.matches && !panel.classList.contains("collapsed")) map.panBy([-210, 0], { animate: false });
-    syncRegions();
+    syncZoom();
 
     search(D);
   }
