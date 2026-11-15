@@ -4,8 +4,8 @@ title: 渡嘉敷港
 slug: tokashiki-port
 city: tokashiki
 country: JP
-lat: 26.195
-lng: 127.3658
+lat: 26.1979
+lng: 127.3673
 coord_source: manual
 category: transport
 trips: [2026-01-okinawa]
