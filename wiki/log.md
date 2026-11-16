@@ -120,3 +120,10 @@
 - 修改：「怎麼看」「圖例」改成收合的下拉選單，預設隱藏；圖例補上手繪路線（點線）
 - 新增：國家卡片（首頁、索引）與旅程卡片（首頁、全部旅程、國家頁），用國旗 SVG 標示（`templates/static/flags/`，flag-icons，MIT）
 - 修改：AGENTS.md 9.2、9.4
+
+## [2026-11-16] build | 世界縮放只顯示國家（國旗）、迷霧地圖
+- 新增：`scripts/boundaries.py`、`assets/boundaries/jp.geojson`、`is.geojson`（Natural Earth 1:10m admin-1，簡化約 500 m）
+- 修改：地圖縮放分三層：zoom ≤ 4 國家（國旗＋國名）、5～8 行政區大圓、≥ 9 景點
+- 修改：迷霧圖層：全世界蓋霧，去過景點的行政區解鎖；圖層開關改成只代表使用者的選擇
+- 修改：[[capital-region]] 加 `boundary: [IS-0, IS-1]`（首都區在 Natural Earth 分成兩塊）
+- 修改：AGENTS.md 3.1、4.5、9.3、9.4、9.6

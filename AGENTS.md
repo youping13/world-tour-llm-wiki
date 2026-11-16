@@ -79,6 +79,7 @@ world-tour-llm-wiki/
 │  ├─ photos/<place>/YYYYMMDD-NN.webp   # 公開照片（144p、已清中繼資料）
 │  ├─ photos/<place>/YYYYMMDD-NN-thumb.webp
 │  ├─ regions/<region>.webp             # 行政區大圓圖片（正方形 160 px）
+│  ├─ boundaries/<cc>.geojson           # 一級行政區邊界（迷霧地圖用，boundaries.py 產生）
 │  └─ tracks/<trip>/YYYY-MM-DD.geojson  # 簡化、去頭尾後的公開軌跡
 ├─ scripts/
 │  ├─ build.py                          # wiki/ + assets/ → site/
@@ -86,6 +87,7 @@ world-tour-llm-wiki/
 │  ├─ tracks.py                         # GPX → 公開 geojson ＋ 停留點分析
 │  ├─ stations.py                       # GPX × 車站資料 → 車站候選清單
 │  ├─ photos.py                         # 照片 144p、WebP、清中繼資料、對應景點；--regions 處理行政區圖片
+│  ├─ boundaries.py                     # Natural Earth 行政區邊界 → assets/boundaries/（新增國家時跑）
 │  └─ lint.py                           # 機械式檢查
 ├─ templates/                       # build.py 用的 Jinja2 模板與 CSS/JS
 ├─ reports/                         # AI 給 Percy 的待問清單（例：車站比對），.gitignore
@@ -344,6 +346,7 @@ icon: null                # Percy 有給圖片就填 assets/regions/<region>.web
 lat: <大圓位置>
 lng: <大圓位置>
 zoom: 9
+boundary: []              # 可省略：迷霧地圖的邊界（ISO 3166-2，例 [IS-0, IS-1]）；省略就用座標自動對（9.4）
 cities: [<city>]
 trips: [<trip>]
 sources: []
@@ -370,6 +373,7 @@ updated: <YYYY-MM-DD>
 ```
 
 - 新增城市時一定要指定 `region`；該行政區還沒有頁就先建。
+- 新增國家時跑 `uv run scripts/boundaries.py <CC>` 產生邊界；build 會印出沒對到邊界的行政區，這時在 region 頁填 `boundary`。
 - 圖片：Percy 把圖放在 `raw/regions/<region>.(jpg|png)`，跑 `uv run scripts/photos.py --regions` 轉成 `assets/regions/<region>.webp`（置中裁成正方形、清中繼資料），再把 `icon` 填上。
 
 ### 4.6 `country` 國家
@@ -732,7 +736,7 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
 
 | 頁面 | 網址 | 地圖範圍 | 面板內容 |
 | --- | --- | --- | --- |
-| 首頁 | `/` | 全世界所有景點 | `overview.md`、旅程列表、圖例 |
+| 首頁 | `/` | 全世界（國家標記） | `overview.md`、國家與旅程卡片、圖例 |
 | 國家 | `/countries/<cc>/` | 該國 | 國家頁 |
 | 行政區 | `/regions/<region>/` | 該行政區所有景點 | 行政區頁 |
 | 城市 | `/cities/<city>/` | 該城市所有景點 | 城市頁 |
@@ -744,15 +748,17 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
 
 ### 9.4 地圖標記與路線
 
-三種東西的顏色**互相分開**：景點看類別、路線看旅程、行政區大圓各自一色。**縮放分工**：縮小（zoom ≤ 8）只看行政區大圓，放大（zoom ≥ 9）才出現景點和車站的小圈圈，避免全部疊在一起。
+三種東西的顏色**互相分開**：景點看類別、路線看旅程、行政區大圓各自一色。**縮放分工**：世界（zoom ≤ 4）只看國家（國旗＋國名）；國家（zoom 5～8）看行政區大圓；放大（zoom ≥ 9）才出現景點和車站的小圈圈，避免全部疊在一起。
 
 | 圖層 | 樣式 | 什麼時候出現 |
 | --- | --- | --- |
-| 行政區大圓 | 直徑 52 px 圓形（zoom 6 縮成 42 px、zoom ≤ 5 縮成 32 px），白框；有 `icon` 顯示圖片，沒有就寫 `label`。有去過的景點 → 實心；只有計畫 → 白底虛線框。點了進行政區頁 | zoom ≤ 8；日程頁、景點頁不顯示 |
+| 國家 | 膠囊形：國旗（9.4 卡片那段的 SVG）＋國名；有去過 → 白框實心，只有計畫 → 虛線框。點了進國家頁 | zoom ≤ 4；日程頁、景點頁不顯示 |
+| 行政區大圓 | 直徑 52 px 圓形（zoom 6 縮成 42 px、zoom 5 縮成 32 px），白框；有 `icon` 顯示圖片，沒有就寫 `label`。有去過的景點 → 實心；只有計畫 → 白底虛線框。點了進行政區頁 | zoom 5～8；日程頁、景點頁不顯示 |
 | 景點 | 圓形＋類別圖示，**顏色＝類別**（`scripts/common.py` 的 `CATEGORY_COLORS`）。**大小看大類**：`visited` 大（30 px）、`planned` 小（20 px）。**樣式看小類**（5.2 表格最後一欄） | zoom ≥ 9；日程頁、景點頁一直顯示 |
 | 車站 | 同景點規則，但是圓角方形、小一號，放在獨立圖層「車站」；彈出卡片多顯示 `lines` | 同景點，可關 |
 | 計畫路線 | 旅程顏色、虛線 | 跟著「計畫」勾選 |
 | 實際路線 | 旅程顏色、實線（GPX；沒有就用 `actual` 順序連線）；手繪重建的路線（6.3 第 4 點）用點線 | 可關 |
+| 迷霧 | 全世界蓋一層半透明灰霧，**有去過景點的行政區挖空（解鎖）**並用行政區顏色描邊；收錄國家的其他行政區用白色細線畫邊界。邊界來自 `assets/boundaries/`（Natural Earth 1:10m admin-1，公有領域，簡化到約 500 m） | 預設顯示，可關 |
 
 - 類別顏色：landmark 藍、religious 紫、museum 棕、nature 綠、viewpoint 青、food 洋紅、shopping 靛、activity 金、station 灰藍、transport 灰、lodging-area 深棕。旅程顏色（trip 的 `color`）要避開這些顏色。
 - 點標記 → 彈出卡片：標題、類別、status、日期、縮圖、「看全文」連結。
@@ -763,7 +769,7 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
   - 旅程卡片：國旗（跨國就放多面）＋期間、旅程名稱（大字）、小字「已完成／規劃中 · N 天 · 去過 N 個點」，左邊色條＝旅程顏色，一列一張，新的在上面。未來的旅程期間只到月。
   - 國旗 SVG 放在 `templates/static/flags/<cc>.svg`（來源 [flag-icons](https://github.com/lipis/flag-icons) 的 `flags/4x3/`，MIT）。新增國家時從 flag-icons 複製那一國的檔案；沒有檔案就顯示國家代碼。
 - **計畫預設隱藏**：大類是 `planned` 的景點、計畫路線、只有計畫的行政區大圓，都放在「計畫」圖層，**預設不顯示**，右上角勾「計畫（景點、虛線路線）」才出現。例外：畫面範圍內一個去過的地方都沒有（例如還沒出發的旅程頁），就自動勾起來；景點頁自己那個點一定顯示。
-- 右上角圖層開關（桌機預設展開、手機收合）：行政區、景點、車站、實際路線、計畫。
+- 右上角圖層開關（桌機預設展開、手機收合）：國家／行政區、景點、車站、實際路線、計畫、迷霧。勾選框只代表要不要顯示，縮放到哪一層顯示什麼由縮放分工決定。
 
 ### 9.5 日期顯示（隱私）
 
@@ -775,7 +781,8 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
 
 `site/` 結構對應 9.3 的網址，另外：
 
-- `site/data/wiki.json`：所有景點（slug、title、lat、lng、category、visits、縮圖）、旅程、每天的計畫線與實際線。網頁的地圖與搜尋都讀這個檔。
+- `site/data/wiki.json`：所有景點（slug、title、lat、lng、category、visits、縮圖）、旅程、國家、行政區、每天的計畫線與實際線。網頁的地圖與搜尋都讀這個檔。
+- `site/data/boundaries.json`：迷霧地圖用的行政區邊界，每個邊界標上對到的 region 與有沒有去過。
 
 ---
 

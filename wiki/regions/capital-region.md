@@ -9,6 +9,7 @@ icon: null
 lat: 64.13
 lng: -21.9
 zoom: 10
+boundary: [IS-0, IS-1]
 cities: [reykjavik]
 trips: [2027-06-iceland]
 sources: []

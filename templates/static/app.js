@@ -134,6 +134,36 @@
         .addTo(r.visited ? regionsL : plannedRegionsL);
     });
 
+    // 國家標記（世界縮放 zoom ≤ 4）：國旗＋國名，點了進國家頁
+    var countriesL = L.layerGroup();
+    (D.countries || []).forEach(function (c) {
+      if (c.lat == null) return;
+      var flag = c.flag ? '<img src="' + ROOT + c.flag + '" alt="">' : "<i>" + c.cc + "</i>";
+      L.marker([c.lat, c.lng], {
+        icon: L.divIcon({ className: "", iconSize: null, iconAnchor: [0, 0],
+          html: '<a class="country' + (c.visited ? " done" : "") + '" href="' + ROOT + c.url + '">' + flag + "<span>" + c.name + "</span></a>" }),
+        title: c.name, zIndexOffset: 1100, keyboard: false
+      }).addTo(countriesL);
+    });
+
+    // 迷霧地圖（9.4）：全世界蓋一層霧，去過的行政區挖洞「解鎖」；收錄國家的行政區畫邊界
+    var fogL = L.layerGroup();
+    map.createPane("fog").style.zIndex = 350;   // 在圖磚之上、路線與標記之下
+    fetch(ROOT + "data/boundaries.json").then(function (r) { return r.ok ? r.json() : null; }).then(function (B) {
+      if (!B) return;
+      var holes = [], ll = function (ring) { return ring.map(function (p) { return [p[1], p[0]]; }); };
+      B.features.forEach(function (f) {
+        var pr = f.properties;
+        if (pr.visited) f.geometry.coordinates.forEach(function (poly) { holes.push(ll(poly[0])); });
+        L.geoJSON(f, { pane: "fog", interactive: false, style: pr.visited
+          ? { color: pr.color || "#444", weight: 2, opacity: 0.9, fill: false }
+          : { color: "#ffffff", weight: 1, opacity: 0.7, fill: false } }).addTo(fogL);
+      });
+      L.polygon([[[-85, -540], [85, -540], [85, 540], [-85, 540]]].concat(holes), {
+        pane: "fog", interactive: false, stroke: false, fillColor: "#5f6b75", fillOpacity: 0.45
+      }).addTo(fogL);
+    });
+
     Object.keys(D.routes).forEach(function (t) {
       if (tripPage && t !== P.trip) return;
       var color = (trips[t] || {}).color || "#666";
@@ -155,16 +185,22 @@
     // 例外：畫面範圍內一個去過的地方都沒有（例如還沒出發的旅程），就自動顯示計畫。
     var planOn = visitedInView === 0;
     actualL.addTo(map);
+    fogL.addTo(map);
     if (planOn) planToggle.addTo(map);
+    // 勾選框只代表使用者的選擇（用空的 toggle 圖層），實際顯示哪一層由縮放決定
+    var regionT = L.layerGroup().addTo(map), placeT = L.layerGroup().addTo(map), stationT = L.layerGroup().addTo(map);
     L.control.layers(null, {
-      "都道府縣／縣市／州": regionsL, "景點": placesL, "車站": stationsL,
-      "實際路線（實線）": actualL, "計畫（景點、虛線路線）": planToggle
+      "國家／都道府縣／縣市／州": regionT, "景點": placeT, "車站": stationT,
+      "實際路線（實線）": actualL, "計畫（景點、虛線路線）": planToggle,
+      "迷霧（去過的行政區才解鎖）": fogL
     }, { position: "topright", collapsed: mobile.matches }).addTo(map);
 
-    // 縮放分工（9.4）：zoom ≤ 8 只顯示行政區大圓；zoom ≥ 9 才顯示景點與車站的小圈圈。
+    // 縮放分工（9.4）：zoom ≤ 4 只顯示國家（國旗）；5～8 顯示行政區大圓；zoom ≥ 9 才顯示景點與車站的小圈圈。
     // 日程頁、景點頁本來就是看景點：小圈圈一直顯示，不顯示大圓。
-    var SPLIT = 8, always = P.type === "day" || P.type === "place";
-    var userOn = new Map([[regionsL, true], [placesL, true], [stationsL, true]]), syncing = false;
+    var SPLIT = 8, WORLD = 4, always = P.type === "day" || P.type === "place";
+    var userOn = new Map([[regionT, true], [placeT, true], [stationT, true]]), syncing = false;
+    var toggleOf = new Map([[countriesL, regionT], [regionsL, regionT], [plannedRegionsL, regionT],
+      [placesL, placeT], [plannedL, placeT], [planL, placeT], [stationsL, stationT]]);
     map.on("overlayadd overlayremove", function (e) {
       if (syncing) return;
       if (userOn.has(e.layer)) userOn.set(e.layer, e.type === "overlayadd");
@@ -172,17 +208,18 @@
       syncZoom();
     });
     function want(layer, show, follow) {
-      show = show && userOn.get(follow || layer);
+      show = show && userOn.get(toggleOf.get(layer));
       if (show && !map.hasLayer(layer)) map.addLayer(layer);
       if (!show && map.hasLayer(layer)) map.removeLayer(layer);
     }
     function syncZoom() {
       var z = map.getZoom();
       syncing = true;
-      want(regionsL, !always && z <= SPLIT);
+      want(countriesL, !always && z <= WORLD, regionsL);
+      want(regionsL, !always && z > WORLD && z <= SPLIT);
       want(placesL, always || z > SPLIT);
       want(stationsL, always || z > SPLIT);
-      want(plannedRegionsL, planOn && !always && z <= SPLIT, regionsL);
+      want(plannedRegionsL, planOn && !always && z > WORLD && z <= SPLIT, regionsL);
       want(plannedL, planOn && (always || z > SPLIT), placesL);
       want(planL, planOn, placesL);
       syncing = false;

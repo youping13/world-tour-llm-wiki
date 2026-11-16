@@ -227,3 +227,16 @@ a:hover { text-decoration: underline; }
 .tc-head { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
 .tc-head > span { margin-left: auto; }
 .tcard .rc-name { font-size: 16px; }
+
+/* 國家標記（世界縮放）：國旗＋國名的膠囊 */
+.country { position: absolute; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 6px; white-space: nowrap;
+  padding: 4px 10px 4px 5px; border-radius: 999px; background: var(--bg); color: var(--text); font-size: 14px; font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0,0,0,.28); border: 2px dashed var(--muted); text-decoration: none; }
+.country.done { border: 2px solid #fff; }
+.country:not(.done) { opacity: .85; font-weight: 500; }
+.country img { width: 26px; height: 19px; border-radius: 3px; box-shadow: 0 0 0 1px rgba(0,0,0,.15); }
+.country i { font-style: normal; font-size: 11px; background: var(--line); border-radius: 3px; padding: 2px 4px; }
+.country:hover { transform: translate(-50%, -50%) scale(1.06); }
+.legend .legend-country { position: static; transform: none; font-size: 12px; padding: 2px 8px 2px 3px; flex: none; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
+.legend .legend-country img { width: 18px; height: 13px; }
+.fog-swatch { display: inline-block; width: 22px; height: 16px; border-radius: 3px; background: rgba(95,107,117,.45); border: 1px solid #fff; flex: none; }

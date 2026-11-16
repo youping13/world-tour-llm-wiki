@@ -123,6 +123,70 @@ def region_records(pages: dict) -> list:
     return out
 
 
+def _in_ring(x, y, ring):
+    inside = False
+    for i in range(len(ring) - 1):
+        (x1, y1), (x2, y2) = ring[i], ring[i + 1]
+        if (y1 > y) != (y2 > y) and x < x1 + (y - y1) * (x2 - x1) / (y2 - y1):
+            inside = not inside
+    return inside
+
+
+def _in_feature(lat, lng, feat):
+    return any(_in_ring(lng, lat, poly[0]) and not any(_in_ring(lng, lat, h) for h in poly[1:])
+               for poly in feat["geometry"]["coordinates"])
+
+
+def boundary_records(pages: dict, regions: list) -> dict:
+    """迷霧地圖（9.4）：assets/boundaries/<cc>.geojson 的每個行政區，依座標對到 region，並標記去過沒有。
+    對應方式：region 的 `boundary`（ISO 3166-2 清單）優先；沒有就看 region 大圓與旗下景點落在哪個邊界裡。"""
+    city_region = {p.slug: p.fm.get("region") for p in pages.values() if p.type == "city"}
+    pts: dict = {}
+    for p in pages.values():
+        if p.type == "place" and p.fm.get("lat") is not None:
+            pts.setdefault(city_region.get(p.fm.get("city")), []).append((p.fm["lat"], p.fm["lng"]))
+    by_slug = {r["slug"]: r for r in regions}
+    feats = []
+    for f in sorted((ASSETS / "boundaries").glob("*.geojson")) if (ASSETS / "boundaries").exists() else []:
+        feats += json.loads(f.read_text(encoding="utf-8"))["features"]
+    owner: dict = {}
+    for r in regions:
+        explicit = pages[r["slug"]].fm.get("boundary") or []
+        for f in feats:
+            iso = f["properties"]["iso"]
+            if iso in explicit:
+                owner[iso] = r["slug"]
+            elif not explicit and iso not in owner:
+                cand = ([(r["lat"], r["lng"])] if r["lat"] is not None else []) + pts.get(r["slug"], [])
+                if any(_in_feature(la, ln, f) for la, ln in cand):
+                    owner[iso] = r["slug"]
+    unmatched = [r["slug"] for r in regions if r["slug"] not in owner.values()]
+    if feats and unmatched:
+        print("沒有對到邊界的行政區（在 region 頁加 boundary: [ISO 3166-2]）：", "、".join(unmatched))
+    out = []
+    for f in feats:
+        r = by_slug.get(owner.get(f["properties"]["iso"]))
+        out.append({"type": "Feature", "geometry": f["geometry"],
+                    "properties": {"iso": f["properties"]["iso"], "region": r["slug"] if r else None,
+                                   "name": r["name"] if r else f["properties"]["name"],
+                                   "url": r["url"] if r else None, "color": r["color"] if r else None,
+                                   "visited": bool(r and r["visited"])}})
+    return {"type": "FeatureCollection", "features": out}
+
+
+def country_records(pages: dict, regions: list) -> list:
+    """世界縮放（zoom ≤ 4）的國家標記：國旗＋國名。"""
+    out = []
+    for c in pages.values():
+        if c.type != "country":
+            continue
+        cc = c.fm.get("country")
+        out.append({"cc": cc, "name": c.title.split(" ")[0], "lat": c.fm.get("lat"), "lng": c.fm.get("lng"),
+                    "url": url_of(c), "visited": any(r["visited"] for r in regions if r["country"] == cc),
+                    "flag": f"static/flags/{cc.lower()}.svg" if (TPL / "static" / "flags" / f"{cc.lower()}.svg").exists() else None})
+    return out
+
+
 def short_date(d) -> str:
     """卡片用的短日期：已發生寫 · 7/30，未來的不寫（9.5）。"""
     d = str(d or "")
@@ -367,7 +431,10 @@ def main():
                               "visited": sum(by_cc.values()), "visited_by_cc": by_cc,
                               "planned": sum(1 for _, v in vis if v.get("status") == "planned")}
     regions = region_records(pages)
-    data = {"places": places, "trips": trips, "regions": regions, "routes": routes(pages),
+    (SITE / "data" / "boundaries.json").write_text(
+        json.dumps(boundary_records(pages, regions), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    data = {"places": places, "trips": trips, "regions": regions, "countries": country_records(pages, regions),
+            "routes": routes(pages),
             "status_zh": STATUS_ZH, "cat_zh": CAT_ZH, "cat_color": CATEGORY_COLORS, "today": TODAY}
     (SITE / "data" / "wiki.json").write_text(mask(json.dumps(data, ensure_ascii=False, separators=(",", ":"))), encoding="utf-8")
 
