@@ -203,3 +203,27 @@ a:hover { text-decoration: underline; }
 .dcard .rc-name { font-size: 16px; }
 .dc-head { font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 6px; }
 .dc-head b { font-weight: 600; color: var(--c); }
+.ln.sketch { border-top-style: dotted; border-top-width: 3px; }
+
+/* 收合的說明（圖例、怎麼看）：預設隱藏 */
+.fold { margin: 22px 0 6px; border-top: 1px solid var(--line); }
+.fold > summary { cursor: pointer; list-style: none; padding: 12px 0 6px; font-size: 15px; font-weight: 700; color: var(--muted);
+  display: flex; align-items: center; gap: 8px; user-select: none; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary::before { content: ""; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0;
+  transform: rotate(-45deg); transition: transform .15s; margin: 0 2px; }
+.fold[open] > summary::before { transform: rotate(45deg); }
+.fold > summary:hover { color: var(--text); }
+.fold .legend-h { margin-top: 14px; }
+.wiki .fold ul { font-size: 14px; }
+
+/* 國家、旅程卡片 */
+.flag { width: 24px; height: 18px; border-radius: 3px; box-shadow: 0 0 0 1px rgba(0,0,0,.15); flex: none; object-fit: cover; }
+.flag-txt { display: inline-grid; place-items: center; font-size: 10px; font-weight: 700; background: var(--line); color: var(--muted); }
+.ccards { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+.tcards { grid-template-columns: 1fr; }
+.cc-name { display: flex; align-items: center; gap: 10px; }
+.cc-name .flag { width: 32px; height: 24px; }
+.tc-head { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+.tc-head > span { margin-left: auto; }
+.tcard .rc-name { font-size: 16px; }

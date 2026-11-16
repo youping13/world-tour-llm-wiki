@@ -157,6 +157,68 @@ def day_cards(html: str, trip: Page, pages: dict, root: str) -> str:
     return DAYS_RE.sub(lambda m: m.group(1) + f'<div class="rcards dcards">{"".join(cards)}</div>', html, count=1)
 
 
+TRIP_STATUS_ZH = {"completed": "已完成", "ongoing": "旅行中", "planned": "規劃中"}
+COUNTRIES_RE = re.compile(r"<h2>國家</h2>\s*<ul>.*?</ul>", re.S)
+TRIPS_RE = re.compile(r"<h2>旅程</h2>\s*<ul>.*?</ul>", re.S)
+HOWTO_RE = re.compile(r"<h2>怎麼看</h2>\s*(<ul>.*?</ul>)", re.S)
+
+
+def flag(cc: str, root: str) -> str:
+    """國旗 SVG（flag-icons，MIT）；沒有檔案就顯示國家代碼。"""
+    cc = (cc or "").lower()
+    if (TPL / "static" / "flags" / f"{cc}.svg").exists():
+        return f'<img class="flag" src="{root}static/flags/{cc}.svg" alt="{cc.upper()}">'
+    return f'<span class="flag flag-txt">{cc.upper()}</span>'
+
+
+def dates(start: str, end: str) -> str:
+    """卡片用的期間：2026-07-30 ～ 08-15；未來的旅程只到月。"""
+    if mask(start) != start or mask(end) != end:   # 未來的旅程只顯示到月（9.5），不能留下「06-21」這種片段
+        ms, me = mask(start)[:7], mask(end)[:7]
+        return ms if ms == me else f"{ms} ～ {me}"
+    return f"{start} ～ {end[5:]}" if end[:4] == start[:4] and len(end) == 10 else f"{start} ～ {end}"
+
+
+def trip_cards(trips: dict, root: str, country: str | None = None) -> str:
+    """旅程卡片：國旗、旅程名稱（大字）、日期、狀態、去過幾個點；左邊色條＝旅程顏色。"""
+    rows = sorted((t for t in trips.values() if country is None or country in t["countries"]),
+                  key=lambda t: t["start"], reverse=True)
+    cards = "".join(
+        f'<div class="rcard tcard{" done" if t["status"] != "planned" else ""}" style="--c:{t["color"]}">'
+        f'<span class="tc-head">{"".join(flag(c, root) for c in t["countries"])}'
+        f'<span>{dates(t["start"], t["end"])}</span></span>'
+        f'<a class="rc-name" href="{root}{t["url"]}">{t["title"]}</a>'
+        f'<span class="rc-cities">{TRIP_STATUS_ZH.get(t["status"], t["status"])} · {t["days"]} 天'
+        + (f' · 去過 {t["visited"]} 個點' if t["visited"] else f' · 計畫 {t["planned"]} 個點') + "</span></div>"
+        for t in rows)
+    return f'<div class="rcards tcards">{cards}</div>'
+
+
+def country_cards(pages: dict, trips: dict, regions: list, root: str) -> str:
+    """國家卡片：國旗＋國名（大字），小字是旅程數、行政區數、去過幾個點。"""
+    cs = sorted((p for p in pages.values() if p.type == "country"),
+                key=lambda p: (-sum(t["visited_by_cc"].get(p.fm.get("country"), 0) for t in trips.values()), p.slug))
+    out = []
+    for c in cs:
+        cc = c.fm.get("country")
+        n_trip = sum(1 for t in trips.values() if cc in t["countries"])
+        n_reg = sum(1 for r in regions if r["country"] == cc)
+        n_vis = sum(t["visited_by_cc"].get(cc, 0) for t in trips.values())
+        main = max((t for t in trips.values() if cc in t["countries"]), default=None,
+                   key=lambda t: (t["visited_by_cc"].get(cc, 0), t["planned"]))
+        color = main["color"] if main else "#888"
+        out.append(
+            f'<div class="rcard ccard{" done" if n_vis else ""}" style="--c:{color}">'
+            f'<span class="cc-name">{flag(cc, root)}<a class="rc-name" href="{root}{url_of(c)}">{c.title}</a></span>'
+            f'<span class="rc-cities">{n_trip} 趟旅程 · {n_reg} 個行政區'
+            + (f" · 去過 {n_vis} 個點" if n_vis else " · 只有計畫") + "</span></div>")
+    return f'<div class="rcards ccards">{"".join(out)}</div>'
+
+
+def fold(title: str, inner: str) -> str:
+    return f'<details class="fold"><summary>{title}</summary>{inner}</details>'
+
+
 SECTION_RE = re.compile(r"(<h2>都道府縣／縣市／州</h2>\s*)<ul>.*?</ul>", re.S)
 
 
@@ -290,6 +352,20 @@ def main():
     trips = {p.slug: {"title": p.title, "color": p.fm.get("color", "#888"), "start": str(p.fm.get("start")),
                       "end": str(p.fm.get("end")), "status": p.fm.get("status"), "url": url_of(p)}
              for p in pages.values() if p.type == "trip"}
+    cards_info = {}   # 卡片用的統計，不放進 wiki.json
+    for p in pages.values():
+        if p.type != "trip":
+            continue
+        vis = [(pl.fm.get("country"), v) for pl in pages.values() if pl.type == "place"
+               for v in visits_of(pl) if v.get("trip") == p.slug]
+        by_cc = {}
+        for cc, v in vis:
+            if v.get("status") == "visited":
+                by_cc[cc] = by_cc.get(cc, 0) + 1
+        cards_info[p.slug] = {**trips[p.slug], "countries": p.fm.get("countries") or [],
+                              "days": sum(1 for d in pages.values() if d.type == "day" and d.fm.get("trip") == p.slug),
+                              "visited": sum(by_cc.values()), "visited_by_cc": by_cc,
+                              "planned": sum(1 for _, v in vis if v.get("status") == "planned")}
     regions = region_records(pages)
     data = {"places": places, "trips": trips, "regions": regions, "routes": routes(pages),
             "status_zh": STATUS_ZH, "cat_zh": CAT_ZH, "cat_color": CATEGORY_COLORS, "today": TODAY}
@@ -310,6 +386,14 @@ def main():
             rows = infobox(pg, pages, root)
             if pg.type == "trip":
                 body = day_cards(body, pg, pages, root)
+            if pg.type == "country":
+                body = TRIPS_RE.sub(lambda m: "<h2>旅程</h2>" + trip_cards(cards_info, root, pg.fm.get("country")), body, count=1)
+            if pg.slug in ("overview", "index"):
+                extra = "<h2>旅程</h2>" + trip_cards(cards_info, root) if pg.slug == "overview" else ""   # 首頁：國家下面接旅程
+                body = COUNTRIES_RE.sub(lambda m: "<h2>國家</h2>" + country_cards(pages, cards_info, regions, root) + extra, body, count=1)
+            howto = HOWTO_RE.search(body)
+            if howto:   # 「怎麼看」收合，移到最下面（和圖例放一起）
+                body = body.replace(howto.group(0), "") + fold("怎麼看", howto.group(1))
             if pg.type == "country" or pg.slug == "index":
                 body = region_cards(body, regions, root, pg.fm.get("country") if pg.type == "country" else None)
             if rows:
@@ -318,7 +402,7 @@ def main():
         root = rel(url)
         html = tpl.render(title=title, body=body, root=root, cfg=json.dumps(cfg, ensure_ascii=False),
                           kind=kind, cats=[(k, CAT_ZH[k], CATEGORY_COLORS[k]) for k in CATEGORY_COLORS], type_zh=TYPE_ZH.get(kind, ""), trips=trips_sorted, today=TODAY,
-                          is_home=(url == ""), updated=(pg.fm.get("updated") if pg else None))
+                          is_home=(url == ""), trip_cards=trip_cards(cards_info, root), updated=(pg.fm.get("updated") if pg else None))
         out = SITE / url / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(mask(html), encoding="utf-8")
