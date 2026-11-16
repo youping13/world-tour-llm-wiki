@@ -12,7 +12,7 @@ plan: raw/plans/2027-06-iceland/plan-v1.md
 plan_versions: [plan-v1.md]
 color: '#f57c00'
 sources: [raw/plans/2027-06-iceland/plan-v1.md]
-updated: '2026-11-15'
+updated: '2026-11-16'
 ---
 
 # 冰島環島 2027 夏
@@ -33,10 +33,6 @@ KTH 學期結束後從斯德哥爾摩出發，租車沿 1 號公路逆時針環�
 ## 計畫 vs 實際
 
 尚未出發。
-
-## 計畫的改版
-
-- v1（2026-11-15）：AI 參考 Nordic Visitor 8 天環島行程修改產生。
 
 ## 相關
 

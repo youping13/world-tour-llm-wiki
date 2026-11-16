@@ -273,12 +273,7 @@ updated: <YYYY-MM-DD>
 
 ## 計畫 vs 實際
 
-（旅行後填：照計畫、改期、沒去、臨時加的景點各有哪些，用 [[連結]] 列出；未發生寫「尚未出發」）
-
-## 計畫的改版
-
-- v1（<YYYY-MM-DD>）：初版。
-- v2（<YYYY-MM-DD>）：<改了什麼、為什麼>。
+（旅行後填：照計畫、改期、沒去、臨時加的景點各有哪些，用 [[連結]] 列出；改版被拿掉的列在「計畫・改版拿掉」；未發生寫「尚未出發」）
 
 ## 相關
 
@@ -457,7 +452,7 @@ updated: <YYYY-MM-DD>
 | `upcoming` | 還沒去 | 只出現在 plan，且日期未到 | 小、白底虛線框 |
 | `skipped` | 計畫了但沒去 | journal 寫沒去，且 gpx 沒經過；或 Percy 確認 | 小、灰色＋「×」 |
 | `unconfirmed` | 日期過了，不知道有沒有去 | journal、gpx 都沒有 | 小、白底＋橘色「?」 |
-| `dropped` | 計畫改版時被拿掉 | 舊版 plan 有、最新版沒有 | 地圖不顯示，只列在旅程頁「計畫的改版」 |
+| `dropped` | 計畫改版時被拿掉 | 舊版 plan 有、最新版沒有 | 地圖不顯示，只列在旅程頁「計畫 vs 實際」的「改版拿掉」 |
 
 **`visited` 去過的（地圖上大）**
 
@@ -512,7 +507,7 @@ updated: <YYYY-MM-DD>
    - 已有 place 頁（同名或同座標 200 m 內）→ 在 `visits` 加一筆，不重複建頁。
    - 沒有 → 用 `uv run scripts/geocode.py "<原名>, <城市>, <國家>"` 查座標，依 4.1 建頁。查不到就請 Percy 給 Google 地圖座標，`coord_source: manual`。
 4. 依序建立或更新：day 頁 → trip 頁 → city 頁 → region 頁 → country 頁 → `overview.md`。
-5. 若是 v2 以上：和上一版比較，被拿掉的景點改成 `planned/dropped`，在 trip 頁「計畫的改版」寫改了什麼。
+5. 若是 v2 以上：和上一版比較，被拿掉的景點改成 `planned/dropped`，列在 trip 頁「計畫 vs 實際」；版本只記在 frontmatter 的 `plan_versions`，旅程頁不另外寫改版說明。
 6. 更新 index、log。一份行程通常會動到 20～40 頁，這是正常的。
 7. **沒有行前規劃的旅程**（只有日記）：trip 頁 `plan: null`、`plan_versions: []`，日程頁 `planned: []`；Percy 確認過的點都是 `visited/added`（證據 `journal`＋`percy`）。
 
@@ -764,6 +759,7 @@ filtered: true   # 依 AGENTS.md 8.2 過濾：只留移動方式、景點、天�
 - 類別顏色：landmark 藍、religious 紫、museum 棕、nature 綠、viewpoint 青、food 洋紅、shopping 靛、activity 金、station 灰藍、transport 灰、lodging-area 深棕。旅程顏色（trip 的 `color`）要避開這些顏色。
 - 點標記 → 彈出卡片：標題、類別、status、日期、縮圖、「看全文」連結。
 - 國家頁與索引頁的「都道府縣／縣市／州」由 `build.py` 畫成**長方形圓角卡片**：大字是行政區名（點了進行政區頁）、小字是底下的城市（每個都可以點進城市頁，取代原本的「城市與地區」清單），左邊色條＝該行政區大圓的顏色；有去過的實心，只有計畫的虛線框；同一國由北到南排。wiki 的 Markdown 仍然寫成一般清單。
+- 旅程頁的「計畫 vs 實際」做成收合的下拉選單，預設隱藏（和 9.2 的說明一樣）。
 - 旅程頁的「每日」同樣畫成卡片：小字「第 N 天 · 月/日」與「去過 N」（未來的旅程不寫日期，9.5）、大字當天主題（點了進日程頁）、小字城市（可點），左邊色條＝旅程顏色。
 - 「國家」（首頁、索引）和「旅程」（首頁、全部旅程、國家頁）也畫成卡片，用**國旗**標示：
   - 國家卡片：國旗＋國名（大字）、小字「N 趟旅程 · N 個行政區 · 去過 N 個點」，左邊色條＝去過最多點的那趟旅程顏色；去過的排前面。

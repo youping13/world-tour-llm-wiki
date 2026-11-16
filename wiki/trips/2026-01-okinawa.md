@@ -12,7 +12,7 @@ plan: null
 plan_versions: []
 color: '#ec407a'
 sources: [raw/journal/2026-01-okinawa/2026-01-11.md, raw/journal/2026-01-okinawa/2026-01-12.md, raw/journal/2026-01-okinawa/2026-01-13.md, raw/journal/2026-01-okinawa/2026-01-14.md, raw/journal/2026-01-okinawa/2026-01-15.md]
-updated: '2026-11-15'
+updated: '2026-11-16'
 ---
 
 # 沖繩 2026 冬
@@ -33,10 +33,6 @@ updated: '2026-11-15'
 
 - **臨時加**（`visited/added`）：[[aharen-beach]]、[[aharen-cape-observatory]]、[[american-village]]、[[asahigaoka-park]]、[[churaumi-aquarium]]、[[kerama-strait-viewpoint]]、[[kokusai-dori]]、[[kubandaki-observatory]]、[[manzamo]]、[[minato-no-mieru-oka]]、[[naha-airport]]、[[naminoue-beach]]、[[naminoue-gu]]、[[odani-road-viewpoint]]、[[okinogu]]、[[onoyama-park]]、[[senaga-island]]、[[sesoko-island]]、[[shuri-castle]]、[[teruyama-observatory]]、[[tokashiki-port]]、[[tokashiku-beach-park]]、[[tomari-port]]、[[urasoe-castle-ruins]]；車站 3 個
 
-
-## 計畫的改版
-
-- 沒有行前規劃（只有日記），所有點都是 `visited/added`；渡嘉敷島的路線依 Percy 手繪圖重建。
 
 ## 相關
 

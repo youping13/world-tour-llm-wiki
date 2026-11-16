@@ -224,6 +224,7 @@ def day_cards(html: str, trip: Page, pages: dict, root: str) -> str:
 TRIP_STATUS_ZH = {"completed": "已完成", "ongoing": "旅行中", "planned": "規劃中"}
 COUNTRIES_RE = re.compile(r"<h2>國家</h2>\s*<ul>.*?</ul>", re.S)
 TRIPS_RE = re.compile(r"<h2>旅程</h2>\s*<ul>.*?</ul>", re.S)
+PVA_RE = re.compile(r"<h2>計畫 vs 實際</h2>(.*?)(?=<h2>|\Z)", re.S)
 HOWTO_RE = re.compile(r"<h2>怎麼看</h2>\s*(<ul>.*?</ul>)", re.S)
 
 
@@ -535,6 +536,7 @@ def main():
             rows = infobox(pg, pages, root)
             if pg.type == "trip":
                 body = day_cards(body, pg, pages, root)
+                body = PVA_RE.sub(lambda m: fold("計畫 vs 實際", m.group(1)), body, count=1)   # 預設收合
             if pg.type == "country":
                 body = TRIPS_RE.sub(lambda m: "<h2>旅程</h2>" + trip_cards(cards_info, root, pg.fm.get("country")), body, count=1)
             if pg.slug in ("overview", "index"):
