@@ -238,6 +238,55 @@
     syncZoom();
 
     search(D);
+    album(D.photos || []);
+  }
+
+  // 相簿：點照片 → 放大檢視（左右切換、Esc 關閉），地圖同時飛到拍照的景點（9.7）
+  function album(ph) {
+    if (!ph.length) return;
+    var box = document.createElement("div");
+    box.className = "lb"; box.hidden = true;
+    box.innerHTML = '<button class="lb-x" type="button" aria-label="關閉">×</button>' +
+      '<button class="lb-nav lb-prev" type="button" aria-label="上一張">‹</button>' +
+      '<figure><img alt=""><figcaption></figcaption></figure>' +
+      '<button class="lb-nav lb-next" type="button" aria-label="下一張">›</button>';
+    document.body.appendChild(box);
+    var img = box.querySelector("img"), cap = box.querySelector("figcaption"), cur = 0, ping = null;
+    function show(i) {
+      cur = (i + ph.length) % ph.length;
+      var p = ph[cur];
+      img.src = ROOT + p.src; img.alt = p.title;
+      cap.innerHTML = "<b>" + p.title + "</b><span>" + [p.country, p.region, p.date].filter(Boolean).join(" · ") +
+        "</span><a href='" + ROOT + p.url + "'>看景點頁</a><small>" + (cur + 1) + " / " + ph.length + "</small>";
+      box.hidden = false;
+      box.classList.toggle("single", ph.length < 2);
+      if (p.lat != null) {
+        map.flyTo([p.lat, p.lng], Math.max(map.getZoom(), 14), { duration: 1.2 });
+        if (ping) map.removeLayer(ping);
+        ping = L.marker([p.lat, p.lng], { icon: L.divIcon({ className: "", iconSize: [44, 44], iconAnchor: [22, 22],
+          html: '<div class="ping"></div>' }), interactive: false, zIndexOffset: 2000 }).addTo(map);
+      }
+    }
+    function close() { box.hidden = true; if (ping) { map.removeLayer(ping); ping = null; } }
+    box.querySelector(".lb-x").onclick = close;
+    box.querySelector(".lb-prev").onclick = function () { show(cur - 1); };
+    box.querySelector(".lb-next").onclick = function () { show(cur + 1); };
+    document.addEventListener("keydown", function (e) {
+      if (box.hidden) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") show(cur - 1);
+      else if (e.key === "ArrowRight") show(cur + 1);
+    });
+    document.addEventListener("click", function (e) {
+      var t = e.target.closest("[data-photo]");
+      if (t) { e.preventDefault(); show(+t.getAttribute("data-photo")); return; }
+      // 景點頁的照片也可以點開
+      var im = e.target.closest(".wiki img");
+      if (im) {
+        var src = im.getAttribute("src") || "", i = ph.findIndex(function (p) { return src.indexOf(p.src) >= 0; });
+        if (i >= 0) { e.preventDefault(); show(i); }
+      }
+    });
   }
 
   // 搜尋（中文名、原名、slug）

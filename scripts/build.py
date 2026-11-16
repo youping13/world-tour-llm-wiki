@@ -279,6 +279,78 @@ def country_cards(pages: dict, trips: dict, regions: list, root: str) -> str:
     return f'<div class="rcards ccards">{"".join(out)}</div>'
 
 
+def photo_records(pages: dict) -> list:
+    """相簿（9.7）：assets/photos/<place>/ 的每張照片，附上景點、日期、國家、行政區。依國家 → 行政區 → 日期排序。"""
+    city_region = {p.slug: p.fm.get("region") for p in pages.values() if p.type == "city"}
+    countries = {p.fm.get("country"): p for p in pages.values() if p.type == "country"}
+    out = []
+    for pl in pages.values():
+        pdir = ASSETS / "photos" / pl.slug
+        if pl.type != "place" or not pdir.is_dir():
+            continue
+        rg = pages.get(city_region.get(pl.fm.get("city")) or "")
+        ct = countries.get(pl.fm.get("country"))
+        for f in sorted(pdir.glob("*.webp")):
+            if f.stem.endswith("-thumb"):
+                continue
+            d = f.stem[:8]
+            th = f.with_name(f.stem + "-thumb.webp")
+            out.append({"src": f"assets/photos/{pl.slug}/{f.name}",
+                        "thumb": f"assets/photos/{pl.slug}/{th.name if th.exists() else f.name}",
+                        "place": pl.slug, "title": pl.title.split(" ")[0], "url": url_of(pl),
+                        "lat": pl.fm.get("lat"), "lng": pl.fm.get("lng"),
+                        "date": f"{d[:4]}-{d[4:6]}-{d[6:8]}" if d.isdigit() else "",
+                        "cc": pl.fm.get("country"), "country": ct.title.split(" ")[0] if ct else pl.fm.get("country"),
+                        "country_url": url_of(ct) if ct else None,
+                        "region": rg.title.split(" ")[0] if rg else "", "region_url": url_of(rg) if rg else None,
+                        "region_lat": rg.fm.get("lat") if rg else None})
+    # 國家照字母、行政區由北到南（和行政區卡片一致）、同一區新的在前
+    out.sort(key=lambda x: (x["cc"] or "", -(x["region_lat"] or 0), x["region"]))
+    for grp in {(x["cc"], x["region"]) for x in out}:
+        idx = [i for i, x in enumerate(out) if (x["cc"], x["region"]) == grp]
+        for i, x in zip(idx, sorted((out[i] for i in idx), key=lambda x: x["date"], reverse=True)):
+            out[i] = x
+    return out
+
+
+def photo_tile(i: int, ph: dict, root: str) -> str:
+    return (f'<button class="ph" type="button" data-photo="{i}" title="{ph["title"]}（{ph["date"]}）">'
+            f'<img src="{root}{ph["thumb"]}" alt="{ph["title"]}" loading="lazy"><span>{ph["title"]}</span></button>')
+
+
+def album_home(photos: list, root: str, n: int = 6) -> str:
+    """首頁的相簿區：最新 n 張＋「看全部」。"""
+    if not photos:
+        return ""
+    latest = sorted(range(len(photos)), key=lambda i: photos[i]["date"], reverse=True)[:n]
+    return ('<h2>相簿</h2><div class="album">' + "".join(photo_tile(i, photos[i], root) for i in latest) + "</div>"
+            f'<p class="album-more"><a href="{root}photos/">看全部 {len(photos)} 張照片</a></p>')
+
+
+def album_page(photos: list, root: str) -> str:
+    """獨立相簿頁：國家（國旗）→ 行政區 → 照片格子。"""
+    if not photos:
+        return "<p>還沒有照片。照片放進 <code>raw/photos/</code> 後跑 <code>photos.py</code>（AGENTS.md 6.4）。</p>"
+    html, last_cc, last_rg = [f"<p>共 {len(photos)} 張，點照片放大，地圖會飛到拍照的景點。</p>"], None, None
+    for i, ph in enumerate(photos):
+        if ph["cc"] != last_cc:
+            if last_rg is not None:
+                html.append("</div>")
+            name = f'<a href="{root}{ph["country_url"]}">{ph["country"]}</a>' if ph["country_url"] else ph["country"]
+            html.append(f'<h2 class="album-h">{flag(ph["cc"], root)}{name}</h2>')
+            last_cc, last_rg = ph["cc"], None
+        if ph["region"] != last_rg:
+            if last_rg is not None:
+                html.append("</div>")
+            rname = f'<a href="{root}{ph["region_url"]}">{ph["region"]}</a>' if ph["region_url"] else (ph["region"] or "其他")
+            n = sum(1 for x in photos if x["cc"] == ph["cc"] and x["region"] == ph["region"])
+            html.append(f'<h3 class="album-sub">{rname}<small>{n} 張</small></h3><div class="album">')
+            last_rg = ph["region"]
+        html.append(photo_tile(i, ph, root))
+    html.append("</div>")
+    return "".join(html)
+
+
 def fold(title: str, inner: str) -> str:
     return f'<details class="fold"><summary>{title}</summary>{inner}</details>'
 
@@ -433,7 +505,9 @@ def main():
     regions = region_records(pages)
     (SITE / "data" / "boundaries.json").write_text(
         json.dumps(boundary_records(pages, regions), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    photos = photo_records(pages)
     data = {"places": places, "trips": trips, "regions": regions, "countries": country_records(pages, regions),
+            "photos": [{k: v for k, v in ph.items() if k not in ("region_lat", "country_url", "region_url")} for ph in photos],
             "routes": routes(pages),
             "status_zh": STATUS_ZH, "cat_zh": CAT_ZH, "cat_color": CATEGORY_COLORS, "today": TODAY}
     (SITE / "data" / "wiki.json").write_text(mask(json.dumps(data, ensure_ascii=False, separators=(",", ":"))), encoding="utf-8")
@@ -442,9 +516,17 @@ def main():
     tpl = env.get_template("page.html")
     trips_sorted = sorted(trips.items(), key=lambda kv: kv[1]["start"], reverse=True)
     n = 0
-    for pg in list(pages.values()) + [None]:
-        if pg is None:   # 旅程列表頁
+    photo_places = sorted({ph["place"] for ph in photos})
+    album_cfg = {"type": "photos", "only": photo_places,
+                 "fit": bounds([(ph["lat"], ph["lng"]) for ph in photos])} if photos else {"type": "photos"}
+    for pg in list(pages.values()) + ["trips", "photos"]:
+        if pg == "trips":   # 旅程列表頁
             url, title, body, cfg, rows, kind = "trips/", "全部旅程", "", {"type": "trips"}, [], "trips"
+            pg = None
+        elif pg == "photos":   # 相簿頁
+            url, title, cfg, rows, kind = "photos/", "相簿", album_cfg, [], "photos"
+            body = "<h1>相簿</h1>" + album_page(photos, rel(url))
+            pg = None
         else:
             url, title, kind = url_of(pg), pg.title, pg.type
             root = rel(url)
@@ -456,7 +538,8 @@ def main():
             if pg.type == "country":
                 body = TRIPS_RE.sub(lambda m: "<h2>旅程</h2>" + trip_cards(cards_info, root, pg.fm.get("country")), body, count=1)
             if pg.slug in ("overview", "index"):
-                extra = "<h2>旅程</h2>" + trip_cards(cards_info, root) if pg.slug == "overview" else ""   # 首頁：國家下面接旅程
+                extra = ("<h2>旅程</h2>" + trip_cards(cards_info, root) + album_home(photos, root)
+                         if pg.slug == "overview" else "")   # 首頁：國家下面接旅程、相簿
                 body = COUNTRIES_RE.sub(lambda m: "<h2>國家</h2>" + country_cards(pages, cards_info, regions, root) + extra, body, count=1)
             howto = HOWTO_RE.search(body)
             if howto:   # 「怎麼看」收合，移到最下面（和圖例放一起）
