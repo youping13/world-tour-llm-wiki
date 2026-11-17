@@ -6,11 +6,12 @@ country: JP
 lat: 37.5
 lng: 138.5
 zoom: 5
-trips: [2026-08-japan, 2026-01-okinawa]
+trips: [2026-08-japan, 2026-01-okinawa, 2026-04-kyushu]
 cities: [osaka, kyoto, uji, chita, nagoya, gamagori, toyohashi, yokohama, shonan, odawara, izu, atami, tokyo, towada, aomori, fukaura, akita, oga, morioka, miyako, semboku, sendai, matsushima, yamagata,
-  fukushima, shiroishi, ishinomaki, ichinoseki, hanamaki, naha, onna, motobu, chatan, urasoe, tokashiki, tomigusuku]
+  fukushima, shiroishi, ishinomaki, ichinoseki, hanamaki, naha, onna, motobu, chatan, urasoe, tokashiki, tomigusuku, kumamoto, ozu, aso, kurume, yufuin, oita, kitakyushu, fukuoka, kagoshima, sakurajima,
+  tamana]
 sources: []
-updated: '2026-11-15'
+updated: '2026-11-17'
 ---
 
 # 日本
@@ -21,6 +22,7 @@ updated: '2026-11-15'
 
 - [[2026-08-japan]] 2026-07 — 日本東日本縱走 2026 夏
 - [[2026-01-okinawa]] 2026-01 — 沖繩 2026 冬
+- [[2026-04-kyushu]] 2026-04 — 九州 2026 春
 
 ## 都道府縣／縣市／州
 
@@ -37,3 +39,7 @@ updated: '2026-11-15'
 - [[yamagata-pref]] — [[yamagata]]
 - [[fukushima-pref]] — [[fukushima]]
 - [[okinawa-pref]] — [[naha]]、[[onna]]、[[motobu]]、[[chatan]]、[[urasoe]]、[[tokashiki]]、[[tomigusuku]]
+- [[kumamoto-pref]] — [[kumamoto]]、[[ozu]]、[[aso]]、[[tamana]]
+- [[oita-pref]] — [[yufuin]]、[[oita]]
+- [[fukuoka-pref]] — [[kurume]]、[[kitakyushu]]、[[fukuoka]]
+- [[kagoshima-pref]] — [[kagoshima]]、[[sakurajima]]

@@ -137,3 +137,12 @@
 - 修改：[[2026-08-japan]]、[[2026-01-okinawa]]、[[2027-06-iceland]]：刪掉「計畫的改版」段落（版本只留在 frontmatter `plan_versions`）
 - 修改：旅程頁「計畫 vs 實際」改成收合的下拉選單，預設隱藏
 - 修改：AGENTS.md 4.3、5.2、6.1、9.4
+
+## [2026-11-17] ingest | 2026-04-kyushu（原行程＋日記，沒有 GPX）
+- 新增：`raw/journal/2026-04-kyushu/` 4 天（依 6.2 步驟 A 過濾：只留移動、景點、天氣）
+- 新增：`raw/plans/2026-04-kyushu/plan-v1.md`（Percy 的行程截圖過濾版；飯店名只留區域，原檔沒有 Day 1）
+- 新增：[[2026-04-kyushu]]、4 個日程頁、[[kumamoto-pref]]、[[oita-pref]]、[[fukuoka-pref]]、[[kagoshima-pref]]、11 個城市、34 個景點與車站
+- 判定：計畫＋日記都有、Percy 確認 → `visited/as-planned`；只有日記 → `visited/added`；火口東展望所、中岳 → `planned/skipped`（日記寫火口關閉）
+- 修改：[[jp]]、[[overview]]、AGENTS.md 1（旅程表）
+- Percy 確認：Day 1 和計畫一樣（依日記補進 plan-v1）；Day 4 的 [[shin-tamana-station]]、[[jagatani-park]]、[[suizenji-jojuen]]、[[higo-ozu-station]] 都沒去（`planned/skipped`）；回機場是從熊本搭機場巴士；[[jagatani-park]] 座標改用地址（玉名市立願寺）換算
+- Percy 補充：計畫的「由布院」包含 [[kinrinko]]（改成 `visited/as-planned`）；第 3 天先去 [[seaside-momochi]] 再去 [[fukuoka-tower]]

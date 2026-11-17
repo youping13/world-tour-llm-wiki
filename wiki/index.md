@@ -1,12 +1,12 @@
 # 索引
 
-> 共 247 頁 · 最後更新 2026-11-15
+> 共 301 頁 · 最後更新 2026-11-17
 
 ## 總覽
 - [[overview]] 全部旅程總覽
 
 ## 國家
-- [[jp]] 日本 — 2 趟旅程、36 個城市與地區
+- [[jp]] 日本 — 3 趟旅程、47 個城市與地區
 - [[is]] 冰島 Ísland — 1 趟旅程、9 個城市與地區
 
 ## 旅程
@@ -43,6 +43,11 @@
   - [[2026-01-okinawa/day-03]] 第 3 天 那霸市區
   - [[2026-01-okinawa/day-04]] 第 4 天 渡嘉敷島・瀨長島
   - [[2026-01-okinawa/day-05]] 第 5 天 那霸
+- [[2026-04-kyushu]] 九州 2026 春 — 2026-04-07～2026-04-10，已完成
+  - [[2026-04-kyushu/day-01]] 第 1 天 熊本
+  - [[2026-04-kyushu/day-02]] 第 2 天 阿蘇
+  - [[2026-04-kyushu/day-03]] 第 3 天 由布院・小倉・福岡
+  - [[2026-04-kyushu/day-04]] 第 4 天 鹿兒島・櫻島・熊本城
 
 ## 都道府縣／縣市／州
 - [[osaka-pref]] 大阪府 Ōsaka-fu — [[osaka]]
@@ -64,6 +69,10 @@
 - [[northeast-region]] 東北區 Norðurland eystra — [[myvatn]]、[[akureyri]]
 - [[west-region]] 西部區 Vesturland — [[west-iceland]]
 - [[okinawa-pref]] 沖繩縣 Okinawa-ken — [[naha]]、[[onna]]、[[motobu]]、[[chatan]]、[[urasoe]]、[[tokashiki]]、[[tomigusuku]]
+- [[kumamoto-pref]] 熊本縣 Kumamoto-ken — [[kumamoto]]、[[ozu]]、[[aso]]、[[tamana]]
+- [[oita-pref]] 大分縣 Ōita-ken — [[yufuin]]、[[oita]]
+- [[fukuoka-pref]] 福岡縣 Fukuoka-ken — [[kurume]]、[[kitakyushu]]、[[fukuoka]]
+- [[kagoshima-pref]] 鹿兒島縣 Kagoshima-ken — [[kagoshima]]、[[sakurajima]]
 
 ## 景點
 ### 大阪 [[osaka]]
@@ -244,10 +253,60 @@
 ### 豐見城 [[tomigusuku]]
 - [[senaga-island]] 瀨長島 瀬長島 — 自然，去過・臨時加
 
+### 熊本 [[kumamoto]]
+- [[kumamoto-airport]] 熊本機場 阿蘇くまもと空港 — 交通，去過・照計畫
+- [[shinshigai]] 新市街 新市街アーケード — 購物，去過・照計畫
+- [[shimotori]] 下通 下通アーケード — 購物，去過・臨時加
+- [[kumamoto-castle]] 熊本城 — 地標，去過・照計畫
+- [[sakuranobaba-josaien]] 櫻之馬場城彩苑 桜の馬場 城彩苑 — 購物，去過・照計畫
+- [[suizenji-jojuen]] 水前寺成趣園 — 自然，計畫・沒去
+
+### 阿蘇 [[aso]]
+- [[kusasenri]] 草千里 草千里ヶ浜 — 自然，去過・照計畫
+- [[aso-sanjo]] 阿蘇山上 阿蘇山上広場 — 自然，去過・照計畫
+- [[kishimadake]] 杵島岳 — 自然，去過・臨時加
+- [[kakou-higashi-observatory]] 火口東展望所 — 展望點，計畫・沒去
+- [[nakadake]] 中岳 — 自然，計畫・沒去
+
+### 由布院 [[yufuin]]
+- [[kinrinko]] 金鱗湖 — 自然，去過・照計畫
+
+### 北九州 [[kitakyushu]]
+- [[kokura-castle]] 小倉城 — 地標，去過・照計畫
+
+### 福岡 [[fukuoka]]
+- [[fukuoka-tower]] 福岡塔 福岡タワー — 展望點，去過・照計畫
+- [[seaside-momochi]] シーサイドももち海濱公園 シーサイドももち海浜公園 — 自然，去過・臨時加
+- [[tenjin-chikagai]] 天神地下街 — 購物，去過・臨時加
+
+### 鹿兒島 [[kagoshima]]
+- [[kagoshima-ferry-terminal]] 櫻島渡輪碼頭 桜島フェリーターミナル（鹿児島港） — 交通，去過・臨時加
+
+### 櫻島 [[sakurajima]]
+- [[sakurajima-port]] 櫻島港 桜島港 — 交通，去過・臨時加
+- [[yunohira-observatory]] 湯之平展望所 湯之平展望所 — 展望點，去過・臨時加
+
+### 玉名 [[tamana]]
+- [[jagatani-park]] 蛇ヶ谷公園 — 自然，計畫・沒去
+
 ## 車站
 - [[naha-airport-station]] 那霸機場站 那覇空港駅 — 那霸
 - [[omoromachi-station]] おもろまち站 おもろまち駅 — 那霸
 - [[makishi-station]] 牧志站 牧志駅 — 那霸
+- [[kumamoto-station]] 熊本站 熊本駅 — 熊本
+- [[karashimacho-station]] 辛島町電停 辛島町 — 熊本
+- [[higo-ozu-station]] 肥後大津站 肥後大津駅 — 大津
+- [[aso-station]] 阿蘇站 阿蘇駅 — 阿蘇
+- [[kurume-station]] 久留米站 久留米駅 — 久留米
+- [[yufuin-station]] 由布院站 由布院駅 — 由布院
+- [[oita-station]] 大分站 大分駅 — 大分
+- [[kokura-station]] 小倉站 小倉駅 — 北九州
+- [[hakata-station]] 博多站 博多駅 — 福岡
+- [[nishijin-station]] 西新站 西新駅 — 福岡
+- [[tenjin-station]] 天神站 天神駅 — 福岡
+- [[kagoshima-chuo-station]] 鹿兒島中央站 鹿児島中央駅 — 鹿兒島
+- [[suizokukanguchi-station]] 水族館口電停 水族館口 — 鹿兒島
+- [[shin-tamana-station]] 新玉名站 新玉名駅 — 玉名
 - [[kansai-airport-station]] 關西機場站 関西空港駅 — 大阪
 - [[kyoto-station]] 京都站 京都駅 — 京都
 - [[uji-station]] 宇治站 宇治駅 — 宇治
